@@ -27,12 +27,12 @@ CREATE TABLE Contenitore(
 	tipo CHAR(20) CHECK(tipo IN ('Bollitore' , 'Fermentatore')),
 	capacitaLavorazione NUMBER,
 	capacitaComplessiva NUMBER,
-	potenza NUMBER
+	potenza NUMBER,
 
 	CONSTRAINT CONT_PK
-		PRIMARY KEY(id)
+		PRIMARY KEY(id),
 	CONSTRAINT CONT_FK_MB
-		FOREIGN KEY (ssnResponsabile) REFERENCE MastroBirraio(ssn)
+		FOREIGN KEY (ssnResponsabile) REFERENCES MastroBirraio(ssn)
 );
 
 CREATE TABLE OrdineApproviggionamento(
@@ -43,9 +43,10 @@ CREATE TABLE OrdineApproviggionamento(
 	numeroTracking VARCHAR (50),
 
 	CONSTRAINT OAPP_PK
-		PRIMARY KEY(codFattura)
+		PRIMARY KEY(codFattura),
 	CONSTRAINT OAPP_FK_FORN
-		FOREIGN KEY(pIvaFornitore) REFERENCE Fornitore(pIVA)
+		FOREIGN KEY(pIvaFornitore) REFERENCES Fornitore(pIVA)
+		
 );
 
 CREATE TABLE MateriaPrima(
@@ -76,21 +77,21 @@ CREATE TABLE Luppolo(
 	CONSTRAINT LUPP_PK 
 		PRIMARY KEY(GTIN),
 	CONSTRAINT LUPP_PKFK
-		FOREIGN KEY (GTIN) REFERENCE MateriaPrima(GTIN)
+		FOREIGN KEY (GTIN) REFERENCES MateriaPrima(GTIN)
 );
 
 CREATE TABLE Lievito(
 	GTIN NUMBER NOT NULL,
-	tipoLievito CHAR NOT NULL CHECK (tipoLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),,
+	tipoLievito CHAR NOT NULL CHECK (tipoLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
 	
 	CONSTRAINT LIEV_PK 
 		PRIMARY KEY(GTIN),
 	CONSTRAINT LIEV_PKFK
-		FOREIGN KEY (GTIN) REFERENCE MateriaPrima(GTIN)
+		FOREIGN KEY (GTIN) REFERENCES MateriaPrima(GTIN)
 );
 
 CREATE TABLE LottoMateriaPrima(
-	codiceLotto VARCHAR2 NOT NULL,
+	codiceLotto VARCHAR2(50) NOT NULL,
 	GTIN NUMBER NOT NULL,
 	codFattura NUMBER NOT NULL,
 	prezzoAcquisto NUMBER NOT NULL,
@@ -98,50 +99,48 @@ CREATE TABLE LottoMateriaPrima(
 	CONSTRAINT LMAT_P_PK
 		PRIMARY KEY(codiceLotto),
 	CONSTRAINT LMAT_P_FK_MAT_P
-		FOREIGN KEY(GTIN) REFERENCE MateriaPrima(GTIN),
+		FOREIGN KEY(GTIN) REFERENCES MateriaPrima(GTIN),
 	CONSTRAINT LMAT_P_FK_OAPP
-		FOREIGN KEY(codFattura) REFERENCE OrdineApproviggionamento(codFattura)
-	
+		FOREIGN KEY(codFattura) REFERENCES OrdineApproviggionamento(codFattura)	
 );
 
 CREATE TABLE MaltoAcquistato(
 	GTIN NUMBER NOT NULL,
-	codiceLotto NUMBER NOT NULL,
+	codiceLotto VARCHAR2(50) NOT NULL,
 	idBollitore NUMBER,
 	
 	CONSTRAINT MALTOACQ_PK
 		PRIMARY KEY(GTIN,codiceLotto),
 	CONSTRAINT MALTOACQ_ORDER_PKFK	
-		FOREIGN KEY(codiceLotto) REFERENCE LottoMateriaPrima(codiceLotto),
+		FOREIGN KEY(codiceLotto) REFERENCES LottoMateriaPrima(codiceLotto),
 	CONSTRAINT MALTOACQ_ORDER_PKFK	
-		FOREIGN KEY(GTIN) REFERENCE LottoMateriaPrima(GTIN),
-	
+		FOREIGN KEY(GTIN) REFERENCES LottoMateriaPrima(GTIN),
 	CONSTRAINT MALTOACQ_IDB_FK
-		FOREIGN KEY(idBollitore) REFERENCE Contenitore(ID);
+		FOREIGN KEY(idBollitore) REFERENCES Contenitore(id)
 );
 
 CREATE TABLE LuppoloAcquistato(
 	GTIN NUMBER NOT NULL,
-	codiceLotto NUMBER NOT NULL,
+	codiceLotto VARCHAR(50) NOT NULL,
 	
 	CONSTRAINT LUA_PK
-		PRIMARY KEY(GTIN,codiceFattura),
+		PRIMARY KEY(GTIN,codiceLotto),
 	CONSTRAINT LUPPACQ_ORDER_PKFK	
-		FOREIGN KEY(GTIN) REFERENCE LottoMateriaPrima(GTIN),
+		FOREIGN KEY(GTIN) REFERENCES LottoMateriaPrima(GTIN),
 	CONSTRAINT LUPPACQ_ORDER_PKFK	
-		FOREIGN KEY(codiceLotto) REFERENCE LottoMateriaPrima(codiceLotto),
+		FOREIGN KEY(codiceLotto) REFERENCES LottoMateriaPrima(codiceLotto)
 );
 
 CREATE TABLE LievitoAcquistato(
 	GTIN NUMBER NOT NULL,	
-	codiceLotto NUMBER NOT NULL,
+	codiceLotto VARCHAR2(50) NOT NULL,
 	
 	CONSTRAINT LA_PK
-		PRIMARY KEY(GTIN,codiceFattura)
+		PRIMARY KEY(GTIN,codiceLotto),
 	CONSTRAINT LA_ORDER_PKFK	
-		FOREIGN KEY(GTIN) REFERENCE LottoMateriaPrima(GTIN),
+		FOREIGN KEY(GTIN) REFERENCES LottoMateriaPrima(GTIN),
 	CONSTRAINT LA_ORDER_PKFK	
-		FOREIGN KEY(codiceLotto) REFERENCE LottoMateriaPrima(codiceLotto),
+		FOREIGN KEY(codiceLotto) REFERENCES LottoMateriaPrima(codiceLotto)
 );
 
 
