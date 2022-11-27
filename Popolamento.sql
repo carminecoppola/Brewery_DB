@@ -28,6 +28,7 @@ values ('364386542','Luigi','Folliero',TO_DATE('02/11/1989','DD/MM/YYYY'),TO_DAT
 --Capacita espressa in Litri(L)
 --Potenza espressa in Watt(W)
 
+
 insert into Contenitore (ssnResponsabile,tipo,capacitaLavorazione,capacitaComplessiva,potenza)
 values ('134009342','Bollitore',80,100,3000);
 
@@ -65,6 +66,7 @@ insert into MateriaPrima (GTIN,provenienza)
 values (1326778901002,'Italia');
 
 --Malto
+--GTIN diversi da materia prima
 --PILSNER BELGA–MOUTERIJ DINGEMANS (PILSNER) -> Belgio
 --WEYERMANN(PALE ALE) -> Germania
 --VIENNA – CRISP MALTING (VIENNA) -> Gran Bretagna
@@ -78,4 +80,65 @@ values (1238400004204,'Mais','WEYERMANN(PALE ALE)');
 insert into Malto (GTIN,cerealeMaltato,nomeMalto)
 values (1528458901003,'Orzo','CRISP MALTING (VIENNA)');
 
---
+--Luppolo
+--Classificazione go provato a cercare penso sia questa, 
+--ovviamente non so se veritiera con la tipologia
+insert into Luppolo (GTIN,classificazione,tipoLuppolo)
+values (1940008901001,'Admiral','Amaricante');
+
+insert into Luppolo (GTIN,classificazione,tipoLuppolo)
+values (1234204840000,'Amarillo','Aromatizzante');
+
+insert into Luppolo (GTIN,classificazione,tipoLuppolo)
+values (1420901008001,'Magnum','Misto');
+
+--Lievito
+insert into Lievito (GTIN,tipoLievito)
+values (1484023420000,'Saccharomyces Carlsbergensis');
+
+insert into Lievito (GTIN,tipoLievito)
+values (1940003420000,'Saccharomyces Cerevisiae');
+
+insert into Lievito (GTIN,tipoLievito)
+values (1120901008000,'Saccharomyces Carlsbergensis');
+
+--LottoMateriaPrima
+
+insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
+values ('L800-34',1453420252070,0457736,100.00);
+
+insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
+values ('L642-04',1658392740899,0035245,400.00);
+
+insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
+values ('L310-11',1002045632893,0573036,800.00);
+
+--MaltoAcquistato
+insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
+values (01242392740899,'L600-01',01);
+
+insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
+values (01223520740009,'L303-04',02);
+
+insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
+values (01244530740009,'L002-22',01);
+
+--LuppoloAcquistato
+insert into LuppoloAcquistato (GTIN,codiceLotto)
+values (00042300040899,'L100-01');
+
+insert into LuppoloAcquistato (GTIN,codiceLotto)
+values (00032200055899,'L200-01');
+
+insert into LuppoloAcquistato (GTIN,codiceLotto)
+values (00011200077899,'L300-01');
+
+--LievitoAcquistato
+insert into LievitoAcquistato (GTIN,codiceLotto)
+values (11112340000000,'L100-02');
+
+insert into LievitoAcquistato (GTIN,codiceLotto)
+values (11117840000000,'L200-02');
+
+insert into LievitoAcquistato (GTIN,codiceLotto)
+values (11113520000000,'L300-02');
