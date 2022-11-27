@@ -65,3 +65,17 @@ insert into MateriaPrima (GTIN,provenienza)
 values (1326778901002,'Italia');
 
 --Malto
+--PILSNER BELGA–MOUTERIJ DINGEMANS (PILSNER) -> Belgio
+--WEYERMANN(PALE ALE) -> Germania
+--VIENNA – CRISP MALTING (VIENNA) -> Gran Bretagna
+
+insert into Malto (GTIN,cerealeMaltato,nomeMalto)
+values (1942678901001,'Segale','MOUTERIJ DINGEMANS (PILSNER)');
+
+insert into Malto (GTIN,cerealeMaltato,nomeMalto)
+values (1238400004204,'Mais','WEYERMANN(PALE ALE)');
+
+insert into Malto (GTIN,cerealeMaltato,nomeMalto)
+values (1528458901003,'Orzo','CRISP MALTING (VIENNA)');
+
+--
