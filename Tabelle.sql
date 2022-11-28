@@ -51,7 +51,7 @@ CREATE TABLE OrdineApproviggionamento(
 
 CREATE TABLE MateriaPrima(
 	GTIN NUMBER NOT NULL,
-	provenienza VARCHAR2(60),
+	tipo VARCHAR2(60),
 	
 	CONSTRAINT MAT_P_PK
 		PRIMARY KEY(GTIN)
@@ -60,8 +60,10 @@ CREATE TABLE MateriaPrima(
 
 CREATE TABLE Malto(
 	GTIN NUMBER NOT NULL,
-	cerealeMaltato CHAR NOT NULL CHECK(cerealeMaltato IN ('Orzo','Segale','Frumento','Mais')),
-	nomeMalto CHAR,
+	cerealeMaltato VARCHAR2(50) NOT NULL CHECK(cerealeMaltato IN ('Orzo','Segale','Frumento','Mais')),
+	nomeMalto VARCHAR2(50),
+	quantitaMagazzino NUMBER NOT NULL,
+	provenienza VARCHAR2(60),
 	
 	CONSTRAINT MALT_PK 
 		PRIMARY KEY(GTIN),
@@ -71,8 +73,10 @@ CREATE TABLE Malto(
 
 CREATE TABLE Luppolo(
 	GTIN NUMBER NOT NULL,
-	classificazione CHAR NOT NULL,
-	tipoLuppolo CHAR  CHECK (tipoLuppolo IN ('Amaricante','Aromatizzante','Misto')),
+	classificazione VARCHAR(50) NOT NULL,
+	tipoLuppolo VARCHAR(50)  CHECK (tipoLuppolo IN ('Amaricante','Aromatizzante','Misto')),
+	quantitaMagazzino NUMBER NOT NULL,
+	provenienza VARCHAR2(60),
 	
 	CONSTRAINT LUPP_PK 
 		PRIMARY KEY(GTIN),
@@ -82,8 +86,10 @@ CREATE TABLE Luppolo(
 
 CREATE TABLE Lievito(
 	GTIN NUMBER NOT NULL,
-	tipoLievito CHAR NOT NULL CHECK (tipoLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
-	
+	tipoLievito VARCHAR(50) NOT NULL CHECK (tipoLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
+	quantitaMagazzino NUMBER NOT NULL,
+	provenienza VARCHAR2(60),
+
 	CONSTRAINT LIEV_PK 
 		PRIMARY KEY(GTIN),
 	CONSTRAINT LIEV_PKFK
@@ -164,7 +170,7 @@ CREATE TABLE BirraProdotta(
 	GTIN NUMBER NOT NULL,
 	nomeBirra VARCHAR2(50) NOT NULL,
 	gradoAlcolico NUMBER NOT NULL CHECK(gradoAlcolico >= 0),
-	colore CHAR CHECK (colore IN ('Bionda','Rossa','Scura')),
+	colore VARCHAR(50) CHECK (colore IN ('Bionda','Rossa','Scura')),
 	quantitaBirra NUMBER NOT NULL,
 	
 	CONSTRAINT BIRRP_PK

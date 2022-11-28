@@ -66,6 +66,7 @@ values (1425673421008,'Belgio');
 insert into MateriaPrima (GTIN,provenienza)
 values (1326778901002,'Italia');
 
+
 --Malto
 --GTIN diversi da materia prima
 --PILSNER BELGA–MOUTERIJ DINGEMANS (PILSNER) -> Belgio
@@ -73,19 +74,19 @@ values (1326778901002,'Italia');
 --VIENNA – CRISP MALTING (VIENNA) -> Gran Bretagna
 
 insert into Malto (GTIN,cerealeMaltato,nomeMalto)
-values (1942678901001,'Segale','MOUTERIJ DINGEMANS (PILSNER)');
+values (1845678901001,'Segale','MOUTERIJ DINGEMANS');
 
 insert into Malto (GTIN,cerealeMaltato,nomeMalto)
-values (1238400004204,'Mais','WEYERMANN(PALE ALE)');
+values (1845678901001,'Mais','WEYERMANN');
 
 insert into Malto (GTIN,cerealeMaltato,nomeMalto)
-values (1528458901003,'Orzo','CRISP MALTING (VIENNA)');
+values (1845678901001,'Orzo','CRISP MALTING');
 
 --Luppolo
 --Classificazione go provato a cercare penso sia questa, 
 --ovviamente non so se veritiera con la tipologia
 insert into Luppolo (GTIN,classificazione,tipoLuppolo)
-values (1940008901001,'Admiral','Amaricante');
+values (1425673421008,'Admiral','Amaricante');
 
 insert into Luppolo (GTIN,classificazione,tipoLuppolo)
 values (1234204840000,'Amarillo','Aromatizzante');
@@ -95,7 +96,7 @@ values (1420901008001,'Magnum','Misto');
 
 --Lievito
 insert into Lievito (GTIN,tipoLievito)
-values (1484023420000,'Saccharomyces Carlsbergensis');
+values (1326778901002,'Saccharomyces Carlsbergensis');
 
 insert into Lievito (GTIN,tipoLievito)
 values (1940003420000,'Saccharomyces Cerevisiae');
@@ -106,7 +107,7 @@ values (1120901008000,'Saccharomyces Carlsbergensis');
 --LottoMateriaPrima
 
 insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
-values ('L800-34',1453420252070,0457736,100.00);
+values ('L800-34',1845678901001,0123456,100.00);
 
 insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
 values ('L642-04',1658392740899,0035245,400.00);
@@ -116,7 +117,7 @@ values ('L310-11',1002045632893,0573036,800.00);
 
 --MaltoAcquistato
 insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
-values (01242392740899,'L600-01',01);
+values (1845678901001,'L800-34',1);
 
 insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
 values (01223520740009,'L303-04',02);
@@ -127,7 +128,7 @@ values (01244530740009,'L002-22',01);
 --LuppoloAcquistato
 --Ho usato come codice lotto L100-01
 insert into LuppoloAcquistato (GTIN,codiceLotto)
-values (00042300040899,'L100-01');
+values (1845678901001,'L800-34');
 
 insert into LuppoloAcquistato (GTIN,codiceLotto)
 values (00032200055899,'L200-01');
@@ -138,7 +139,7 @@ values (00011200077899,'L300-01');
 --LievitoAcquistato
 --Ho usato come codice lotto L100-02
 insert into LievitoAcquistato (GTIN,codiceLotto)
-values (11112340000000,'L100-02');
+values (1845678901001,'L800-34');
 
 insert into LievitoAcquistato (GTIN,codiceLotto)
 values (11117840000000,'L200-02');
@@ -154,7 +155,7 @@ values (11113520000000,'L300-02');
 --Quantità Mosto 40L
 
 insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
-values (00112233000000,'L010-01',04,50,13,40);
+values (1845678901001,'L800-34',1,50,13,40);
 
 insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
 values (00112233440000,'L020-01',05,100,7.5,115);
@@ -165,7 +166,7 @@ values (00112233550000,'L030-01',04,170,8.5,75);
 --BirraProdotta
 --ssnSupervisore è uguale a quelli usati per Mastro birraio
 insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
-values ('134009342',0001,00102030400000,'Blanche',7.5,'Bionda',100);
+values ('134009342',1,1845678901001,'Blanche',7.5,'Bionda',100);
 
 insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
 values ('238009300',0002,00102030405000,'APA',6.5,'Scura',50);
