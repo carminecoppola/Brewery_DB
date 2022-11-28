@@ -1,13 +1,13 @@
 --Fornitore
 
 insert into Fornitore (pIVA,nome,citta,cap,via)
-values (01223580554,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
+values (01223580554,'AURIAN SAS','Condom',32100,'5 Avenue de la Gare');
 
 insert into Fornitore (pIVA,nome,citta,cap,via)
-values (01223580604,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
+values (01223580604,'ASIA EUROPE TRADE','Liege',4000,'25 rue de Rotterdam');
 
 insert into Fornitore (pIVA,nome,citta,cap,via)
-values (01223530003,'E-SARDINIA ','Oristano','09170','Via Santa Petronilla');
+values (01223530003,'E-SARDINIA ','Oristano',09170,'Via Santa Petronilla');
 
 
 --Mastro Birraio
@@ -21,6 +21,7 @@ values ('238009300','Eva','Fognini',TO_DATE('15/01/1992','DD/MM/YYYY'),TO_DATE('
 
 insert into MastroBirraio (ssn,nome,cognome,dataNascita,dataAssunzione,stipendio)
 values ('364386542','Luigi','Folliero',TO_DATE('02/11/1989','DD/MM/YYYY'),TO_DATE('13/12/2009','DD/MM/YYYY'),1700.00);
+
 
 --Contenitore
 --id Generato di DEFAULT
@@ -124,6 +125,7 @@ insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
 values (01244530740009,'L002-22',01);
 
 --LuppoloAcquistato
+--Ho usato come codice lotto L100-01
 insert into LuppoloAcquistato (GTIN,codiceLotto)
 values (00042300040899,'L100-01');
 
@@ -134,6 +136,7 @@ insert into LuppoloAcquistato (GTIN,codiceLotto)
 values (00011200077899,'L300-01');
 
 --LievitoAcquistato
+--Ho usato come codice lotto L100-02
 insert into LievitoAcquistato (GTIN,codiceLotto)
 values (11112340000000,'L100-02');
 
@@ -142,3 +145,82 @@ values (11117840000000,'L200-02');
 
 insert into LievitoAcquistato (GTIN,codiceLotto)
 values (11113520000000,'L300-02');
+
+--MostoDolce
+--numLotto è generato di DEFAULT
+--idBollitore ho usato 04 poichè 01 è stato usato in Malto Acquistato
+--Quantità Luppolo 50L;
+-- GradiPlato 13°
+--Quantità Mosto 40L
+
+insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
+values (00112233000000,'L010-01',04,50,13,40);
+
+insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
+values (00112233440000,'L020-01',05,100,7.5,115);
+
+insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
+values (00112233550000,'L030-01',04,170,8.5,75);
+
+--BirraProdotta
+--ssnSupervisore è uguale a quelli usati per Mastro birraio
+insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
+values ('134009342',0001,00102030400000,'Blanche',7.5,'Bionda',100);
+
+insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
+values ('238009300',0002,00102030405000,'APA',6.5,'Scura',50);
+
+insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
+values ('364386542',0003,00102030405060,'Ichnusa',5.5,'Bionda',200);
+
+--Ammostamento
+insert into Ammostamento (idBollitore,dataAmmostamento,gtinMalto,codLottoMalto,numLottoProdotto,quantitaMalto,quantitaAcqua)
+values (0100,TO_DATE('01/01/2022','DD/MM/YYYY'),01010203050607,'L000-11',0100,100,300);
+
+insert into Ammostamento (idBollitore,dataAmmostamento,gtinMalto,codLottoMalto,numLottoProdotto,quantitaMalto,quantitaAcqua)
+values (0200,TO_DATE('01/02/2022','DD/MM/YYYY'),01020304050506,'L000-21',0200,200,500);
+
+insert into Ammostamento (idBollitore,dataAmmostamento,gtinMalto,codLottoMalto,numLottoProdotto,quantitaMalto,quantitaAcqua)
+values (0300,TO_DATE('01/03/2022','DD/MM/YYYY'),01080203053040,'L000-31',0300,300,800);
+
+
+--Fermentazione
+insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
+values (07,TO_DATE('02/02/2022','DD/MM/YYYY'),01500,0000011115304,'L000-51',101,TO_DATE('09/02/2022','DD/MM/YYYY'),'Alta');
+
+insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
+values (08,TO_DATE('02/03/2022','DD/MM/YYYY'),01600,0000011116304,'L000-61',102,TO_DATE('09/03/2022','DD/MM/YYYY'),'Bassa');
+
+insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
+values (09,TO_DATE('02/04/2022','DD/MM/YYYY'),01700,0000011117304,'L000-71',103,TO_DATE('09/04/2022','DD/MM/YYYY'),'Alta');
+
+--PUB
+--particellaCatastale 3141 esempio da internet
+insert into PUB (particellaCatastale,nome,citta,via,cap)
+values ('3141','Labyrint','Napoli','Via delle Rose 15',80038);
+
+insert into PUB (particellaCatastale,nome,citta,via,cap)
+values ('8121','Officina della Birra','Roma','Via Libertà 85',00042);
+
+insert into PUB (particellaCatastale,nome,citta,via,cap)
+values ('6191','Birrass','Milano','Via Crucis 8',20019);
+
+--Vendita
+insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataVendita)
+values ('F08-01','3141','Carta di Credito',TO_DATE('12/02/2022','DD/MM/YYYY'));
+
+insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataVendita)
+values ('F08-02','8121','Carta di Credito',TO_DATE('12/03/2022','DD/MM/YYYY'));
+
+insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataVendita)
+values ('F08-03','6191','Contanti',TO_DATE('12/045/2022','DD/MM/YYYY'));
+
+--BirraVenduta
+insert into BirraVenduta (numLotto,codFattura,numFusti)
+values (0801,'V0-1509',5);
+
+insert into BirraVenduta (numLotto,codFattura,numFusti)
+values (0802,'V0-1609',10);
+
+insert into BirraVenduta (numLotto,codFattura,numFusti)
+values (0803,'V0-1709',7);
