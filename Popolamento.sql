@@ -73,36 +73,36 @@ values (1326778901002,'Lievito');
 --WEYERMANN(PALE ALE) -> Germania
 --VIENNA – CRISP MALTING (VIENNA) -> Gran Bretagna
 
-insert into Malto (GTIN,cerealeMaltato,nomeMalto)
-values (1845678901001,'Segale','MOUTERIJ DINGEMANS');
+insert into Malto (GTIN,cerealeMaltato,nomeMalto,quantitaMagazzino,provenienza)
+values (1845678901001,'Segale','MOUTERIJ DINGEMANS',100,'Belgio');
 
-insert into Malto (GTIN,cerealeMaltato,nomeMalto)
-values (1845678901001,'Mais','WEYERMANN');
+insert into Malto (GTIN,cerealeMaltato,nomeMalto,quantitaMagazzino,provenienza)
+values (1845678901001,'Mais','WEYERMANN',200,'Germania');
 
-insert into Malto (GTIN,cerealeMaltato,nomeMalto)
-values (1845678901001,'Orzo','CRISP MALTING');
+insert into Malto (GTIN,cerealeMaltato,nomeMalto,quantitaMagazzino,provenienza)
+values (1845678901001,'Orzo','CRISP MALTING',300,'Gran Bretagna');
 
 --Luppolo
 --Classificazione go provato a cercare penso sia questa, 
 --ovviamente non so se veritiera con la tipologia
-insert into Luppolo (GTIN,classificazione,tipoLuppolo)
-values (1425673421008,'Admiral','Amaricante');
+insert into Luppolo (GTIN,classificazione,tipoLuppolo,quantitaMagazzino,provenienza)
+values (1425673421008,'Admiral','Amaricante',100,'Belgio');
 
-insert into Luppolo (GTIN,classificazione,tipoLuppolo)
-values (1425673421008,'Amarillo','Aromatizzante');
+insert into Luppolo (GTIN,classificazione,tipoLuppolo,quantitaMagazzino,provenienza)
+values (1425673421008,'Amarillo','Aromatizzante',200,'Germania');
 
-insert into Luppolo (GTIN,classificazione,tipoLuppolo)
-values (1425673421008,'Magnum','Misto');
+insert into Luppolo (GTIN,classificazione,tipoLuppolo,quantitaMagazzino,provenienza)
+values (1425673421008,'Magnum','Misto',300,'Gran Bretagna');
 
 --Lievito
 insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
-values (1326778901002,'Saccharomyces Carlsbergensis');
+values (1326778901002,'Saccharomyces Carlsbergensis',100,'Belgio');
 
 insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
-values (1326778901002,'Saccharomyces Cerevisiae');
+values (1326778901002,'Saccharomyces Cerevisiae',200,'Germania');
 
 insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
-values (1326778901002,'Saccharomyces Carlsbergensis');
+values (1326778901002,'Saccharomyces Carlsbergensis',300,'Gran Bretagna');
 
 --LottoMateriaPrima
 
@@ -169,31 +169,31 @@ insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,grad
 values ('134009342',1,1845678901001,'Blanche',7.5,'Bionda',100);
 
 insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
-values ('238009300',0002,00102030405000,'APA',6.5,'Scura',50);
+values ('238009300',NULL,1425673421008,'APA',6.5,'Scura',50);
 
 insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
-values ('364386542',0003,00102030405060,'Ichnusa',5.5,'Bionda',200);
+values ('364386542',NULL,1326778901002,'Ichnusa',5.5,'Bionda',200);
 
 --Ammostamento
 insert into Ammostamento (idBollitore,dataAmmostamento,gtinMalto,codLottoMalto,numLottoProdotto,quantitaMalto,quantitaAcqua)
-values (0100,TO_DATE('01/01/2022','DD/MM/YYYY'),01010203050607,'L000-11',0100,100,300);
+values (1,TO_DATE('01/01/2022','DD/MM/YYYY'),1845678901001,'L800-34',1,100,300);
 
 insert into Ammostamento (idBollitore,dataAmmostamento,gtinMalto,codLottoMalto,numLottoProdotto,quantitaMalto,quantitaAcqua)
-values (0200,TO_DATE('01/02/2022','DD/MM/YYYY'),01020304050506,'L000-21',0200,200,500);
+values (1,TO_DATE('01/02/2022','DD/MM/YYYY'),1425673421008,'L642-04',1,200,500);
 
 insert into Ammostamento (idBollitore,dataAmmostamento,gtinMalto,codLottoMalto,numLottoProdotto,quantitaMalto,quantitaAcqua)
-values (0300,TO_DATE('01/03/2022','DD/MM/YYYY'),01080203053040,'L000-31',0300,300,800);
+values (1,TO_DATE('01/03/2022','DD/MM/YYYY'),1326778901002,'L310-11',1,300,800);
 
 
 --Fermentazione
 insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
-values (07,TO_DATE('02/02/2022','DD/MM/YYYY'),01500,0000011115304,'L000-51',101,TO_DATE('09/02/2022','DD/MM/YYYY'),'Alta');
+values (2,TO_DATE('02/02/2022','DD/MM/YYYY'),2,1845678901001,'L800-34',1,TO_DATE('09/02/2022','DD/MM/YYYY'),'Alta');
 
 insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
-values (08,TO_DATE('02/03/2022','DD/MM/YYYY'),01600,0000011116304,'L000-61',102,TO_DATE('09/03/2022','DD/MM/YYYY'),'Bassa');
+values (2,TO_DATE('02/03/2022','DD/MM/YYYY'),2,1425673421008,'L642-04',NULL,TO_DATE('09/03/2022','DD/MM/YYYY'),'Bassa');
 
 insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
-values (09,TO_DATE('02/04/2022','DD/MM/YYYY'),01700,0000011117304,'L000-71',103,TO_DATE('09/04/2022','DD/MM/YYYY'),'Alta');
+values (3,TO_DATE('02/04/2022','DD/MM/YYYY'),2,1326778901002,'L310-11',NULL,TO_DATE('09/04/2022','DD/MM/YYYY'),'Alta');
 
 --PUB
 --particellaCatastale 3141 esempio da internet
@@ -208,20 +208,20 @@ values ('6191','Birrass','Milano','Via Crucis 8',20019);
 
 --Vendita
 insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataVendita)
-values ('F08-01','3141','Carta di Credito',TO_DATE('12/02/2022','DD/MM/YYYY'));
+values ('F08-01','3141','Visa',TO_DATE('12/02/2022','DD/MM/YYYY'));
 
 insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataVendita)
-values ('F08-02','8121','Carta di Credito',TO_DATE('12/03/2022','DD/MM/YYYY'));
+values ('F08-02','8121','MasterCard',TO_DATE('12/03/2022','DD/MM/YYYY'));
 
 insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataVendita)
-values ('F08-03','6191','Contanti',TO_DATE('12/045/2022','DD/MM/YYYY'));
+values ('F08-03','6191','Paypal',TO_DATE('12/045/2022','DD/MM/YYYY'));
 
 --BirraVenduta
 insert into BirraVenduta (numLotto,codFattura,numFusti)
-values (0801,'V0-1509',5);
+values (1,'F08-01',5);
 
 insert into BirraVenduta (numLotto,codFattura,numFusti)
-values (0802,'V0-1609',10);
+values (1,'F08-02',10);
 
 insert into BirraVenduta (numLotto,codFattura,numFusti)
-values (0803,'V0-1709',7);
+values (1,'F08-03',7);
