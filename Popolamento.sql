@@ -1,6 +1,6 @@
 --Fornitore
 
-insert into Fornitore (pIVA,nome,citta,cap,via)
+insert into Fornitore (pIVA,nome,citta,cap,via) 
 values (01223580554,'AURIAN SAS','Condom',32100,'5 Avenue de la Gare');
 
 insert into Fornitore (pIVA,nome,citta,cap,via)
@@ -57,14 +57,14 @@ values (0811459,01223530003,TO_DATE('31/05/2020','DD/MM/YYYY'),'Carta di Credito
 --GTIN utilizzato generatore casuale
 --Provenienza utilizzata la stessa dei fornitori
 
-insert into MateriaPrima (GTIN,provenienza)
-values (1845678901001,'Francia');
+insert into MateriaPrima (GTIN,tipo)
+values (1845678901001,'Lievito');
 
-insert into MateriaPrima (GTIN,provenienza)
-values (1425673421008,'Belgio');
+insert into MateriaPrima (GTIN,tipo)
+values (1425673421008,'Luppolo');
 
-insert into MateriaPrima (GTIN,provenienza)
-values (1326778901002,'Italia');
+insert into MateriaPrima (GTIN,tipo)
+values (1326778901002,'Malto');
 
 
 --Malto
@@ -89,20 +89,20 @@ insert into Luppolo (GTIN,classificazione,tipoLuppolo)
 values (1425673421008,'Admiral','Amaricante');
 
 insert into Luppolo (GTIN,classificazione,tipoLuppolo)
-values (1234204840000,'Amarillo','Aromatizzante');
+values (1425673421008,'Amarillo','Aromatizzante');
 
 insert into Luppolo (GTIN,classificazione,tipoLuppolo)
-values (1420901008001,'Magnum','Misto');
+values (1425673421008,'Magnum','Misto');
 
 --Lievito
 insert into Lievito (GTIN,tipoLievito)
 values (1326778901002,'Saccharomyces Carlsbergensis');
 
 insert into Lievito (GTIN,tipoLievito)
-values (1940003420000,'Saccharomyces Cerevisiae');
+values (1326778901002,'Saccharomyces Cerevisiae');
 
 insert into Lievito (GTIN,tipoLievito)
-values (1120901008000,'Saccharomyces Carlsbergensis');
+values (1326778901002,'Saccharomyces Carlsbergensis');
 
 --LottoMateriaPrima
 
@@ -110,20 +110,20 @@ insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
 values ('L800-34',1845678901001,0123456,100.00);
 
 insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
-values ('L642-04',1658392740899,0035245,400.00);
+values ('L642-04',1425673421008,0254219,400.00);
 
 insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
-values ('L310-11',1002045632893,0573036,800.00);
+values ('L310-11',1326778901002,0811459,800.00);
 
 --MaltoAcquistato
 insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
 values (1845678901001,'L800-34',1);
 
 insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
-values (01223520740009,'L303-04',02);
+values (1425673421008,'L642-04',NULL);
 
 insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
-values (01244530740009,'L002-22',01);
+values (1326778901002,'L310-11',NULL);
 
 --LuppoloAcquistato
 --Ho usato come codice lotto L100-01
@@ -131,10 +131,10 @@ insert into LuppoloAcquistato (GTIN,codiceLotto)
 values (1845678901001,'L800-34');
 
 insert into LuppoloAcquistato (GTIN,codiceLotto)
-values (00032200055899,'L200-01');
+values (1425673421008,'L642-04');
 
 insert into LuppoloAcquistato (GTIN,codiceLotto)
-values (00011200077899,'L300-01');
+values (1326778901002,'L310-11');
 
 --LievitoAcquistato
 --Ho usato come codice lotto L100-02
@@ -142,10 +142,10 @@ insert into LievitoAcquistato (GTIN,codiceLotto)
 values (1845678901001,'L800-34');
 
 insert into LievitoAcquistato (GTIN,codiceLotto)
-values (11117840000000,'L200-02');
+values (1425673421008,'L642-04');
 
 insert into LievitoAcquistato (GTIN,codiceLotto)
-values (11113520000000,'L300-02');
+values (1326778901002,'L310-11');
 
 --MostoDolce
 --numLotto è generato di DEFAULT
@@ -158,10 +158,10 @@ insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLup
 values (1845678901001,'L800-34',1,50,13,40);
 
 insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
-values (00112233440000,'L020-01',05,100,7.5,115);
+values (1425673421008,'L642-04',1,100,7.5,115);
 
 insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
-values (00112233550000,'L030-01',04,170,8.5,75);
+values (1326778901002,'L310-11',1,170,8.5,75);
 
 --BirraProdotta
 --ssnSupervisore è uguale a quelli usati per Mastro birraio

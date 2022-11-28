@@ -60,7 +60,7 @@ CREATE TABLE OrdineApproviggionamento(
 	codFattura NUMBER NOT NULL,
 	pIvaFornitore NUMBER NOT NULL,
 	dataRifornimento DATE NOT NULL,
-	metodoPagamento VARCHAR (50),
+	metodoPagamento VARCHAR (50) CHECK(tipo IN('Visa','MasterCard','Paypal','ApplePay')),
 	numeroTracking VARCHAR (50),
 
 	CONSTRAINT OAPP_PK
@@ -72,7 +72,7 @@ CREATE TABLE OrdineApproviggionamento(
 
 CREATE TABLE MateriaPrima(
 	GTIN NUMBER NOT NULL,
-	tipo VARCHAR2(60),
+	tipo VARCHAR2(60) CHECK(tipo IN('Lievito','Luppolo','Malto')),
 	
 	CONSTRAINT MAT_P_PK
 		PRIMARY KEY(GTIN)
@@ -254,7 +254,7 @@ CREATE TABLE PUB(
 CREATE TABLE Vendita(
     codFattura VARCHAR2(50) NOT NULL,
     particellaCatastaleCliente VARCHAR2(50),
-	metodoPagamento VARCHAR2(50),
+	metodoPagamento VARCHAR2(50)CHECK(tipo IN('Visa','MasterCard','Paypal','ApplePay')),
 	dataVendita DATE NOT NULL,
 	
 	CONSTRAINT V_PK
@@ -264,7 +264,7 @@ CREATE TABLE Vendita(
 );
 
 CREATE TABLE BirraVenduta(
-	numLotto NUMBER NOT NULL,
+	numLotto NUMBER(20) NOT NULL,
 	codFattura VARCHAR2(50), 
 	numFusti NUMBER,
 	
