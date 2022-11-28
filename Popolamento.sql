@@ -44,13 +44,13 @@ values ('364386542','Fermentatore',300,350,2500);
 --pIvaFornitore ho utilizzato le stesse di quelle presenti in fornitore
 
 insert into OrdineApproviggionamento (codFattura,pIvaFornitore,dataRifornimento,metodoPagamento,numeroTracking)
-values (0123456,01223580554,TO_DATE('15/01/2022','DD/MM/YYYY'),'Carta di Credito','US154022090IT');
+values (0123456,01223580554,TO_DATE('15/01/2022','DD/MM/YYYY'),'Visa','US154022090IT');
 
 insert into OrdineApproviggionamento (codFattura,pIvaFornitore,dataRifornimento,metodoPagamento,numeroTracking)
-values (0254219,01223580604,TO_DATE('01/02/2021','DD/MM/YYYY'),'Carta di Credito','FR624620036IT');
+values (0254219,01223580604,TO_DATE('01/02/2021','DD/MM/YYYY'),'Visa','FR624620036IT');
 
 insert into OrdineApproviggionamento (codFattura,pIvaFornitore,dataRifornimento,metodoPagamento,numeroTracking)
-values (0811459,01223530003,TO_DATE('31/05/2020','DD/MM/YYYY'),'Carta di Credito','BG671009596IT');
+values (0811459,01223530003,TO_DATE('31/05/2020','DD/MM/YYYY'),'Paypal','BG671009596IT');
 
 
 --MateriaPrima
@@ -76,11 +76,11 @@ values (1326778901002,'Lievito');
 insert into Malto (GTIN,cerealeMaltato,nomeMalto,quantitaMagazzino,provenienza)
 values (1845678901001,'Segale','MOUTERIJ DINGEMANS',100,'Belgio');
 
-insert into Malto (GTIN,cerealeMaltato,nomeMalto,quantitaMagazzino,provenienza)
+/*insert into Malto (GTIN,cerealeMaltato,nomeMalto,quantitaMagazzino,provenienza)
 values (1845678901001,'Mais','WEYERMANN',200,'Germania');
 
 insert into Malto (GTIN,cerealeMaltato,nomeMalto,quantitaMagazzino,provenienza)
-values (1845678901001,'Orzo','CRISP MALTING',300,'Gran Bretagna');
+values (1845678901001,'Orzo','CRISP MALTING',300,'Gran Bretagna');*/
 
 --Luppolo
 --Classificazione go provato a cercare penso sia questa, 
@@ -88,21 +88,21 @@ values (1845678901001,'Orzo','CRISP MALTING',300,'Gran Bretagna');
 insert into Luppolo (GTIN,classificazione,tipoLuppolo,quantitaMagazzino,provenienza)
 values (1425673421008,'Admiral','Amaricante',100,'Belgio');
 
-insert into Luppolo (GTIN,classificazione,tipoLuppolo,quantitaMagazzino,provenienza)
+/*insert into Luppolo (GTIN,classificazione,tipoLuppolo,quantitaMagazzino,provenienza)
 values (1425673421008,'Amarillo','Aromatizzante',200,'Germania');
 
 insert into Luppolo (GTIN,classificazione,tipoLuppolo,quantitaMagazzino,provenienza)
-values (1425673421008,'Magnum','Misto',300,'Gran Bretagna');
+values (1425673421008,'Magnum','Misto',300,'Gran Bretagna');*/
 
 --Lievito
-insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
+insert into Lievito (GTIN,tipoLievito,quantitaMagazzino,provenienza)
 values (1326778901002,'Saccharomyces Carlsbergensis',100,'Belgio');
 
-insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
+/*insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
 values (1326778901002,'Saccharomyces Cerevisiae',200,'Germania');
 
 insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
-values (1326778901002,'Saccharomyces Carlsbergensis',300,'Gran Bretagna');
+values (1326778901002,'Saccharomyces Carlsbergensis',300,'Gran Bretagna');*/
 
 --LottoMateriaPrima
 
@@ -169,10 +169,10 @@ insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,grad
 values ('134009342',1,1845678901001,'Blanche',7.5,'Bionda',100);
 
 insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
-values ('238009300',NULL,1425673421008,'APA',6.5,'Scura',50);
+values ('238009300',2,1425673421008,'APA',6.5,'Scura',50);
 
 insert into BirraProdotta (ssnSupervisore,numLottoMostoDolce,GTIN,nomeBirra,gradoAlcolico,colore,quantitaBirra)
-values ('364386542',NULL,1326778901002,'Ichnusa',5.5,'Bionda',200);
+values ('364386542',3,1326778901002,'Ichnusa',5.5,'Bionda',200);
 
 --Ammostamento
 insert into Ammostamento (idBollitore,dataAmmostamento,gtinMalto,codLottoMalto,numLottoProdotto,quantitaMalto,quantitaAcqua)
@@ -214,7 +214,7 @@ insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataV
 values ('F08-02','8121','MasterCard',TO_DATE('12/03/2022','DD/MM/YYYY'));
 
 insert into Vendita (codFattura,particellaCatastaleCliente,metodoPagamento,dataVendita)
-values ('F08-03','6191','Paypal',TO_DATE('12/045/2022','DD/MM/YYYY'));
+values ('F08-03','6191','Paypal',TO_DATE('12/04/2022','DD/MM/YYYY'));
 
 --BirraVenduta
 insert into BirraVenduta (numLotto,codFattura,numFusti)
