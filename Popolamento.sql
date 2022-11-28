@@ -58,13 +58,13 @@ values (0811459,01223530003,TO_DATE('31/05/2020','DD/MM/YYYY'),'Carta di Credito
 --Provenienza utilizzata la stessa dei fornitori
 
 insert into MateriaPrima (GTIN,tipo)
-values (1845678901001,'Lievito');
+values (1845678901001,'Malto');
 
 insert into MateriaPrima (GTIN,tipo)
 values (1425673421008,'Luppolo');
 
 insert into MateriaPrima (GTIN,tipo)
-values (1326778901002,'Malto');
+values (1326778901002,'Lievito');
 
 
 --Malto
@@ -95,13 +95,13 @@ insert into Luppolo (GTIN,classificazione,tipoLuppolo)
 values (1425673421008,'Magnum','Misto');
 
 --Lievito
-insert into Lievito (GTIN,tipoLievito)
+insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
 values (1326778901002,'Saccharomyces Carlsbergensis');
 
-insert into Lievito (GTIN,tipoLievito)
+insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
 values (1326778901002,'Saccharomyces Cerevisiae');
 
-insert into Lievito (GTIN,tipoLievito)
+insert into Lievito (GTIN,classificazione,tipoLievito,quantitaMagazzino,provenienza)
 values (1326778901002,'Saccharomyces Carlsbergensis');
 
 --LottoMateriaPrima

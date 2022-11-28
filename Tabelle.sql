@@ -82,7 +82,7 @@ CREATE TABLE Malto(
 	GTIN NUMBER NOT NULL,
 	cerealeMaltato VARCHAR2(50) NOT NULL CHECK(cerealeMaltato IN ('Orzo','Segale','Frumento','Mais')),
 	nomeMalto VARCHAR2(50),
-	quantitaMagazzino NUMBER NOT NULL,
+	quantitaMagazzino NUMBER(10) NOT NULL,
 	provenienza VARCHAR2(60),
 	
 	CONSTRAINT MALT_PK 
@@ -95,7 +95,7 @@ CREATE TABLE Luppolo(
 	GTIN NUMBER NOT NULL,
 	classificazione VARCHAR(50) NOT NULL,
 	tipoLuppolo VARCHAR(50)  CHECK (tipoLuppolo IN ('Amaricante','Aromatizzante','Misto')),
-	quantitaMagazzino NUMBER NOT NULL,
+	quantitaMagazzino NUMBER(10) NOT NULL,
 	provenienza VARCHAR2(60),
 	
 	CONSTRAINT LUPP_PK 
@@ -107,7 +107,7 @@ CREATE TABLE Luppolo(
 CREATE TABLE Lievito(
 	GTIN NUMBER NOT NULL,
 	tipoLievito VARCHAR(50) NOT NULL CHECK (tipoLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
-	quantitaMagazzino NUMBER NOT NULL,
+	quantitaMagazzino NUMBER(10) NOT NULL,
 	provenienza VARCHAR2(60),
 
 	CONSTRAINT LIEV_PK 
