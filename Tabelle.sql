@@ -208,7 +208,7 @@ CREATE TABLE Fermentazione(
 	codLottoLievito VARCHAR2(50) NOT NULL, 
 	numLottoBirraProdotta NUMBER,
 	dataFine DATE,
-	tipoFermentazione CHAR(20) CHECK(tipoFermentazione IN('Alta','Bassa')),
+	tipoFermentazione VARCHAR(50) CHECK(tipoFermentazione IN('Alta','Bassa')),
 	
 	CONSTRAINT FERM_PK
 		PRIMARY KEY (idFermentatore,dataInizio),
@@ -257,5 +257,4 @@ CREATE TABLE BirraVenduta(
 		FOREIGN KEY(numLotto) REFERENCES BirraProdotta(numLotto),
 	CONSTRAINT BV_PKFK2
 		FOREIGN KEY(codFattura) REFERENCES Vendita(codFattura)
-	
 );
