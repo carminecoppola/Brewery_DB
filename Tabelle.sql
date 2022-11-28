@@ -60,8 +60,8 @@ CREATE TABLE OrdineApproviggionamento(
 	codFattura NUMBER NOT NULL,
 	pIvaFornitore NUMBER NOT NULL,
 	dataRifornimento DATE NOT NULL,
-	metodoPagamento VARCHAR (50) CHECK(tipo IN('Visa','MasterCard','Paypal','ApplePay')),
-	numeroTracking VARCHAR (50),
+	metodoPagamento VARCHAR2(50) CHECK(metodoPagamento IN('Visa','MasterCard','Paypal','ApplePay')),
+	numeroTracking VARCHAR2(50),
 
 	CONSTRAINT OAPP_PK
 		PRIMARY KEY(codFattura),
@@ -141,7 +141,6 @@ CREATE TABLE MaltoAcquistato(
 		FOREIGN KEY(GTIN,codiceLotto) REFERENCES LottoMateriaPrima(GTIN,codiceLotto) on delete cascade,
 	CONSTRAINT MALTOACQ_IDB_FK
 		FOREIGN KEY(idBollitore) REFERENCES Contenitore(id) on delete cascade
-
 );
 
 CREATE TABLE LuppoloAcquistato(
@@ -254,7 +253,7 @@ CREATE TABLE PUB(
 CREATE TABLE Vendita(
     codFattura VARCHAR2(50) NOT NULL,
     particellaCatastaleCliente VARCHAR2(50),
-	metodoPagamento VARCHAR2(50)CHECK(tipo IN('Visa','MasterCard','Paypal','ApplePay')),
+	metodoPagamento VARCHAR2(50)CHECK(metodoPagamento IN('Visa','MasterCard','Paypal','ApplePay')),
 	dataVendita DATE NOT NULL,
 	
 	CONSTRAINT V_PK
