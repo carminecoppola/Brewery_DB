@@ -184,10 +184,10 @@ values (1,TO_DATE('01/03/2022','DD/MM/YYYY'),1326778901002,'L310-11',1,300,800);
 insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,quantitaLievitoUsato,numLottoBirraProdotta,dataFine,tipoFermentazione)
 values (2,TO_DATE('02/02/2022','DD/MM/YYYY'),2,1845678901001,'L800-34',50,1,TO_DATE('09/02/2022','DD/MM/YYYY'),'Alta');
 
-insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
+insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,quantitaLievitoUsato,numLottoBirraProdotta,dataFine,tipoFermentazione)
 values (2,TO_DATE('02/03/2022','DD/MM/YYYY'),2,1425673421008,'L642-04',100,NULL,TO_DATE('09/03/2022','DD/MM/YYYY'),'Bassa');
 
-insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,numLottoBirraProdotta,dataFine,tipoFermentazione)
+insert into Fermentazione (idFermentatore,dataInizio,numLottoFermentato,gtinLievitoUsato,codLottoLievito,quantitaLievitoUsato,numLottoBirraProdotta,dataFine,tipoFermentazione)
 values (3,TO_DATE('02/04/2022','DD/MM/YYYY'),2,1326778901002,'L310-11',40,NULL,TO_DATE('09/04/2022','DD/MM/YYYY'),'Alta');
 
 --PUB
