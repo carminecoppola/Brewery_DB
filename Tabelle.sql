@@ -223,6 +223,7 @@ CREATE TABLE Fermentazione(
 	numLottoFermentato NUMBER,
 	gtinLievitoUsato NUMBER NOT NULL,
 	codLottoLievito VARCHAR2(50) NOT NULL, 
+	quantitaLievitoUsato NUMBER NOT NULL CHECK(quantitaLievitoUsato > 0),
 	numLottoBirraProdotta NUMBER,
 	dataFine DATE,
 	tipoFermentazione VARCHAR(50) CHECK(tipoFermentazione IN('Alta','Bassa')),
