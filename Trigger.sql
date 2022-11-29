@@ -4,23 +4,25 @@
 
 
     CREATE OR REPLACE TRIGGER Check_scorte_malto  
-    BEFORE INSERT ON Ammostamento               
+        BEFORE INSERT ON Ammostamento               
         FOR EACH ROW
         DECLARE
             notEnoughMalt EXCEPTION;
-            maltQT NUMBER;
+            maltNotInStock EXCEPTION;
+            maltoQT NUMBER;  
         BEGIN
-            SELECT QUANTITAMAGAZZINO INTO maltQT
-            FROM Malto M JOIN Ammostamento A ON M.GTIN = A.gtinMALTO
+            SELECT quantitaMagazzino INTO maltoQT
+            FROM Malto M 
             WHERE M.GTIN = :new.gtinMALTO;
-            IF :new.gtinMALTO > maltQT
+            IF maltoQT IS NULL THEN RAISE maltNotInStock;
+            ELSIF (:new.quantitaMalto > maltoQT)
                 THEN RAISE notEnoughMalt;
-            ELSIF :new.gtinMALTO <= maltQT
-                THEN UPDATE Malto SET QUANTITAMAGAZZINO = QUANTITAMAGAZZINO - :new.gtinMALTO WHERE GTIN = :new.gtinMALTO;
+            ELSIF (:new.quantitaMalto <= maltoQT)
+                THEN UPDATE Malto SET quantitaMagazzino = quantitaMagazzino - :new.quantitaMalto WHERE GTIN = :new.gtinMALTO;
             END IF;
         EXCEPTION
-            WHEN notEnoughMalt 
-                THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
+            WHEN notEnoughMalt THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
+            WHEN maltNotInStock THEN  RAISE_APPLICATION_ERROR (-20104,'Malto non in scorta');
     END;
 
 
@@ -29,23 +31,25 @@
        maggiore di quella che abbiamo in stock*/
 
     CREATE OR REPLACE TRIGGER Check_scorte_luppolo  
-    BEFORE INSERT ON MostoDolce               
+        BEFORE INSERT ON MostoDolce               
         FOR EACH ROW
         DECLARE
-            notEnoughMalt EXCEPTION;
-            luppQT NUMBER;
+            notEnoughLupp EXCEPTION;
+            luppNotInStock EXCEPTION;
+            luppoloQT NUMBER;  
         BEGIN
-            SELECT quantitaMagazzino INTO luppQT
-            FROM Luppolo LU JOIN MostoDolce MD ON LU.GTIN = MD.gtinLuppoloUsato
+            SELECT quantitaMagazzino INTO luppoloQT
+            FROM Luppolo LU 
             WHERE LU.GTIN = :new.gtinLuppoloUsato;
-            IF :new.gtinLuppoloUsato > luppQT
-                THEN RAISE notEnoughMalt;
-            ELSIF :new.gtinLuppoloUsato <= luppQT
-                THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino - :new.gtinLuppoloUsato WHERE GTIN = :new.gtinLuppoloUsato;
+            IF luppoloQT IS NULL THEN RAISE luppNotInStock;
+            ELSIF (:new.quantitaLuppoloUsato > luppoloQT)
+                THEN RAISE notEnoughLupp;
+            ELSIF (:new.quantitaLuppoloUsato <= luppoloQT)
+                THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLuppoloUsato WHERE GTIN = :new.gtinLuppoloUsato;
             END IF;
-        EXCEPTION
-            WHEN notEnoughMalt 
-                THEN  RAISE_APPLICATION_ERROR (-20107,'Luppolo in scorta insufficiente');
+            EXCEPTION
+                WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20002,'Luppolo in scorta insufficiente');
+                WHEN luppNotInStock THEN  RAISE_APPLICATION_ERROR (-20003,'Luppolo non in scorta');
     END;
 
 
@@ -55,21 +59,23 @@
 
 
     CREATE OR REPLACE TRIGGER Check_scorte_lievito  
-    BEFORE INSERT ON Fermentazione               
+        BEFORE INSERT ON Fermentazione               
         FOR EACH ROW
         DECLARE
-            notEnoughMalt EXCEPTION;
-            lievQT NUMBER;
+            notEnoughLiev EXCEPTION;
+            lievNotInStock EXCEPTION;
+            lievitoQT NUMBER;  
         BEGIN
-            SELECT quantitaMagazzino INTO lievQT
-            FROM Lievito LI JOIN Fermentazione F ON LI.GTIN = F.gtinLievitoUsato
+            SELECT quantitaMagazzino INTO lievitoQT
+            FROM Lievito LI 
             WHERE LI.GTIN = :new.gtinLievitoUsato;
-            IF :new.gtinLievitoUsato > lievQT
-                THEN RAISE notEnoughMalt;
-            ELSIF :new.gtinLievitoUsato <= lievQT
-                THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino - :new.gtinLievitoUsato WHERE GTIN = :new.gtinLievitoUsato;
+            IF lievitoQT IS NULL THEN RAISE lievNotInStock;
+            ELSIF (:new.quantitaLievitoUsato > lievitoQT)
+                THEN RAISE notEnoughLiev;
+            ELSIF (:new.quantitaLievitoUsato <= lievitoQT)
+                THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLievitoUsato WHERE GTIN = :new.gtinLievitoUsato;
             END IF;
-        EXCEPTION
-            WHEN notEnoughMalt 
-                THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
+            EXCEPTION
+                WHEN notEnoughLiev THEN  RAISE_APPLICATION_ERROR (-20004,'Lievito in scorta insufficiente');
+                WHEN lievNotInStock THEN  RAISE_APPLICATION_ERROR (-20005,'Lievito non in scorta');
     END;
