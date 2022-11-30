@@ -149,14 +149,14 @@ values (1326778901002,'L310-11');
 -- GradiPlato 13°
 --Quantità Mosto 40L
 
-insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
-values (1845678901001,'L800-34',1,50,13,40);
+insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
+values (1845678901001,'L800-34',50,13,40);
 
-insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
-values (1425673421008,'L642-04',1,100,7.5,115);
+insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
+values (1425673421008,'L642-04',100,7.5,115);
 
-insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,idBollitore,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
-values (1326778901002,'L310-11',1,170,8.5,75);
+insert into MostoDolce (gtinLuppoloUsato,codLottoLuppolo,quantitaLuppoloUsato,gradiPlato,quantitaMosto)
+values (1326778901002,'L310-11',170,8.5,75);
 
 --BirraProdotta
 --ssnSupervisore è uguale a quelli usati per Mastro birraio

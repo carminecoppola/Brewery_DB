@@ -82,7 +82,7 @@
 
 
 /*  4) Questo trigger controlla che la quantità di malto e acqua utilizzati per l'ammostamento
-       non sia superiore alla capacità di lavorazione del bollitore/fermentatore.*/
+       non sia superiore alla capacità di lavorazione del bollitore.*/
 
     CREATE OR REPLACE TRIGGER Check_lavorazione 
         BEFORE INSERT ON Ammostamento               
@@ -102,7 +102,8 @@
                 WHEN notEnoughCapacity THEN  RAISE_APPLICATION_ERROR (-20006,'Capacità insufficiente');
     END;
 
-/*  5)...*/
+/*  5) Questo trigger controlla che la quantità di lievito utilizzata per la fermentazione
+       non sia superiore alla capacità di lavorazione del bollitore.*/
 
 
 /*  6) Quando viene fatto un inserimento in lotto materia prima controlla che sia conforme alle 
