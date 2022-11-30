@@ -138,7 +138,7 @@
         BEFORE INSERT ON Ammostamento               
         FOR EACH ROW
         DECLARE
-            tipoContenitore NUMBER;
+            tipoContenitore CHAR(20);
             wrongContainer EXCEPTION;
 	BEGIN
         Select tipo INTO tipoContenitore 
@@ -154,3 +154,20 @@
 
 /*  8) Durante un inserimento nella fermentazione controlliamo che venga utilizzato un fermentatore e non un
        bollitore.*/
+
+    CREATE OR REPLACE TRIGGER Check_Fermentatore
+        BEFORE INSERT ON Fermentatore               
+        FOR EACH ROW
+        DECLARE
+            tipoContenitore CHAR(20);
+            wrongContainer EXCEPTION;
+	BEGIN
+        Select tipo INTO tipoContenitore 
+        FROM Contenitore 
+        WHERE id = :new.idFermentatore;
+        IF (tipoContenitore = 'Bollitore') 
+            THEN RAISE wrongContainer;
+        END IF;
+        EXCEPTION 
+            WHEN wrongContainer THEN RAISE_APPLICATION_ERROR(-20009,'Wrong type container');
+	END;
