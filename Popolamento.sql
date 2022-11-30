@@ -101,14 +101,14 @@ values (1326778901002,'Saccharomyces Carlsbergensis',300,'Gran Bretagna');*/
 
 --LottoMateriaPrima
 
-insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
-values ('L800-34',1845678901001,0123456,100.00);
+insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto,quantitaLotto)
+values ('L800-34',1845678901001,0123456,100.00,30);
 
-insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
-values ('L642-04',1425673421008,0254219,400.00);
+insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto,quantitaLotto)
+values ('L642-04',1425673421008,0254219,400.00,20);
 
-insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto)
-values ('L310-11',1326778901002,0811459,800.00);
+insert into LottoMateriaPrima (codiceLotto,GTIN,codFattura,prezzoAcquisto,quantitaLotto)
+values ('L310-11',1326778901002,0811459,800.00,10);
 
 --MaltoAcquistato
 insert into MaltoAcquistato (GTIN,codiceLotto,idBollitore)
