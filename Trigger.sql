@@ -110,16 +110,21 @@
         AFTER INSERT ON LottoMateriaPrima               
         FOR EACH ROW
         DECLARE
-            tipoScorta Varchar(60);
-        BEGIN
-            SELECT tipo INTO tipoScorta
-            FROM LottoMateriaPrima L JOIN MateriaPrima M ON L.GTIN = M.GTIN
-            WHERE M.GTIN = :new.GTIN;
-            IF (TipoScorta = 'Malto') 
-                THEN UPDATE Malto SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata WHERE GTIN = :new.Gtin;
-            ELSIF(TipoScorta = 'Luppolo') 
-                THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata WHERE GTIN = :new.Gtin;
-            ELSIF(TipoScorta = 'Lievito')  
-                THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata WHERE GTIN = :new.Gtin;
-            END IF;
+            pragma autonomous_transaction;
+            tipoScorta VARCHAR2(60);
+     BEGIN
+     	SELECT tipo INTO tipoScorta
+     	FROM MateriaPrima M
+     	WHERE M.GTIN = :new.GTIN;
+     	IF (TipoScorta = 'Malto') 
+            THEN UPDATE Malto SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
+            WHERE GTIN = :new.Gtin;
+     	ELSIF(TipoScorta = 'Luppolo') 
+            THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
+            WHERE GTIN = :new.Gtin;
+     	ELSIF(TipoScorta = 'Lievito')  
+            THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
+            WHERE GTIN = :new.Gtin;
+     	END IF;
+     	COMMIT;
     END;
