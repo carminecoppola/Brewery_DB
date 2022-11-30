@@ -79,3 +79,29 @@
                 WHEN notEnoughLiev THEN  RAISE_APPLICATION_ERROR (-20004,'Lievito in scorta insufficiente');
                 WHEN lievNotInStock THEN  RAISE_APPLICATION_ERROR (-20005,'Lievito non in scorta');
     END;
+
+
+/*  4) Questo trigger controlla che la quantità di malto e acqua utilizzati per l'ammostamento
+       non sia superiore alla capacità di lavorazione del bollitore/fermentatore.*/
+
+    CREATE OR REPLACE TRIGGER Check_lavorazione 
+        BEFORE INSERT ON Ammostamento               
+        FOR EACH ROW
+        DECLARE
+            notEnoughCapacity EXCEPTION;
+            exc EXCEPTION;
+            acquaQT NUMBER;
+        BEGIN
+            SELECT quantitaAcqua INTO acquaQT
+            FROM Ammostamento A
+            WHERE A.id = :new.idBollitore;
+            IF acquaQT IS NULL THEN RAISE exc;
+            ELSIF (:new.quantitaAcqua > acquaQT)
+                THEN RAISE notEnoughCapacity;
+            ELSIF (:new.quantitaAcqua <= acquaQT)
+                THEN UPDATE Contenitore SET capacitaLavorazione = capacitaLavorazione -:new.quantitaAcqua WHERE id = :new.idBollitore;
+            END IF;
+        EXCEPTION
+                WHEN notEnoughCapacity THEN  RAISE_APPLICATION_ERROR (-20006,'Capacità insufficiente');
+                WHEN exc THEN  RAISE_APPLICATION_ERROR (-20007,'Acqua superiore alla capacità');
+    END;
