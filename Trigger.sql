@@ -90,18 +90,36 @@
         DECLARE
             notEnoughCapacity EXCEPTION;
             exc EXCEPTION;
-            acquaQT NUMBER;
+            ContainerCap NUMBER;
         BEGIN
-            SELECT quantitaAcqua INTO acquaQT
-            FROM Ammostamento A
-            WHERE A.id = :new.idBollitore;
-            IF acquaQT IS NULL THEN RAISE exc;
-            ELSIF (:new.quantitaAcqua > acquaQT)
+            SELECT capacitaLavorazione INTO ContainerCap
+            FROM Contenitore C
+            WHERE C.id = :new.idBollitore;
+            IF (:new.quantitaAcqua > ContainerCap )
                 THEN RAISE notEnoughCapacity;
-            ELSIF (:new.quantitaAcqua <= acquaQT)
-                THEN UPDATE Contenitore SET capacitaLavorazione = capacitaLavorazione -:new.quantitaAcqua WHERE id = :new.idBollitore;
             END IF;
         EXCEPTION
                 WHEN notEnoughCapacity THEN  RAISE_APPLICATION_ERROR (-20006,'Capacità insufficiente');
-                WHEN exc THEN  RAISE_APPLICATION_ERROR (-20007,'Acqua superiore alla capacità');
+    END;
+
+
+/*  5) Quando viene fatto un inserimento in lotto materia prima controlla che sia uniforme alle specifiche
+       e aggiorna le scorte.*/
+
+    CREATE OR REPLACE TRIGGER Update_scorte  
+        AFTER INSERT ON LottoMateriaPrima               
+        FOR EACH ROW
+        DECLARE
+            tipoScorta Varchar(60);
+        BEGIN
+            SELECT tipo INTO tipoScorta
+            FROM LottoMateriaPrima L JOIN MateriaPrima M ON L.GTIN = M.GTIN
+            WHERE M.GTIN = :new.GTIN;
+            IF (TipoScorta = 'Malto') 
+                THEN UPDATE Malto SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata WHERE GTIN = :new.Gtin;
+            ELSIF(TipoScorta = 'Luppolo') 
+                THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata WHERE GTIN = :new.Gtin;
+            ELSIF(TipoScorta = 'Lievito')  
+                THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata WHERE GTIN = :new.Gtin;
+            END IF;
     END;
