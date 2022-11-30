@@ -102,9 +102,11 @@
                 WHEN notEnoughCapacity THEN  RAISE_APPLICATION_ERROR (-20006,'Capacità insufficiente');
     END;
 
+/*  5)...*/
 
-/*  5) Quando viene fatto un inserimento in lotto materia prima controlla che sia uniforme alle specifiche
-       e aggiorna le scorte.*/
+
+/*  6) Quando viene fatto un inserimento in lotto materia prima controlla che sia conforme alle 
+       specifiche e aggiorna la quantità delle scorte.*/
 
     CREATE OR REPLACE TRIGGER Update_scorte  
         AFTER INSERT ON LottoMateriaPrima               
@@ -112,7 +114,7 @@
         DECLARE
             pragma autonomous_transaction;
             tipoScorta VARCHAR2(60);
-     BEGIN
+    BEGIN
      	SELECT tipo INTO tipoScorta
      	FROM MateriaPrima M
      	WHERE M.GTIN = :new.GTIN;
@@ -128,3 +130,27 @@
      	END IF;
      	COMMIT;
     END;
+
+/*  7) Durante un inserimento nell'ammostamento controlliamo che venga utilizzato un bollitore e non un
+       fermentatore.*/
+
+    CREATE OR REPLACE TRIGGER Check_Bollitore 
+        BEFORE INSERT ON Ammostamento               
+        FOR EACH ROW
+        DECLARE
+            tipoContenitore NUMBER;
+            wrongContainer EXCEPTION;
+	BEGIN
+        Select tipo INTO tipoContenitore 
+        FROM Contenitore 
+        WHERE id = :new.idBollitore;
+        IF (tipoContenitore = 'Fermentatore') 
+            THEN RAISE wrongContainer;
+        END IF;
+        EXCEPTION 
+            WHEN wrongContainer THEN RAISE_APPLICATION_ERROR(-20007,'Wrong type container');
+	END;
+
+
+/*  8) Durante un inserimento nella fermentazione controlliamo che venga utilizzato un fermentatore e non un
+       bollitore.*/
