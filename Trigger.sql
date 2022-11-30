@@ -156,7 +156,7 @@
        bollitore.*/
 
     CREATE OR REPLACE TRIGGER Check_Fermentatore
-        BEFORE INSERT ON Fermentatore               
+        BEFORE INSERT ON Fermentazione               
         FOR EACH ROW
         DECLARE
             tipoContenitore CHAR(20);
