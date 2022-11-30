@@ -121,7 +121,7 @@ CREATE TABLE LottoMateriaPrima(
 	GTIN NUMBER NOT NULL,
 	codFattura NUMBER NOT NULL,
 	prezzoAcquisto NUMBER NOT NULL,
-	quantitaLotto NUMBER NOT NULL,
+	quantitaAcquistata NUMBER NOT NULL,
 	
 	CONSTRAINT LMAT_P_PK
 		PRIMARY KEY(GTIN,codiceLotto),
