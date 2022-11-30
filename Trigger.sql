@@ -102,8 +102,31 @@
                 WHEN notEnoughCapacity THEN  RAISE_APPLICATION_ERROR (-20006,'Capacità insufficiente');
     END;
 
-/*  5) Questo trigger controlla che la quantità di lievito utilizzata per la fermentazione
+/*  5) Questo trigger controlla che la quantità di mosto utilizzata per la fermentazione
        non sia superiore alla capacità di lavorazione del bollitore.*/
+
+    CREATE OR REPLACE TRIGGER Check_lavorazione2 
+        BEFORE INSERT ON Fermentazione               
+        FOR EACH ROW
+        DECLARE
+            notEnoughCapacityF EXCEPTION;
+            ContainerCap NUMBER;
+            qtMosto NUMBER;
+        BEGIN
+            SELECT quantitamosto INTO qtMosto
+            FROM MostoDolce M JOIN Fermentazione F ON F.numLottoFermentato = M.numLotto 
+            WHERE M.numLotto = :new.numLottoFermentato;
+            
+            SELECT capacitaLavorazione 
+            INTO ContainerCap FROM Contenitore 
+            WHERE id = :new.idFermentatore;
+            
+            IF (qtMosto > ContainerCap )
+                THEN RAISE notEnoughCapacityF;
+            END IF;
+        EXCEPTION
+            WHEN notEnoughCapacityF THEN  RAISE_APPLICATION_ERROR (-20017,'Capacità insufficiente');
+    END;
 
 
 /*  6) Quando viene fatto un inserimento in lotto materia prima controlla che sia conforme alle 
