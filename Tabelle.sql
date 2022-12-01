@@ -241,7 +241,7 @@ CREATE TABLE Fermentazione(
 	CONSTRAINT FERM_PKFK_CONT
 		FOREIGN KEY(idFermentatore) REFERENCES Contenitore(idContenitore) on delete cascade,
 	CONSTRAINT FERM_FK_MD
-		FOREIGN KEY(numLottoFermentato) REFERENCES MostoDolce(codLotto) on delete cascade,
+		FOREIGN KEY(numLottoFermentato) REFERENCES MostoDolce(numLotto) on delete cascade,
 	CONSTRAINT FERM_FK_LA
 		FOREIGN KEY(gtinLievitoUsato,codLottoLievito) REFERENCES LievitoAcquistato(GTIN,codLotto) on delete cascade,
 	CONSTRAINT FERM_FK_BIRRP
