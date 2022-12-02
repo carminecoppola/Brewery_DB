@@ -37,3 +37,22 @@ insert into MastroBirraio values ('IT0011231','Adelmo','Tafuri',TO_DATE('04/05/1
 insert into MastroBirraio values ('IT0011232','Piero','Malacarne',TO_DATE('03/06/1990','DD/MM/YYYY'),TO_DATE('21/07/2005','DD/MM/YYYY'),1200.00);
 insert into MastroBirraio values ('IT0011233','Ciro','Bellini',TO_DATE('11/12/1988','DD/MM/YYYY'),TO_DATE('30/08/2000','DD/MM/YYYY'),1600.00);
 insert into MastroBirraio values ('IT0011234','Franco','Mastroianni',TO_DATE('17/10/1981','DD/MM/YYYY'),TO_DATE('29/11/2004','DD/MM/YYYY'),1150.00);
+
+
+--CONTENITORI
+
+insert into Contenitore values (1,'IT0011220','Bollitore',400,500,2000);
+insert into Contenitore values ('IT0011221','Fermentatore',200,300,1500);
+insert into Contenitore values ('IT0011222','Bollitore',500,600,2500);
+insert into Contenitore values ('IT0011223','Fermentatore',200,300,1500);
+insert into Contenitore values ('IT0011224','Bollitore',400,500,2000);
+insert into Contenitore values ('IT0011225','Bollitore',450,600,2500);
+insert into Contenitore values ('IT0011226','Bollitore',250,300,1500);
+insert into Contenitore values ('IT0011227','Fermentatore',350,500,2000);
+insert into Contenitore values ('IT0011228','Fermentatore',250,300,1500);
+insert into Contenitore values ('IT0011229','Bollitore',400,500,2000);
+insert into Contenitore values ('IT0011230','Bollitore',575,600,2500);
+insert into Contenitore values ('IT0011231','Fermentatore',400,500,2000);
+insert into Contenitore values ('IT0011232','Bollitore',500,600,2500);
+insert into Contenitore values ('IT0011233','Fermentatore',400,500,2000);
+insert into Contenitore values ('IT0011234','Fermentatore',200,300,1500);
