@@ -39,20 +39,24 @@ insert into MastroBirraio values ('IT0011233','Ciro','Bellini',TO_DATE('11/12/19
 insert into MastroBirraio values ('IT0011234','Franco','Mastroianni',TO_DATE('17/10/1981','DD/MM/YYYY'),TO_DATE('29/11/2004','DD/MM/YYYY'),1150.00);
 
 
---CONTENITORI
+--CONTENITORE
 
 insert into Contenitore values (1,'IT0011220','Bollitore',400,500,2000);
-insert into Contenitore values ('IT0011221','Fermentatore',200,300,1500);
-insert into Contenitore values ('IT0011222','Bollitore',500,600,2500);
-insert into Contenitore values ('IT0011223','Fermentatore',200,300,1500);
-insert into Contenitore values ('IT0011224','Bollitore',400,500,2000);
-insert into Contenitore values ('IT0011225','Bollitore',450,600,2500);
-insert into Contenitore values ('IT0011226','Bollitore',250,300,1500);
-insert into Contenitore values ('IT0011227','Fermentatore',350,500,2000);
-insert into Contenitore values ('IT0011228','Fermentatore',250,300,1500);
-insert into Contenitore values ('IT0011229','Bollitore',400,500,2000);
-insert into Contenitore values ('IT0011230','Bollitore',575,600,2500);
-insert into Contenitore values ('IT0011231','Fermentatore',400,500,2000);
-insert into Contenitore values ('IT0011232','Bollitore',500,600,2500);
-insert into Contenitore values ('IT0011233','Fermentatore',400,500,2000);
-insert into Contenitore values ('IT0011234','Fermentatore',200,300,1500);
+insert into Contenitore values (2,'IT0011221','Fermentatore',200,300,1500);
+insert into Contenitore values (3,'IT0011222','Bollitore',500,600,2500);
+insert into Contenitore values (4,'IT0011223','Fermentatore',200,300,1500);
+insert into Contenitore values (5,'IT0011224','Bollitore',400,500,2000);
+insert into Contenitore values (6,'IT0011225','Bollitore',450,600,2500);
+insert into Contenitore values (7,'IT0011226','Bollitore',250,300,1500);
+insert into Contenitore values (8,'IT0011227','Fermentatore',350,500,2000);
+insert into Contenitore values (9,'IT0011228','Fermentatore',250,300,1500);
+insert into Contenitore values (10,'IT0011229','Bollitore',400,500,2000);
+insert into Contenitore values (11,'IT0011230','Bollitore',575,600,2500);
+insert into Contenitore values (12,'IT0011231','Fermentatore',400,500,2000);
+insert into Contenitore values (13,'IT0011232','Bollitore',500,600,2500);
+insert into Contenitore values (14,'IT0011233','Fermentatore',400,500,2000);
+insert into Contenitore values (15,'IT0011234','Fermentatore',200,300,1500);
+
+
+--PUB
+insert into PUB values (values);
