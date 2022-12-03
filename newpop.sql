@@ -1,8 +1,3 @@
-/*FORNITORI
-MASTRI BIRRAI
-CONTENITORI
-PUB*/
-
 --FORNITORE
 insert into Fornitore values (00000000011,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
 insert into Fornitore values (00000000012,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
@@ -60,7 +55,7 @@ insert into Contenitore values (15,'IT0011234','Fermentatore',200,300,1500);
 
 --PUB
 insert into PUB values ('PT00-01','Casa del Popolo','Verbano','Via F.lli Borghini 34','28877');
-insert into PUB values ('PT00-02','Le Baladin','Piozzo','P.za V Luglio 15','12060');
+insert into PUB values ('PT00-02','Le Baladin','Piozzo','Piazza V Luglio 15','12060');
 insert into PUB values ('PT00-03','Cicci Coccò','Castelceriolo','Via Pietro Milanese 13','15100');
 insert into PUB values ('PT00-04','Grado Plato','Chieri','Viale Fasano 36','10023');
 insert into PUB values ('PT00-05','Birrificio di Orta','Orta S. Giulio','Via Domodossola 7','28016');
@@ -73,4 +68,6 @@ insert into PUB values ('PT00-11','Taverna del Borgo','Livorno Ferraris','Via Da
 insert into PUB values ('PT00-12','Enoteca DOC','Marigliano','Via Giannone 87','80034');
 insert into PUB values ('PT00-13','Flint Pub','Novi Ligure','Via Roma 51/53','15067');
 insert into PUB values ('PT00-14','Birreria Bavarese','Biella','Via Paietta 10','13836');
-insert into PUB values ('PT00-15','Central Park','Alessandria',' Piazza Banda Lenti 2','15030');
+insert into PUB values ('PT00-15','Central Park','Alessandria','Piazza Banda Lenti 2','15030');
+
+--
