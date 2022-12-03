@@ -59,4 +59,18 @@ insert into Contenitore values (15,'IT0011234','Fermentatore',200,300,1500);
 
 
 --PUB
-insert into PUB values (values);
+insert into PUB values ('PT00-01','Casa del Popolo','Verbano','Via F.lli Borghini 34','28877');
+insert into PUB values ('PT00-02','Le Baladin','Piozzo','P.za V Luglio 15','12060');
+insert into PUB values ('PT00-03','Cicci Coccò','Castelceriolo','Via Pietro Milanese 13','15100');
+insert into PUB values ('PT00-04','Grado Plato','Chieri','Viale Fasano 36','10023');
+insert into PUB values ('PT00-05','Birrificio di Orta','Orta S. Giulio','Via Domodossola 7','28016');
+insert into PUB values ('PT00-06','Birrificio di Pettenasco','Pettenasco','Via Roma 70','28028');
+insert into PUB values ('PT00-07','Snack Troll','Vernante','Strada Valle Grande 15','12019');
+insert into PUB values ('PT00-08','Bio Birre','Santena','Via Circonvallazione 186','10100');
+insert into PUB values ('PT00-09','BEFeD','Settimo Torinese','Via Ariosto 36','10100');
+insert into PUB values ('PT00-10','Enoteca Le Marne','Savigliano','ViaTapparelli 6','12038');
+insert into PUB values ('PT00-11','Taverna del Borgo','Livorno Ferraris','Via Dante 6','13046');
+insert into PUB values ('PT00-12','Enoteca DOC','Marigliano','Via Giannone 87','80034');
+insert into PUB values ('PT00-13','Flint Pub','Novi Ligure','Via Roma 51/53','15067');
+insert into PUB values ('PT00-14','Birreria Bavarese','Biella','Via Paietta 10','13836');
+insert into PUB values ('PT00-15','Central Park','Alessandria',' Piazza Banda Lenti 2','15030');
