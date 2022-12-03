@@ -124,3 +124,22 @@ insert into TipoBirra values (0011020103012,'IT0011231','Rochefort 6',7.5,'Rossa
 insert into TipoBirra values (0011020103013,'IT0011232','Omer',5.5,'Scura',0,85.00);
 insert into TipoBirra values (0011020103014,'IT0011233','Chimay Rouge',7,'Rossa',0,120.00);
 insert into TipoBirra values (0011020103015,'IT0011234','Ichnusa',5.5,'Bionda',0,100.00);
+
+--ORDINE APPROVVIGGIONAMENTO
+insert into OrdineApproviggionamento values (00345601,00000000011,TO_DATE('01/01/2021','DD/MM/YYYY'),'Bonifico','US-345IT01');
+insert into OrdineApproviggionamento values (00345602,00000000012,TO_DATE('01/02/2021','DD/MM/YYYY'),'Assegno','US-345IT02');
+insert into OrdineApproviggionamento values (00345603,00000000013,TO_DATE('15/03/2021','DD/MM/YYYY'),'Bonifico','US-345IT03');
+insert into OrdineApproviggionamento values (00345604,00000000014,TO_DATE('02/04/2021','DD/MM/YYYY'),'Assegno','US-345IT04');
+insert into OrdineApproviggionamento values (00345605,00000000015,TO_DATE('15/04/2021','DD/MM/YYYY'),'Bonifico','US-345IT05');
+insert into OrdineApproviggionamento values (00345606,00000000016,TO_DATE('15/05/2021','DD/MM/YYYY'),'Bonifico','US-345IT06');
+insert into OrdineApproviggionamento values (00345607,00000000017,TO_DATE('29/06/2021','DD/MM/YYYY'),'Bonifico','US-345IT07');
+insert into OrdineApproviggionamento values (00345608,00000000018,TO_DATE('01/08/2021','DD/MM/YYYY'),'Assegno','US-345IT08');
+insert into OrdineApproviggionamento values (00345609,00000000019,TO_DATE('01/09/2021','DD/MM/YYYY'),'Assegno','US-345IT09');
+insert into OrdineApproviggionamento values (00345610,00000000020,TO_DATE('15/09/2021','DD/MM/YYYY'),'Bonifico','US-345IT10');
+insert into OrdineApproviggionamento values (00345611,00000000021,TO_DATE('29/09/2021','DD/MM/YYYY'),'Assegno','US-345IT11');
+insert into OrdineApproviggionamento values (00345612,00000000022,TO_DATE('01/11/2021','DD/MM/YYYY'),'Bonifico','US-345IT12');
+insert into OrdineApproviggionamento values (00345613,00000000023,TO_DATE('01/12/2021','DD/MM/YYYY'),'Bonifico','US-345IT13');
+insert into OrdineApproviggionamento values (00345614,00000000024,TO_DATE('15/01/2022','DD/MM/YYYY'),'Assegno','US-345IT14');
+insert into OrdineApproviggionamento values (00345615,00000000025,TO_DATE('15/02/2022','DD/MM/YYYY'),'Bonifico','US-345IT15');
+
+--LOTTO MATERIA PRIMA
