@@ -159,4 +159,9 @@ insert into LottoMateriaPrima values ('LT-0220013',0011020103013,00345613,160.99
 insert into LottoMateriaPrima values ('LT-0220014',0011020103014,00345614,200.99,0,TO_DATE('15/01/2022','DD/MM/YYYY'));
 insert into LottoMateriaPrima values ('LT-0220015',0011020103015,00345615,120.99,0,TO_DATE('27/02/2022','DD/MM/YYYY'));
 
---
+
+--MOSTO DOLCE
+insert into MostoDolce values ('LT-0220001',0011020103004,TO_DATE('01/01/2021','DD/MM/YYYY'),0,50,0);
+
+--AMMOSTAMENTO
+insert into Ammostamento values ();
