@@ -107,3 +107,20 @@ insert into Lievito values (0011020103005,'Saccharomyces Cerevisiae',0);
 insert into Lievito values (0011020103006,'Saccharomyces Carlsbergensis',0);
 insert into Lievito values (0011020103010,'Saccharomyces Cerevisiae',0);
 insert into Lievito values (0011020103012,'Saccharomyces Carlsbergensis',0);
+
+--TIPI DI BIRRA
+insert into TipoBirra values (0011020103001,'IT0011220','Stout',8.5,'Scura',0,100.00);
+insert into TipoBirra values (0011020103002,'IT0011221','Chimay Blanche',9,'Bionda',0,110.00);
+insert into TipoBirra values (0011020103003,'IT0011222','Lindemans',9,'Rossa',0,75.00);
+insert into TipoBirra values (0011020103004,'IT0011223','Brown Ale',8.5,'Scura',0,100.00);
+insert into TipoBirra values (0011020103005,'IT0011224','Lager',7.5,'Bionda',0,90.00);
+insert into TipoBirra values (0011020103006,'IT0011225','Leffe',8.5,'Rossa',0,100.00);
+insert into TipoBirra values (0011020103007,'IT0011226','Pecheresse',2.5,'Bionda',0,100.00);
+insert into TipoBirra values (0011020103008,'IT0011227','Messina',3,'Rossa',0,95.00);
+insert into TipoBirra values (0011020103009,'IT0011228','Pale Ale',5.5,'Bionda',0,100.00);
+insert into TipoBirra values (0011020103010,'IT0011229','Porter',6.5,'Scura',0,100.00);
+insert into TipoBirra values (0011020103011,'IT0011230','Chimay Bleue',9,'Scura',0,70.00);
+insert into TipoBirra values (0011020103012,'IT0011231','Rochefort 6',7.5,'Rossa',0,100.00);
+insert into TipoBirra values (0011020103013,'IT0011232','Omer',5.5,'Scura',0,85.00);
+insert into TipoBirra values (0011020103014,'IT0011233','Chimay Rouge',7,'Rossa',0,120.00);
+insert into TipoBirra values (0011020103015,'IT0011234','Ichnusa',5.5,'Bionda',0,100.00);
