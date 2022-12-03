@@ -86,3 +86,24 @@ insert into MateriaPrima values (0011020103012,'Lievito','Belgio');
 insert into MateriaPrima values (0011020103013,'Luppolo','USA');
 insert into MateriaPrima values (0011020103014,'Luppolo','Italia');
 insert into MateriaPrima values (0011020103015,'Malto','Scozia');
+
+--MALTO
+insert into Malto values (0011020103001,'CARA GOLD','Orzo',0);
+insert into Malto values (0011020103003,'SPECIAL B','Segale',0);
+insert into Malto values (0011020103008,'CRYSTAL 400','Mais',0);
+insert into Malto values (0011020103011,'CARA RED','Frumento',0);
+insert into Malto values (0011020103015,'CARA AMBER','Orzo',0);
+
+--LUPPOLO
+insert into Luppolo values (0011020103004,'Cannabaceae','Amaricante',0);
+insert into Luppolo values (0011020103007,'Urticales','Aromatizzante',0);
+insert into Luppolo values (0011020103009,'Humulus lupulus ','Misto',0);
+insert into Luppolo values (0011020103013,'Humulus','Amaricante',0);
+insert into Luppolo values (0011020103014,'Humulus yunnanensis','Aromatizzante',0);
+
+--LIEVITO
+insert into Lievito values (0011020103002,'Saccharomyces Cerevisiae',0);
+insert into Lievito values (0011020103005,'Saccharomyces Cerevisiae',0);
+insert into Lievito values (0011020103006,'Saccharomyces Carlsbergensis',0);
+insert into Lievito values (0011020103010,'Saccharomyces Cerevisiae',0);
+insert into Lievito values (0011020103012,'Saccharomyces Carlsbergensis',0);
