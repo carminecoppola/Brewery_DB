@@ -143,3 +143,20 @@ insert into OrdineApproviggionamento values (00345614,00000000024,TO_DATE('15/01
 insert into OrdineApproviggionamento values (00345615,00000000025,TO_DATE('15/02/2022','DD/MM/YYYY'),'Bonifico','US-345IT15');
 
 --LOTTO MATERIA PRIMA
+insert into LottoMateriaPrima values ('LT-0220001',0011020103001,00345601,200.99,0,TO_DATE('01/03/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220002',0011020103002,00345602,100.99,0,TO_DATE('05/04/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220003',0011020103003,00345603,200.99,0,TO_DATE('23/05/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220004',0011020103004,00345604,100.99,0,TO_DATE('15/06/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220005',0011020103005,00345605,300.99,0,TO_DATE('10/07/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220006',0011020103006,00345606,90.99,0,TO_DATE('04/08/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220007',0011020103007,00345607,150.99,0,TO_DATE('03/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220008',0011020103008,00345608,200.99,0,TO_DATE('10/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220009',0011020103009,00345609,250.99,0,TO_DATE('18/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220010',0011020103010,00345610,210.99,0,TO_DATE('01/10/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220011',0011020103011,00345611,200.99,0,TO_DATE('11/10/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220012',0011020103012,00345612,175.99,0,TO_DATE('20/11/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220013',0011020103013,00345613,160.99,0,TO_DATE('15/12/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220014',0011020103014,00345614,200.99,0,TO_DATE('15/01/2022','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220015',0011020103015,00345615,120.99,0,TO_DATE('27/02/2022','DD/MM/YYYY'));
+
+--
