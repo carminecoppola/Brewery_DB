@@ -70,4 +70,19 @@ insert into PUB values ('PT00-13','Flint Pub','Novi Ligure','Via Roma 51/53','15
 insert into PUB values ('PT00-14','Birreria Bavarese','Biella','Via Paietta 10','13836');
 insert into PUB values ('PT00-15','Central Park','Alessandria','Piazza Banda Lenti 2','15030');
 
---
+--MATERIE PRIME
+insert into MateriaPrima values (0011020103001,'Malto','Regno Unito');
+insert into MateriaPrima values (0011020103002,'Lievito','Regno Unito');
+insert into MateriaPrima values (0011020103003,'Malto','Belgio');
+insert into MateriaPrima values (0011020103004,'Luppolo','Regno Unito');
+insert into MateriaPrima values (0011020103005,'Lievito','Scozia');
+insert into MateriaPrima values (0011020103006,'Lievito','Italia');
+insert into MateriaPrima values (0011020103007,'Luppolo','Belgio');
+insert into MateriaPrima values (0011020103008,'Malto','USA');
+insert into MateriaPrima values (0011020103009,'Luppolo','Scozia');
+insert into MateriaPrima values (0011020103010,'Lievito','USA');
+insert into MateriaPrima values (0011020103011,'Malto','Italia');
+insert into MateriaPrima values (0011020103012,'Lievito','Belgio');
+insert into MateriaPrima values (0011020103013,'Luppolo','USA');
+insert into MateriaPrima values (0011020103014,'Luppolo','Italia');
+insert into MateriaPrima values (0011020103015,'Malto','Scozia');
