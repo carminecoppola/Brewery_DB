@@ -161,7 +161,18 @@ insert into LottoMateriaPrima values ('LT-0220015',0011020103015,00345615,120.99
 
 
 --MOSTO DOLCE
-insert into MostoDolce values ('LT-0220001',0011020103004,TO_DATE('01/01/2021','DD/MM/YYYY'),0,50,0);
+insert into MostoDolce values ('LT-0220004',0011020103004,TO_DATE('01/02/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220007',0011020103007,TO_DATE('01/03/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220009',0011020103009,TO_DATE('01/04/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220013',0011020103013,TO_DATE('01/05/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220014',0011020103014,TO_DATE('01/06/2021','DD/MM/YYYY'),0,50,1);
 
 --AMMOSTAMENTO
-insert into Ammostamento values ();
+insert into Ammostamento values (1,TO_DATE('02/02/2021','DD/MM/YYYY'),0011020103001,'LT-0220001','LT-0220004',1,1);
+insert into Ammostamento values (3,TO_DATE('02/03/2021','DD/MM/YYYY'),0011020103002,'LT-0220002','LT-0220007',1,1);
+insert into Ammostamento values (5,TO_DATE('02/04/2021','DD/MM/YYYY'),0011020103003,'LT-0220003','LT-0220009',1,1);
+insert into Ammostamento values (6,TO_DATE('02/05/2021','DD/MM/YYYY'),0011020103004,'LT-0220004','LT-0220013',1,1);
+insert into Ammostamento values (7,TO_DATE('02/06/2021','DD/MM/YYYY'),0011020103005,'LT-0220005','LT-0220014',1,1);
+insert into Ammostamento values (10,TO_DATE('02/07/2021','DD/MM/YYYY'),0011020103006,'LT-0220006','LT-0220004',2,2);
+insert into Ammostamento values (11,TO_DATE('02/08/2021','DD/MM/YYYY'),0011020103007,'LT-0220007','LT-0220007',2,2);
+insert into Ammostamento values (13,TO_DATE('02/09/2021','DD/MM/YYYY'),0011020103008,'LT-0220008','LT-0220009',2,2);
