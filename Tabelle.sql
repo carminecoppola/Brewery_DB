@@ -160,7 +160,7 @@ CREATE TABLE TipoBirra(
 CREATE TABLE BirraProdotta(
 	codLotto 			VARCHAR2(50),
 	dataProduzione 		DATE, 	
-	numLottoMostoDolce 	VARCHAR2(50) NOT NULL,  
+	numLottoMostoDolce 	VARCHAR2(50) UNIQUE NOT NULL,  
 	GTIN 				NUMBER(13) NOT NULL,
 	numFustiProdotti 	NUMBER NOT NULL,
 	
@@ -177,7 +177,7 @@ CREATE TABLE Ammostamento(
 	dataAmmostamento 	DATE NOT NULL,
 	gtinMalto 			NUMBER(13) NOT NULL,
 	codLotto			VARCHAR2(50) NOT NULL, 
-	numLottoProdotto 	VARCHAR2(50) NOT NULL,
+	numLottoProdotto 	VARCHAR2(50) UNIQUE NOT NULL,
 	quantitaMalto 		NUMBER NOT NULL CHECK(quantitaMalto > 0),
 	quantitaAcqua 		NUMBER NOT NULL CHECK(quantitaAcqua > 0),
 	
@@ -196,11 +196,11 @@ CREATE TABLE Fermentazione(
 	tipoFermentazione 	VARCHAR2(50) CHECK(tipoFermentazione IN('Alta','Bassa')),
 	dataInizioF 		DATE NOT NULL,
 	dataFineF 			DATE NOT NULL,
-	numLottoFermentato 	VARCHAR2(50),
+	numLottoFermentato 	VARCHAR2(50) UNIQUE NOT NULL,
 	gtinLievitoUsato 	NUMBER(13) NOT NULL,
 	codLottoLievito 	VARCHAR2(50) NOT NULL, 
 	quantitaLievUsato 	NUMBER NOT NULL CHECK(quantitaLievUsato > 0),
-	numLottoBirraProd	VARCHAR2(50),
+	numLottoBirraProd	VARCHAR2(50) UNIQUE,
 	
 	CONSTRAINT FERM_PK
 		PRIMARY KEY (idFermentatore,dataInizioF),
