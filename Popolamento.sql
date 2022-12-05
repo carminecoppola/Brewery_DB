@@ -215,5 +215,4 @@ insert into BirraVenduta values ('BP-0010202','VD--0220002',0);
 insert into BirraVenduta values ('BP-0010203','VD--0220003',0);
 insert into BirraVenduta values ('BP-0010204','VD--0220004',0);
 insert into BirraVenduta values ('BP-0010205','VD--0220005',0);
-insert into BirraVenduta values ('BP-001020','VD--0220006',0);
 
