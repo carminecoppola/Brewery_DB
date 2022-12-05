@@ -1,19 +1,19 @@
 --FORNITORE
-insert into Fornitore values (00000000011,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
-insert into Fornitore values (00000000012,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
-insert into Fornitore values (00000000013,'E-SARDINIA ','Oristano','09170','Via Santa Petronilla 15');
-insert into Fornitore values (00000000014,'NOSTRALE','Milano','20157','Via G. Ungaretti 23');
-insert into Fornitore values (00000000015,'PRATOROSSO','Milano','20107','Cascina Gaita 5');
-insert into Fornitore values (00000000016,'MARCONI','Novara','30040','5 Avenue de la Gare');
-insert into Fornitore values (00000000017,'BRASSERIE DE BRUNEHAUT SA','Brunehaut','7623','17 rue des Panneries');
-insert into Fornitore values (00000000018,'SWISS CHIPS GMBH','Schneisingen','5425','4 Schulstrasse');
-insert into Fornitore values (00000000019,'RESONE','Paris','75008','1 Rue De Stockholm');
-insert into Fornitore values (00000000020,'VETRARIA','Savignano Sul Rubicone','47039','Via Emilia Est 23');
-insert into Fornitore values (00000000021,'BROUWERIJ DE FENIKS CVBA','Heule','8501','138 Mellestraat');
-insert into Fornitore values (00000000022,'FLECKS BRAUHAUS TECHNIK GMBH ','Frohnleiten','8130','Rothleiten 64');
-insert into Fornitore values (00000000023,'KURSK BREWERY, LLC','Kursk','30502','Magistralny 18');
-insert into Fornitore values (00000000024,'BEERINBA DI BARBORA','Vigevano','27029','Via Carrobbio 18');
-insert into Fornitore values (00000000025,'DE-GUSTAMI','Milano','20131','Via Vallazze 95');
+insert into Fornitore values (00011000011,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
+insert into Fornitore values (00011000012,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
+insert into Fornitore values (00011000013,'E-SARDINIA ','Oristano','09170','Via Santa Petronilla 15');
+insert into Fornitore values (00011000014,'NOSTRALE','Milano','20157','Via G. Ungaretti 23');
+insert into Fornitore values (00011000015,'PRATOROSSO','Milano','20107','Cascina Gaita 5');
+insert into Fornitore values (00011000016,'MARCONI','Novara','30040','5 Avenue de la Gare');
+insert into Fornitore values (00011000017,'BRASSERIE DE BRUNEHAUT SA','Brunehaut','7623','17 rue des Panneries');
+insert into Fornitore values (00011000018,'SWISS CHIPS GMBH','Schneisingen','5425','4 Schulstrasse');
+insert into Fornitore values (00011000019,'RESONE','Paris','75008','1 Rue De Stockholm');
+insert into Fornitore values (00011000020,'VETRARIA','Savignano Sul Rubicone','47039','Via Emilia Est 23');
+insert into Fornitore values (00011000021,'BROUWERIJ DE FENIKS CVBA','Heule','8501','138 Mellestraat');
+insert into Fornitore values (00011000022,'FLECKS BRAUHAUS TECHNIK GMBH ','Frohnleiten','8130','Rothleiten 64');
+insert into Fornitore values (00011000023,'KURSK BREWERY, LLC','Kursk','30502','Magistralny 18');
+insert into Fornitore values (00011000024,'BEERINBA DI BARBORA','Vigevano','27029','Via Carrobbio 18');
+insert into Fornitore values (00011000025,'DE-GUSTAMI','Milano','20131','Via Vallazze 95');
 
 --MASTRO BIRRAIO
 
@@ -126,21 +126,22 @@ insert into TipoBirra values (0011020103014,'IT0011233','Chimay Rouge',7,'Rossa'
 insert into TipoBirra values (0011020103015,'IT0011234','Ichnusa',5.5,'Bionda',0,100.00);
 
 --ORDINE APPROVVIGGIONAMENTO
-insert into OrdineApproviggionamento values (00345601,00000000011,TO_DATE('01/01/2021','DD/MM/YYYY'),'Bonifico','US-345IT01');
-insert into OrdineApproviggionamento values (00345602,00000000012,TO_DATE('01/02/2021','DD/MM/YYYY'),'Assegno','US-345IT02');
-insert into OrdineApproviggionamento values (00345603,00000000013,TO_DATE('15/03/2021','DD/MM/YYYY'),'Bonifico','US-345IT03');
-insert into OrdineApproviggionamento values (00345604,00000000014,TO_DATE('02/04/2021','DD/MM/YYYY'),'Assegno','US-345IT04');
-insert into OrdineApproviggionamento values (00345605,00000000015,TO_DATE('15/04/2021','DD/MM/YYYY'),'Bonifico','US-345IT05');
-insert into OrdineApproviggionamento values (00345606,00000000016,TO_DATE('15/05/2021','DD/MM/YYYY'),'Bonifico','US-345IT06');
-insert into OrdineApproviggionamento values (00345607,00000000017,TO_DATE('29/06/2021','DD/MM/YYYY'),'Bonifico','US-345IT07');
-insert into OrdineApproviggionamento values (00345608,00000000018,TO_DATE('01/08/2021','DD/MM/YYYY'),'Assegno','US-345IT08');
-insert into OrdineApproviggionamento values (00345609,00000000019,TO_DATE('01/09/2021','DD/MM/YYYY'),'Assegno','US-345IT09');
-insert into OrdineApproviggionamento values (00345610,00000000020,TO_DATE('15/09/2021','DD/MM/YYYY'),'Bonifico','US-345IT10');
-insert into OrdineApproviggionamento values (00345611,00000000021,TO_DATE('29/09/2021','DD/MM/YYYY'),'Assegno','US-345IT11');
-insert into OrdineApproviggionamento values (00345612,00000000022,TO_DATE('01/11/2021','DD/MM/YYYY'),'Bonifico','US-345IT12');
-insert into OrdineApproviggionamento values (00345613,00000000023,TO_DATE('01/12/2021','DD/MM/YYYY'),'Bonifico','US-345IT13');
-insert into OrdineApproviggionamento values (00345614,00000000024,TO_DATE('15/01/2022','DD/MM/YYYY'),'Assegno','US-345IT14');
-insert into OrdineApproviggionamento values (00345615,00000000025,TO_DATE('15/02/2022','DD/MM/YYYY'),'Bonifico','US-345IT15');
+------qua
+insert into OrdineApproviggionamento values (00345601,00011000011,TO_DATE('01/01/2021','DD/MM/YYYY'),'Bonifico','US-345IT01');
+insert into OrdineApproviggionamento values (00345602,00011000012,TO_DATE('01/02/2021','DD/MM/YYYY'),'Assegno','US-345IT02');
+insert into OrdineApproviggionamento values (00345603,00011000013,TO_DATE('15/03/2021','DD/MM/YYYY'),'Bonifico','US-345IT03');
+insert into OrdineApproviggionamento values (00345604,00011000014,TO_DATE('02/04/2021','DD/MM/YYYY'),'Assegno','US-345IT04');
+insert into OrdineApproviggionamento values (00345605,00011000015,TO_DATE('15/04/2021','DD/MM/YYYY'),'Bonifico','US-345IT05');
+insert into OrdineApproviggionamento values (00345606,00011000016,TO_DATE('15/05/2021','DD/MM/YYYY'),'Bonifico','US-345IT06');
+insert into OrdineApproviggionamento values (00345607,00011000017,TO_DATE('29/06/2021','DD/MM/YYYY'),'Bonifico','US-345IT07');
+insert into OrdineApproviggionamento values (00345608,00011000018,TO_DATE('01/08/2021','DD/MM/YYYY'),'Assegno','US-345IT08');
+insert into OrdineApproviggionamento values (00345609,00011000019,TO_DATE('01/09/2021','DD/MM/YYYY'),'Assegno','US-345IT09');
+insert into OrdineApproviggionamento values (00345610,00011000020,TO_DATE('15/09/2021','DD/MM/YYYY'),'Bonifico','US-345IT10');
+insert into OrdineApproviggionamento values (00345611,00011000021,TO_DATE('29/09/2021','DD/MM/YYYY'),'Assegno','US-345IT11');
+insert into OrdineApproviggionamento values (00345612,00011000022,TO_DATE('01/11/2021','DD/MM/YYYY'),'Bonifico','US-345IT12');
+insert into OrdineApproviggionamento values (00345613,00011000023,TO_DATE('01/12/2021','DD/MM/YYYY'),'Bonifico','US-345IT13');
+insert into OrdineApproviggionamento values (00345614,00011000024,TO_DATE('15/01/2022','DD/MM/YYYY'),'Assegno','US-345IT14');
+insert into OrdineApproviggionamento values (00345615,00011000025,TO_DATE('15/02/2022','DD/MM/YYYY'),'Bonifico','US-345IT15');
 
 --LOTTO MATERIA PRIMA
 insert into LottoMateriaPrima values ('LT-0220001',0011020103001,00345601,200.99,0,TO_DATE('01/03/2021','DD/MM/YYYY'));
@@ -166,17 +167,6 @@ insert into MostoDolce values ('LT-0220007',0011020103007,TO_DATE('01/03/2021','
 insert into MostoDolce values ('LT-0220009',0011020103009,TO_DATE('01/04/2021','DD/MM/YYYY'),0,50,1);
 insert into MostoDolce values ('LT-0220013',0011020103013,TO_DATE('01/05/2021','DD/MM/YYYY'),0,50,1);
 insert into MostoDolce values ('LT-0220014',0011020103014,TO_DATE('01/06/2021','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220004',0011020103004,TO_DATE('01/07/2021','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220007',0011020103007,TO_DATE('01/08/2021','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220009',0011020103009,TO_DATE('01/09/2021','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220013',0011020103013,TO_DATE('01/10/2021','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220014',0011020103014,TO_DATE('01/11/2021','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220004',0011020103004,TO_DATE('01/12/2021','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220007',0011020103007,TO_DATE('01/01/2022','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220009',0011020103009,TO_DATE('01/02/2022','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220013',0011020103013,TO_DATE('01/03/2022','DD/MM/YYYY'),0,50,1);
-insert into MostoDolce values ('LT-0220014',0011020103014,TO_DATE('01/04/2022','DD/MM/YYYY'),0,50,1);
-
 
 --AMMOSTAMENTO
 insert into Ammostamento values (1,TO_DATE('02/02/2021','DD/MM/YYYY'),0011020103001,'LT-0220001','LT-0220004',1,1);
