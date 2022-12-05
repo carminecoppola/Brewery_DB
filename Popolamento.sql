@@ -166,6 +166,17 @@ insert into MostoDolce values ('LT-0220007',0011020103007,TO_DATE('01/03/2021','
 insert into MostoDolce values ('LT-0220009',0011020103009,TO_DATE('01/04/2021','DD/MM/YYYY'),0,50,1);
 insert into MostoDolce values ('LT-0220013',0011020103013,TO_DATE('01/05/2021','DD/MM/YYYY'),0,50,1);
 insert into MostoDolce values ('LT-0220014',0011020103014,TO_DATE('01/06/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220004',0011020103004,TO_DATE('01/07/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220007',0011020103007,TO_DATE('01/08/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220009',0011020103009,TO_DATE('01/09/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220013',0011020103013,TO_DATE('01/10/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220014',0011020103014,TO_DATE('01/11/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220004',0011020103004,TO_DATE('01/12/2021','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220007',0011020103007,TO_DATE('01/01/2022','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220009',0011020103009,TO_DATE('01/02/2022','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220013',0011020103013,TO_DATE('01/03/2022','DD/MM/YYYY'),0,50,1);
+insert into MostoDolce values ('LT-0220014',0011020103014,TO_DATE('01/04/2022','DD/MM/YYYY'),0,50,1);
+
 
 --AMMOSTAMENTO
 insert into Ammostamento values (1,TO_DATE('02/02/2021','DD/MM/YYYY'),0011020103001,'LT-0220001','LT-0220004',1,1);
@@ -176,6 +187,13 @@ insert into Ammostamento values (7,TO_DATE('02/06/2021','DD/MM/YYYY'),0011020103
 insert into Ammostamento values (10,TO_DATE('02/07/2021','DD/MM/YYYY'),0011020103006,'LT-0220006','LT-0220004',2,2);
 insert into Ammostamento values (11,TO_DATE('02/08/2021','DD/MM/YYYY'),0011020103007,'LT-0220007','LT-0220007',2,2);
 insert into Ammostamento values (13,TO_DATE('02/09/2021','DD/MM/YYYY'),0011020103008,'LT-0220008','LT-0220009',2,2);
+insert into Ammostamento values (1,TO_DATE('02/10/2021','DD/MM/YYYY'),0011020103009,'LT-0220009','LT-0220013',2,2);
+insert into Ammostamento values (3,TO_DATE('02/11/2021','DD/MM/YYYY'),0011020103010,'LT-0220010','LT-0220014',2,2);
+insert into Ammostamento values (5,TO_DATE('02/12/2021','DD/MM/YYYY'),0011020103011,'LT-0220011','LT-0220004',3,3);
+insert into Ammostamento values (6,TO_DATE('02/01/2022','DD/MM/YYYY'),0011020103012,'LT-0220012','LT-0220007',3,3);
+insert into Ammostamento values (7,TO_DATE('02/02/2022','DD/MM/YYYY'),0011020103013,'LT-0220013','LT-0220009',3,3);
+insert into Ammostamento values (10,TO_DATE('02/03/2022','DD/MM/YYYY'),0011020103014,'LT-0220014','LT-0220013',3,3);
+insert into Ammostamento values (11,TO_DATE('02/04/2022','DD/MM/YYYY'),0011020103015,'LT-0220015','LT-0220014',3,3);
 
 
 --BIRRA PRODOTTA
