@@ -146,7 +146,7 @@ CREATE TABLE TipoBirra(
 	ssnSupervisore 		VARCHAR2(16) NOT NULL,
 	nomeBirra 			VARCHAR2(50) NOT NULL,
 	gradoAlcolico 		NUMBER NOT NULL CHECK(gradoAlcolico >= 0),
-	colore 				VARCHAR2(30) CHECK (colore IN ('Bionda','Rossa','Scura')),
+	colore 				VARCHAR2(30) CHECK (LOWER(colore) IN ('bionda','rossa','scura')),
 	fustiMagazzino 		NUMBER NOT NULL,
 	prezzoFusto			NUMBER NOT NULL,
 
@@ -193,7 +193,7 @@ CREATE TABLE Ammostamento(
 
 CREATE TABLE Fermentazione(
 	idFermentatore 		NUMBER NOT NULL,
-	tipoFermentazione 	VARCHAR2(50) CHECK(tipoFermentazione IN('Alta','Bassa')),
+	tipoFermentazione 	VARCHAR2(50) CHECK(LOWER(tipoFermentazione) IN('alta','bassa')),
 	dataInizioF 		DATE NOT NULL,
 	dataFineF 			DATE NOT NULL,
 	numLottoFermentato 	VARCHAR2(50) UNIQUE NOT NULL,
@@ -228,7 +228,7 @@ CREATE TABLE PUB(
 CREATE TABLE Vendita(
     codFattura 			VARCHAR2(50) NOT NULL,
     partCatastaleCli	VARCHAR2(50),
-	metodoPagamento 	VARCHAR2(50) CHECK(metodoPagamento IN('Assegno','Bonifico')),
+	metodoPagamento 	VARCHAR2(50) CHECK(LOWER(metodoPagamento) IN('assegno','bonifico')),
 	dataVendita 		DATE NOT NULL,
 	ricavo				NUMBER,
 	
