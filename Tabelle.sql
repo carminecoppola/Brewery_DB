@@ -69,7 +69,6 @@ CREATE TABLE OrdineApproviggionamento(
 
 CREATE TABLE MateriaPrima(
 	GTIN 				NUMBER(13) NOT NULL,
-	tipo 				VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
 	provenienza			VARCHAR2(50),
 	
 	CONSTRAINT MAT_P_PK
@@ -114,6 +113,7 @@ CREATE TABLE Lievito(
 CREATE TABLE LottoMateriaPrima(
 	codLotto 			VARCHAR2(50) NOT NULL,
 	GTIN 				NUMBER(13) NOT NULL,
+	tipo 				VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
 	codFattura 			NUMBER NOT NULL,
 	prezzoAcquisto 		NUMBER NOT NULL,
 	quantitaAcquistata 	NUMBER NOT NULL,

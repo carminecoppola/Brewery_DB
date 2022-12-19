@@ -71,21 +71,21 @@ insert into PUB values ('PT00-14','Birreria Bavarese','Biella','Via Paietta 10',
 insert into PUB values ('PT00-15','Central Park','Alessandria','Piazza Banda Lenti 2','15030');
 
 --MATERIE PRIME
-insert into MateriaPrima values (0011020103001,'Malto','Regno Unito');
-insert into MateriaPrima values (0011020103002,'Lievito','Regno Unito');
-insert into MateriaPrima values (0011020103003,'Malto','Belgio');
-insert into MateriaPrima values (0011020103004,'Luppolo','Regno Unito');
-insert into MateriaPrima values (0011020103005,'Lievito','Scozia');
-insert into MateriaPrima values (0011020103006,'Lievito','Italia');
-insert into MateriaPrima values (0011020103007,'Luppolo','Belgio');
-insert into MateriaPrima values (0011020103008,'Malto','USA');
-insert into MateriaPrima values (0011020103009,'Luppolo','Scozia');
-insert into MateriaPrima values (0011020103010,'Lievito','USA');
-insert into MateriaPrima values (0011020103011,'Malto','Italia');
-insert into MateriaPrima values (0011020103012,'Lievito','Belgio');
-insert into MateriaPrima values (0011020103013,'Luppolo','USA');
-insert into MateriaPrima values (0011020103014,'Luppolo','Italia');
-insert into MateriaPrima values (0011020103015,'Malto','Scozia');
+insert into MateriaPrima values (0011020103001,'Regno Unito');
+insert into MateriaPrima values (0011020103002,'Regno Unito');
+insert into MateriaPrima values (0011020103003,'Belgio');
+insert into MateriaPrima values (0011020103004,'Regno Unito');
+insert into MateriaPrima values (0011020103005,'Scozia');
+insert into MateriaPrima values (0011020103006,'Italia');
+insert into MateriaPrima values (0011020103007,'Belgio');
+insert into MateriaPrima values (0011020103008,'USA');
+insert into MateriaPrima values (0011020103009,'Scozia');
+insert into MateriaPrima values (0011020103010,'USA');
+insert into MateriaPrima values (0011020103011,'Italia');
+insert into MateriaPrima values (0011020103012,'Belgio');
+insert into MateriaPrima values (0011020103013,'USA');
+insert into MateriaPrima values (0011020103014,'Italia');
+insert into MateriaPrima values (0011020103015,'Scozia');
 
 --MALTO
 insert into Malto values (0011020103001,'CARA GOLD','Orzo',0);
@@ -126,7 +126,6 @@ insert into TipoBirra values (0011020103014,'IT0011233','Chimay Rouge',7,'Rossa'
 insert into TipoBirra values (0011020103015,'IT0011234','Ichnusa',5.5,'Bionda',0,100.00);
 
 --ORDINE APPROVVIGGIONAMENTO
-------qua
 insert into OrdineApproviggionamento values (00345601,00011000011,TO_DATE('01/01/2021','DD/MM/YYYY'),'Bonifico','US-345IT01');
 insert into OrdineApproviggionamento values (00345602,00011000012,TO_DATE('01/02/2021','DD/MM/YYYY'),'Assegno','US-345IT02');
 insert into OrdineApproviggionamento values (00345603,00011000013,TO_DATE('15/03/2021','DD/MM/YYYY'),'Bonifico','US-345IT03');
@@ -144,21 +143,21 @@ insert into OrdineApproviggionamento values (00345614,00011000024,TO_DATE('15/01
 insert into OrdineApproviggionamento values (00345615,00011000025,TO_DATE('15/02/2022','DD/MM/YYYY'),'Bonifico','US-345IT15');
 
 --LOTTO MATERIA PRIMA
-insert into LottoMateriaPrima values ('LT-0220001',0011020103001,00345601,200.99,0,TO_DATE('01/03/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220002',0011020103002,00345602,100.99,0,TO_DATE('05/04/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220003',0011020103003,00345603,200.99,0,TO_DATE('23/05/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220004',0011020103004,00345604,100.99,0,TO_DATE('15/06/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220005',0011020103005,00345605,300.99,0,TO_DATE('10/07/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220006',0011020103006,00345606,90.99,0,TO_DATE('04/08/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220007',0011020103007,00345607,150.99,0,TO_DATE('03/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220008',0011020103008,00345608,200.99,0,TO_DATE('10/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220009',0011020103009,00345609,250.99,0,TO_DATE('18/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220010',0011020103010,00345610,210.99,0,TO_DATE('01/10/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220011',0011020103011,00345611,200.99,0,TO_DATE('11/10/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220012',0011020103012,00345612,175.99,0,TO_DATE('20/11/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220013',0011020103013,00345613,160.99,0,TO_DATE('15/12/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220014',0011020103014,00345614,200.99,0,TO_DATE('15/01/2022','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220015',0011020103015,00345615,120.99,0,TO_DATE('27/02/2022','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220001',0011020103001,'Malto',00345601,200.99,0,TO_DATE('01/03/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220002',0011020103002,'Lievito',00345602,100.99,0,TO_DATE('05/04/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220003',0011020103003,'Malto',00345603,200.99,0,TO_DATE('23/05/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220004',0011020103004,'Luppolo',00345604,100.99,0,TO_DATE('15/06/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220005',0011020103005,'Lievito',00345605,300.99,0,TO_DATE('10/07/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220006',0011020103006,'Lievito',00345606,90.99,0,TO_DATE('04/08/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220007',0011020103007,'Luppolo',00345607,150.99,0,TO_DATE('03/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220008',0011020103008,'Malto',00345608,200.99,0,TO_DATE('10/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220009',0011020103009,'Luppolo',00345609,250.99,0,TO_DATE('18/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220010',0011020103010,'Lievito',00345610,210.99,0,TO_DATE('01/10/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220011',0011020103011,'Malto',00345611,200.99,0,TO_DATE('11/10/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220012',0011020103012,'Lievito',00345612,175.99,0,TO_DATE('20/11/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220013',0011020103013,'Luppolo',00345613,160.99,0,TO_DATE('15/12/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220014',0011020103014,'Luppolo',00345614,200.99,0,TO_DATE('15/01/2022','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220015',0011020103015,'Malto',00345615,120.99,0,TO_DATE('27/02/2022','DD/MM/YYYY'));
 
 
 --MOSTO DOLCE
