@@ -1,3 +1,5 @@
+
+
 /*  1) Il primo trigger controlla che la quantità di malto utilizzato per l'ammostamento sia disponibile
        tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità maggiore di
        quella che abbiamo in stock*/
@@ -23,34 +25,34 @@
         EXCEPTION
             WHEN notEnoughMalt THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
             WHEN maltNotInStock THEN  RAISE_APPLICATION_ERROR (-20104,'Malto non in scorta');
-    END;
+    END Check_scorte_malto;
 
 
 /*  2) Il secondo trigger controlla che la quantità di luppolo utilizzato per l'ammostamento sia 
        disponibile tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità 
        maggiore di quella che abbiamo in stock*/
 
-    CREATE OR REPLACE TRIGGER Check_scorte_luppolo  
-        BEFORE INSERT ON MostoDolce               
-        FOR EACH ROW
-        DECLARE
-            notEnoughLupp EXCEPTION;
-            luppNotInStock EXCEPTION;
-            luppoloQT NUMBER;  
-        BEGIN
-            SELECT quantitaMagazzino INTO luppoloQT
-            FROM Luppolo LU 
-            WHERE LU.GTIN = :new.gtinLuppoloUsato;
-            IF luppoloQT IS NULL THEN RAISE luppNotInStock;
-            ELSIF (:new.quantitaLuppoloUsato > luppoloQT)
-                THEN RAISE notEnoughLupp;
-            ELSIF (:new.quantitaLuppoloUsato <= luppoloQT)
-                THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLuppoloUsato WHERE GTIN = :new.gtinLuppoloUsato;
-            END IF;
-            EXCEPTION
-                WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20002,'Luppolo in scorta insufficiente');
-                WHEN luppNotInStock THEN  RAISE_APPLICATION_ERROR (-20003,'Luppolo non in scorta');
-    END;
+	 CREATE OR REPLACE TRIGGER Check_scorte_luppolo  
+		BEFORE INSERT ON MostoDolce               
+		FOR EACH ROW
+		DECLARE
+		    notEnoughLupp EXCEPTION;
+		    luppNotInStock EXCEPTION;
+		    luppoloQT NUMBER;  
+		BEGIN
+		    SELECT quantitaMagazzino INTO luppoloQT
+		    FROM Luppolo LU 
+		    WHERE LU.GTIN = :new.gtinLuppoloUsato;
+		    IF luppoloQT IS NULL THEN RAISE luppNotInStock;
+		    ELSIF (:new.quantitaLuppoloUsato > luppoloQT)
+		        THEN RAISE notEnoughLupp;
+		    ELSIF (:new.quantitaLuppoloUsato <= luppoloQT)
+		        THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLuppoloUsato WHERE GTIN = :new.gtinLuppoloUsato;
+		    END IF;
+		    EXCEPTION
+		        WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20002,'Luppolo in scorta insufficiente');
+		        WHEN luppNotInStock THEN  RAISE_APPLICATION_ERROR (-20003,'Luppolo non in scorta');
+	    END Check_scorte_luppolo;
 
 
 /*  3) Il terzo trigger controlla che la quantità di lievito utilizzato per la fermentazione sia 
@@ -78,7 +80,7 @@
             EXCEPTION
                 WHEN notEnoughLiev THEN  RAISE_APPLICATION_ERROR (-20004,'Lievito in scorta insufficiente');
                 WHEN lievNotInStock THEN  RAISE_APPLICATION_ERROR (-20005,'Lievito non in scorta');
-    END;
+    END Check_scorte_lievito ;
 
 
 /*  4) Questo trigger controlla che la quantità di malto e acqua utilizzati per l'ammostamento
@@ -100,60 +102,50 @@
             END IF;
         EXCEPTION
                 WHEN notEnoughCapacity THEN  RAISE_APPLICATION_ERROR (-20006,'Capacità insufficiente');
-    END;
+    END Check_lavorazione;
 
 /*  5) Questo trigger controlla che la quantità di mosto utilizzata per la fermentazione
        non sia superiore alla capacità di lavorazione del bollitore.*/
 
     CREATE OR REPLACE TRIGGER Check_lavorazione2 
-        BEFORE INSERT ON Fermentazione               
+        BEFORE INSERT ON MostoDolce               
         FOR EACH ROW
         DECLARE
-            notEnoughCapacityF EXCEPTION;
-            ContainerCap NUMBER;
-            qtMosto NUMBER;
+        	qtAcqua NUMBER;
+        	OverProduction EXCEPTION;
         BEGIN
-            SELECT quantitamosto INTO qtMosto
-            FROM MostoDolce M JOIN Fermentazione F ON F.numLottoFermentato = M.numLotto 
-            WHERE M.numLotto = :new.numLottoFermentato;
-            
-            SELECT capacitaLavorazione 
-            INTO ContainerCap FROM Contenitore 
-            WHERE id = :new.idFermentatore;
-            
-            IF (qtMosto > ContainerCap )
-                THEN RAISE notEnoughCapacityF;
-            END IF;
+        	SELECT quantitaAcqua INTO qtAcqua
+        	FROM AMMOSTAMENTO
+        	WHERE idBollitore = :new.idBollitoreProvenienza AND data = :new.dataAmmostamento;
+        	
+        	IF (qtAcqua < : new.quantitaMosto) THEN RAISE OverProduction
+           
         EXCEPTION
-            WHEN notEnoughCapacityF THEN  RAISE_APPLICATION_ERROR (-20017,'Capacità insufficiente');
-    END;
+            WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20017,'OverProduction');
+    END Check_lavorazione2;
 
 
 /*  6) Quando viene fatto un inserimento in lotto materia prima controlla che sia conforme alle 
        specifiche e aggiorna la quantità delle scorte.*/
 
-    CREATE OR REPLACE TRIGGER Update_scorte  
+    CREATE OR REPLACE TRIGGER Update_scorte_materiePrime  
         AFTER INSERT ON LottoMateriaPrima               
         FOR EACH ROW
         DECLARE
             pragma autonomous_transaction;
-            tipoScorta VARCHAR2(60);
     BEGIN
-     	SELECT tipo INTO tipoScorta
-     	FROM MateriaPrima M
-     	WHERE M.GTIN = :new.GTIN;
-     	IF (TipoScorta = 'Malto') 
+     	IF (:new.tipo = 'Malto') 
             THEN UPDATE Malto SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
             WHERE GTIN = :new.Gtin;
-     	ELSIF(TipoScorta = 'Luppolo') 
+     	ELSIF(:new.tipo = 'Luppolo') 
             THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
             WHERE GTIN = :new.Gtin;
-     	ELSIF(TipoScorta = 'Lievito')  
+     	ELSIF(:new.tipo = 'Lievito')  
             THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
             WHERE GTIN = :new.Gtin;
      	END IF;
      	COMMIT;
-    END;
+    END Update_scorte_materiePrime ;
 
 /*  7) Durante un inserimento nell'ammostamento controlliamo che venga utilizzato un bollitore e non un
        fermentatore.*/
@@ -173,7 +165,7 @@
         END IF;
         EXCEPTION 
             WHEN wrongContainer THEN RAISE_APPLICATION_ERROR(-20007,'Wrong type container');
-	END;
+	END Check_Bollitore;
 
 
 /*  8) Durante un inserimento nella fermentazione controlliamo che venga utilizzato un fermentatore e non un
@@ -194,4 +186,130 @@
         END IF;
         EXCEPTION 
             WHEN wrongContainer THEN RAISE_APPLICATION_ERROR(-20009,'Wrong type container');
-	END;
+	END Check_Fermentatore;
+	
+/*9) Dopo aver prodotto della birra viene aggiornato il numero di fusti */	
+	
+	 CREATE OR REPLACE TRIGGER Update_scorte_birra
+        AFTER INSERT ON BirraProdotta               
+        FOR EACH ROW
+        DECLARE
+        pragma autonomous_transaction;
+        BEGIN
+        UPDATE TipoBirra SET NumeroFustiMagazzino = NumeroFustiMagazzino + :new.NumFustiProdotti WHERE GTIN  = :new.GTIN;
+        COMMIT;
+        END Update_scorte_birra;
+        
+/*10) Controlla che il numero di fusti venduti sia presente in magazzino e eventualmente aggiorna le scorte*/	
+
+	 CREATE OR REPLACE TRIGGER CheckVendita
+        BEFORE INSERT ON BirraVenduta               
+        FOR EACH ROW
+        DECLARE
+        pragma autonomous_transaction;
+        notEnoughtFusti EXCEPTION;
+        nFustiDisp NUMBER;
+        BEGIN
+        SELECT TB.NumeroFustiMagazzino INTO nFustiDisp  FROM BirraProdotta BP join TipoBirra TB on BP.GTIN = TB.GTIN 
+        WHERE CodLotto = :new.CodLotto;
+        
+        IF (nFustiDisp < :new.numFusti) THEN RAISE notEnoughtFusti
+        ELSIF (nFustiDisp >= :new.numFusti) 
+        THEN UPDATE TipoBirra SET NumeroFustiMagazzino = NumeroFustiMagazzino - :new.numFusti 
+        WHERE GTIN = SELECT GTIN FROM BirraProdotta WHERE CodLotto = :new.CodLotto;
+        COMMIT;
+        ENDIF;
+        END CheckVendita;
+        
+/*11) Aggiorna automaticamente la data di fine fermentazione con la data di produzione della birra fatta con il mosto fermentato*/	 
+	CREATE OR REPLACE TRIGGER AutoUpdateFermentazione
+        AFTER INSERT ON BirraProdotta               
+        FOR EACH ROW
+        DECLARE
+        pragma autonomous_transaction;
+        BEGIN
+        UPDATE FERMENTAZIONE SET dataFine = :new.dataProduzione
+        WHERE numLottoFermentato = :new.numLottoMostoDolce;
+        COMMIT;
+        END AutoUpdateFermentazione;
+        
+/*12) Controlla che non vengano eseguite fermentazioni in fermentatori già occupati*/	
+	CREATE OR REPLACE TRIGGER CheckDisponibilitaFermentatore
+	BEFORE INSERT ON Fermentazione
+	FOR EACH ROW
+        DECLARE
+        FermentatoreOccupato EXCEPTION;
+        occupato NUMBER;
+        BEGIN
+        SELECT COUNT(*) INTO occupato FROM FERMENTAZIONE WHERE idFermentatore=:new.idFermentatore AND dataFine IS NULL;
+        
+        IF (occupato > 0) THEN RAISE FermentatoreOccupato;
+        END IF;
+        EXCEPTION
+        WHEN FermentatoreOccupato THEN RAISE_APPLICATION_ERROR(-20029,'Fermentatore Occupato');
+        END CheckDisponibilitaFermentatore;
+        
+
+/*13) Controlla che quando viene inserita una materia prima in ammostamento questa sia un malto, in caso contrario lancia un eccezzione*/	
+
+        CREATE OR REPLACE TRIGGER Check_IsMalt
+        BEFORE INSERT ON AMMOSTAMENTO               
+        FOR EACH ROW
+        DECLARE
+            tipoMateriaPrima CHAR(20);
+            wrongMateriaPrima EXCEPTION;
+	    BEGIN
+            Select tipo INTO tipoMateriaPrima 
+            FROM MateriaPrima 
+            WHERE GTIN = :new.gtinMALTO;
+            IF (tipoMateriaPrima <> 'Malto') 
+                THEN RAISE wrongMateriaPrima;
+            END IF;
+        EXCEPTION 
+            WHEN wrongMateriaPrima THEN RAISE_APPLICATION_ERROR(-20100,'Raw material is not malt');
+	    END Check_IsMalt;
+
+/*14) Controlla che quando viene inserita una materia prima in mosto dolce questa sia un luppolo, in caso contrario lancia un eccezzione*/	
+
+         CREATE OR REPLACE TRIGGER Check_IsHop
+        BEFORE INSERT ON MostoDolce               
+        FOR EACH ROW
+        DECLARE
+            tipoMateriaPrima CHAR(20);
+            wrongMateriaPrima2 EXCEPTION;
+	    BEGIN
+            Select tipo INTO tipoMateriaPrima 
+            FROM MateriaPrima 
+            WHERE GTIN = :new.gtinLuppoloUsato;
+            IF (tipoMateriaPrima <> 'Luppolo') 
+                THEN RAISE wrongMateriaPrima2;
+            END IF;
+        EXCEPTION 
+            WHEN wrongMateriaPrima2 THEN RAISE_APPLICATION_ERROR(-20101,'Raw material is not hop');
+	    END Check_IsHop;
+
+/*15) Controlla che quando viene inserita una materia prima in fermentazione questa sia un lievito, in caso contrario lancia un eccezzione*/	
+
+    CREATE OR REPLACE TRIGGER Check_IsYeast
+        BEFORE INSERT ON Fermentazione               
+        FOR EACH ROW
+        DECLARE
+            tipoMateriaPrima CHAR(20);
+            wrongMateriaPrima3 EXCEPTION;
+	    BEGIN
+            Select tipo INTO tipoMateriaPrima 
+            FROM MateriaPrima 
+            WHERE GTIN = :new.gtinLievitoUsato;
+            IF (tipoMateriaPrima <> 'Lievito') 
+                THEN RAISE wrongMateriaPrima3;
+            END IF;
+        EXCEPTION 
+            WHEN wrongMateriaPrima3 THEN RAISE_APPLICATION_ERROR(-20102,'Raw material is not yeast');
+	END Check_IsYeast;
+
+        
+        
+        
+	
+	    
+    
