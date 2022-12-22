@@ -32,7 +32,7 @@
        disponibile tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità 
        maggiore di quella che abbiamo in stock*/
 
-	 CREATE OR REPLACE TRIGGER Check_scorte_luppolo  
+	CREATE OR REPLACE TRIGGER Check_scorte_luppolo  
 		BEFORE INSERT ON MostoDolce               
 		FOR EACH ROW
 		DECLARE
@@ -44,10 +44,10 @@
 		    FROM Luppolo LU 
 		    WHERE LU.GTIN = :new.gtinLuppoloUsato;
 		    IF luppoloQT IS NULL THEN RAISE luppNotInStock;
-		    ELSIF (:new.quantitaLuppoloUsato > luppoloQT)
+		    ELSIF (:new.quantitaLuppUsato > luppoloQT)
 		        THEN RAISE notEnoughLupp;
-		    ELSIF (:new.quantitaLuppoloUsato <= luppoloQT)
-		        THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLuppoloUsato WHERE GTIN = :new.gtinLuppoloUsato;
+		    ELSIF (:new.quantitaLuppUsato <= luppoloQT)
+		        THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLuppUsato WHERE GTIN = :new.gtinLuppoloUsato;
 		    END IF;
 		    EXCEPTION
 		        WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20002,'Luppolo in scorta insufficiente');
@@ -72,10 +72,10 @@
             FROM Lievito LI 
             WHERE LI.GTIN = :new.gtinLievitoUsato;
             IF lievitoQT IS NULL THEN RAISE lievNotInStock;
-            ELSIF (:new.quantitaLievitoUsato > lievitoQT)
+            ELSIF (:new.quantitaLievUsato > lievitoQT)
                 THEN RAISE notEnoughLiev;
-            ELSIF (:new.quantitaLievitoUsato <= lievitoQT)
-                THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLievitoUsato WHERE GTIN = :new.gtinLievitoUsato;
+            ELSIF (:new.quantitaLievUsato <= lievitoQT)
+                THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino - :new.quantitaLievUsato WHERE GTIN = :new.gtinLievitoUsato;
             END IF;
             EXCEPTION
                 WHEN notEnoughLiev THEN  RAISE_APPLICATION_ERROR (-20004,'Lievito in scorta insufficiente');
@@ -96,7 +96,7 @@
         BEGIN
             SELECT capacitaLavorazione INTO ContainerCap
             FROM Contenitore C
-            WHERE C.id = :new.idBollitore;
+            WHERE C.idContenitore = :new.idBollitore;
             IF (:new.quantitaAcqua > ContainerCap )
                 THEN RAISE notEnoughCapacity;
             END IF;
@@ -108,17 +108,24 @@
        non sia superiore alla capacità di lavorazione del bollitore.*/
 
     CREATE OR REPLACE TRIGGER Check_lavorazione2 
-        BEFORE INSERT ON MostoDolce               
+        BEFORE INSERT ON Fermentazione               
         FOR EACH ROW
         DECLARE
-        	qtAcqua NUMBER;
+        	qtMosto NUMBER;
+            capacita NUMBER;
         	OverProduction EXCEPTION;
         BEGIN
-        	SELECT quantitaAcqua INTO qtAcqua
-        	FROM AMMOSTAMENTO
-        	WHERE idBollitore = :new.idBollitoreProvenienza AND data = :new.dataAmmostamento;
+        	SELECT quantitaMosto INTO qtMosto
+        	FROM MostoDolce
+        	WHERE codLotto = :new.numLottoFermentato;
         	
-        	IF (qtAcqua < : new.quantitaMosto) THEN RAISE OverProduction
+            select capacitaLavorazione 
+              into capacita
+              from Contenitore
+             where idContenitore = :new.idFermentatore;
+
+        	IF (qtMosto < capacita) THEN RAISE OverProduction;
+            END IF;
            
         EXCEPTION
             WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20017,'OverProduction');
@@ -157,9 +164,9 @@
             tipoContenitore CHAR(20);
             wrongContainer EXCEPTION;
 	BEGIN
-        Select tipo INTO tipoContenitore 
+        Select tipoContenitore INTO tipoContenitore 
         FROM Contenitore 
-        WHERE id = :new.idBollitore;
+        WHERE idContenitore = :new.idBollitore;
         IF (tipoContenitore = 'Fermentatore') 
             THEN RAISE wrongContainer;
         END IF;
@@ -178,9 +185,9 @@
             tipoContenitore CHAR(20);
             wrongContainer EXCEPTION;
 	BEGIN
-        Select tipo INTO tipoContenitore 
+        Select tipoContenitore INTO tipoContenitore 
         FROM Contenitore 
-        WHERE id = :new.idFermentatore;
+        WHERE idContenitore = :new.idFermentatore;
         IF (tipoContenitore = 'Bollitore') 
             THEN RAISE wrongContainer;
         END IF;
