@@ -1,63 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../../../01.ASD/02.Ferone/Esercizi/Algoritmi-e-Strutture-Dati"
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"system_error": "cpp",
-			"array": "cpp",
-			"functional": "cpp",
-			"tuple": "cpp",
-			"type_traits": "cpp",
-			"utility": "cpp",
-			"algorithm": "cpp",
-			"iostream": "cpp",
-			"atomic": "cpp",
-			"bit": "cpp",
-			"*.tcc": "cpp",
-			"cctype": "cpp",
-			"clocale": "cpp",
-			"cmath": "cpp",
-			"compare": "cpp",
-			"concepts": "cpp",
-			"cstdarg": "cpp",
-			"cstddef": "cpp",
-			"cstdint": "cpp",
-			"cstdio": "cpp",
-			"cstdlib": "cpp",
-			"ctime": "cpp",
-			"cwchar": "cpp",
-			"cwctype": "cpp",
-			"deque": "cpp",
-			"map": "cpp",
-			"string": "cpp",
-			"unordered_map": "cpp",
-			"vector": "cpp",
-			"exception": "cpp",
-			"iterator": "cpp",
-			"memory": "cpp",
-			"memory_resource": "cpp",
-			"numeric": "cpp",
-			"random": "cpp",
-			"string_view": "cpp",
-			"fstream": "cpp",
-			"initializer_list": "cpp",
-			"iomanip": "cpp",
-			"iosfwd": "cpp",
-			"istream": "cpp",
-			"limits": "cpp",
-			"new": "cpp",
-			"numbers": "cpp",
-			"ostream": "cpp",
-			"sstream": "cpp",
-			"stdexcept": "cpp",
-			"streambuf": "cpp",
-			"typeinfo": "cpp"
-		}
-	}
+    "folders": [
+        {
+            "path": "../../../03.BDS/03.Codice/DB_Birrificio"
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "ostream": "cpp",
+            "iostream": "cpp"
+        }
+    }
 }
