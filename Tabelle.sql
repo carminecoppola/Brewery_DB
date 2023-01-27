@@ -69,44 +69,46 @@ CREATE TABLE OrdineApproviggionamento(
 );
 
 CREATE TABLE MateriaPrima(
-	gs1Fornitore	NUMBER NOT NULL,
-	tipo 			VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
-	nome			VARCHAR2(50),
-	provenienza		VARCHAR2(50),
+	gs1Fornitore 		NUMBER NOT NULL,
+	tipo 				VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
+	nomeMatPrim			VARCHAR2(50),
+	provenienza 		VARCHAR2(50),
 	
 	CONSTRAINT MAT_P_PK
-		PRIMARY KEY(gs1Fornitore,nome),
+		PRIMARY KEY(gs1Fornitore),
 	CONSTRAINT MAT_P_FK
 		FOREIGN KEY(gs1Fornitore) REFERENCES Fornitore(GS1) on delete cascade
 );
 
 CREATE TABLE Malto(
-	nomeMalto 			VARCHAR2(50),
+	nomeMalto 			VARCHAR2(50) NOT NULL,
 	cerealeMaltato 		VARCHAR2(50) NOT NULL CHECK(cerealeMaltato IN ('Orzo','Segale','Frumento','Mais')),
 
 	CONSTRAINT MALT_PK 
 		PRIMARY KEY(nomeMalto),
 	CONSTRAINT MALT_PKFK
-		FOREIGN KEY (nomeMalto,cerealeMaltato) REFERENCES MateriaPrima(nome,tipo) on delete cascade
+		FOREIGN KEY (nomeMalto) REFERENCES MateriaPrima(nomeMatPrim) on delete cascade
 );
 
 CREATE TABLE Luppolo(
 	classificazione 	VARCHAR2(50) NOT NULL,
-	nomeLuppolo 		VARCHAR2(50)  CHECK (nomeLuppolo IN ('Amaricante','Aromatizzante','Misto')),
+	nomeLuppolo 		VARCHAR2(50) NOT NULL CHECK (classificazione IN ('Amaricante','Aromatizzante','Misto')),
 	
 	CONSTRAINT LUPP_PK 
 		PRIMARY KEY(nomeLuppolo),
 	CONSTRAINT LUPP_PKFK
-		FOREIGN KEY (nomeLuppolo,classificazione) REFERENCES MateriaPrima(nome,tipo) on delete cascade
+		FOREIGN KEY (nomeLuppolo) REFERENCES MateriaPrima(nomeMatPrim) on delete cascade
+
 );
 
 CREATE TABLE Lievito(
 	nomeLievito 		VARCHAR2(50) NOT NULL CHECK (nomeLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
-
+	
 	CONSTRAINT LIEV_PK 
 		PRIMARY KEY(nomeLievito),
 	CONSTRAINT LIEV_PKFK
-		FOREIGN KEY (nomeLievito) REFERENCES MateriaPrima(nome) on delete cascade
+		FOREIGN KEY (nomeLievito) REFERENCES MateriaPrima(nomeMatPrim) on delete cascade
+
 );
 		
 CREATE TABLE LottoMateriaPrima(
