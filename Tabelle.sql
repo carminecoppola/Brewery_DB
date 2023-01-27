@@ -97,7 +97,7 @@ CREATE TABLE Luppolo(
 	CONSTRAINT LUPP_PK 
 		PRIMARY KEY(nomeLuppolo),
 	CONSTRAINT LUPP_PKFK
-		FFOREIGN KEY (nomeLuppolo,classificazione) REFERENCES MateriaPrima(nome,tipo) on delete cascade,
+		FOREIGN KEY (nomeLuppolo,classificazione) REFERENCES MateriaPrima(nome,tipo) on delete cascade
 );
 
 CREATE TABLE Lievito(
