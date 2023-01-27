@@ -54,74 +54,66 @@ CREATE TABLE Contenitore(
 );
 
 CREATE TABLE OrdineApproviggionamento(
-	codFattura 			NUMBER NOT NULL,
 	gs1Fornitore 		NUMBER NOT NULL,
 	dataRifornimento 	DATE NOT NULL,
+	dataOrdine			DATE NOT NULL,
+	codFattura 			NUMBER NOT NULL,
 	metodoPagamento 	VARCHAR2(50) CHECK(metodoPagamento IN('Assegno','Bonifico')),
 	numeroTracking 		VARCHAR2(50),
 
 	CONSTRAINT OAPP_PK
 		PRIMARY KEY(codFattura),
 	CONSTRAINT OAPP_FK_FORN
-		FOREIGN KEY(gs1Fornitore ) REFERENCES Fornitore(GS1) on delete cascade
+		FOREIGN KEY(gs1Fornitore) REFERENCES Fornitore(GS1) on delete cascade
 		
 );
 
 CREATE TABLE MateriaPrima(
-	codProdotto			NUMBER(4) NOT NULL,
-	gs1Fornitore		NUMBER(9) NOT NULL,
-	provenienza			VARCHAR2(50),
+	gs1Fornitore	NUMBER NOT NULL,
+	tipo 			VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
+	nome			VARCHAR2(50),
+	provenienza		VARCHAR2(50),
 	
 	CONSTRAINT MAT_P_PK
-		PRIMARY KEY(codProdotto,gs1Fornitore),
+		PRIMARY KEY(gs1Fornitore,nome),
 	CONSTRAINT MAT_P_FK
 		FOREIGN KEY(gs1Fornitore) REFERENCES Fornitore(GS1) on delete cascade
 );
 
 CREATE TABLE Malto(
-	codProdotto			NUMBER(4) NOT NULL,
-	gs1Fornitore		NUMBER(9) NOT NULL,
 	nomeMalto 			VARCHAR2(50),
 	cerealeMaltato 		VARCHAR2(50) NOT NULL CHECK(cerealeMaltato IN ('Orzo','Segale','Frumento','Mais')),
-	quantitaMagazzino 	NUMBER NOT NULL,
 
 	CONSTRAINT MALT_PK 
-		PRIMARY KEY(codProdotto,gs1Fornitore),
+		PRIMARY KEY(nomeMalto),
 	CONSTRAINT MALT_PKFK
-		FOREIGN KEY (codProdotto,gs1Fornitore) REFERENCES MateriaPrima(codProdotto,gs1Fornitore) on delete cascade
+		FOREIGN KEY (nomeMalto,cerealeMaltato) REFERENCES MateriaPrima(nome,tipo) on delete cascade
 );
 
 CREATE TABLE Luppolo(
-	codProdotto			NUMBER(4) NOT NULL,
-	gs1Fornitore		NUMBER(9) NOT NULL,
 	classificazione 	VARCHAR2(50) NOT NULL,
-	tipoLuppolo 		VARCHAR2(50)  CHECK (tipoLuppolo IN ('Amaricante','Aromatizzante','Misto')),
-	quantitaMagazzino 	NUMBER NOT NULL,
+	nomeLuppolo 		VARCHAR2(50)  CHECK (nomeLuppolo IN ('Amaricante','Aromatizzante','Misto')),
 	
 	CONSTRAINT LUPP_PK 
-		PRIMARY KEY(codProdotto,gs1Fornitore),
+		PRIMARY KEY(nomeLuppolo),
 	CONSTRAINT LUPP_PKFK
-		FFOREIGN KEY (codProdotto,gs1Fornitore) REFERENCES MateriaPrima(codProdotto,gs1Fornitore) on delete cascade,
+		FFOREIGN KEY (nomeLuppolo,classificazione) REFERENCES MateriaPrima(nome,tipo) on delete cascade,
 );
 
 CREATE TABLE Lievito(
-	codProdotto			NUMBER(4) NOT NULL,
-	gs1Fornitore		NUMBER(9) NOT NULL,
-	tipoLievito 		VARCHAR2(50) NOT NULL CHECK (tipoLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
-	quantitaMagazzino 	NUMBER NOT NULL,
+	nomeLievito 		VARCHAR2(50) NOT NULL CHECK (nomeLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
 
 	CONSTRAINT LIEV_PK 
-		PRIMARY KEY(codProdotto,gs1Fornitore),
+		PRIMARY KEY(nomeLievito),
 	CONSTRAINT LIEV_PKFK
-		FOREIGN KEY (codProdotto,gs1Fornitore) REFERENCES MateriaPrima(codProdotto,gs1Fornitore) on delete cascade
+		FOREIGN KEY (nomeLievito) REFERENCES MateriaPrima(nome) on delete cascade
 );
 		
-
 CREATE TABLE LottoMateriaPrima(
 	codLotto 			VARCHAR2(50) NOT NULL,
 	codProdotto			NUMBER(4) NOT NULL,
 	gs1Fornitore		NUMBER(9) NOT NULL,
-	tipo 				VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
+	nomeMateriaPrima	VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
 	codFattura 			NUMBER NOT NULL,
 	prezzoAcquisto 		NUMBER NOT NULL,
 	quantitaAcquistata 	NUMBER NOT NULL,
@@ -130,24 +122,27 @@ CREATE TABLE LottoMateriaPrima(
 	CONSTRAINT LMAT_P_PK
 		PRIMARY KEY(codLotto,codProdotto,gs1Fornitore),
 	CONSTRAINT LMAT_P_FK_MAT_P
-		FOREIGN KEY (codProdotto,gs1Fornitore) REFERENCES MateriaPrima(codProdotto,gs1Fornitore) on delete cascade,
+		FOREIGN KEY (nomeMateriaPrima) REFERENCES MateriaPrima(nome) on delete cascade,
 	CONSTRAINT LMAT_P_FK_OAPP
-		FOREIGN KEY(codFattura) REFERENCES OrdineApproviggionamento(codFattura)	on delete cascade
+		FOREIGN KEY(codFattura) REFERENCES OrdineApproviggionamento(codFattura)	on delete cascade,
+	CONSTRAINT LMAT_P_FK_FORN
+		FOREIGN KEY(gs1Fornitore) REFERENCES Fornitore(GS1) on delete cascade
 );
 
 CREATE TABLE MostoDolce(
-	codLotto		 	VARCHAR(50) NOT NULL,
-	codProdotto			NUMBER(4) NOT NULL,
+	numeroLotto 		NUMBER NOT NULL,
+	codProdLuppUsato	NUMBER NOT NULL,
 	gs1Fornitore		NUMBER(9) NOT NULL,
+	codLotto		 	VARCHAR2(50) NOT NULL,
 	dataAmmostamento 	DATE NOT NULL,
 	quantitaLuppUsato 	NUMBER,
 	gradiPlato 			NUMBER CHECK (gradiPlato > 0),
 	quantitaMosto 		NUMBER CHECK (quantitaMosto > 0),
 	
 	CONSTRAINT MD_PK
-		PRIMARY KEY(codLotto,codProdotto,gs1Fornitore),
+		PRIMARY KEY(numeroLotto),
 	CONSTRAINT MD_LUP_FK
-		FOREIGN KEY(codProdotto,gs1Fornitore,codLotto) REFERENCES LottoMateriaPrima(codProdotto,gs1Fornitore,codLotto) on delete cascade
+		FOREIGN KEY(codProdLuppUsato,gs1Fornitore,codLotto) REFERENCES LottoMateriaPrima(codProdotto,gs1Fornitore,codLotto) on delete cascade
 );
 
 CREATE TABLE TipoBirra(
@@ -158,69 +153,74 @@ CREATE TABLE TipoBirra(
 	colore 				VARCHAR2(30) CHECK (LOWER(colore) IN ('bionda','rossa','scura')),
 	fustiMagazzino 		NUMBER NOT NULL,
 	prezzoFusto			NUMBER NOT NULL,
+	nomeMalto			VARCHAR2(50) NOT NULL,
+	nomeLuppolo			VARCHAR2(50) NOT NULL,			
+	nomeLievito			VARCHAR2(50) NOT NULL,
 
 	CONSTRAINT TIPBIRR_PK
 		PRIMARY KEY(GTIN),
 	CONSTRAINT TIPBIRR_FK
-		FOREIGN KEY(ssnSupervisore) REFERENCES MastroBirraio(ssn) on delete cascade	
+		FOREIGN KEY(ssnSupervisore) REFERENCES MastroBirraio(ssn) on delete cascade,
+	CONSTRAINT TIPBIRR_MALTO_FK
+		FOREIGN KEY(nomeMalto) REFERENCES Malto(nomeMalto) on delete cascade,
+	CONSTRAINT TIPBIRR_LUPP_FK
+		FOREIGN KEY(nomeLuppolo) REFERENCES Luppolo(nomeLuppolo) on delete cascade,
+	CONSTRAINT TIPBIRR_LIEV_FK
+		FOREIGN KEY(nomeLievito) REFERENCES Lievito(nomeLievito) on delete cascade			
 
 );
 
 CREATE TABLE BirraProdotta(
 	codLotto 			VARCHAR2(50),
-	dataProduzione 		DATE, 	
-	numLottoMostoDolce 	VARCHAR2(50) UNIQUE NOT NULL,  
+	dataProduzione 		DATE NOT NULL, 	
 	GTIN 				NUMBER(13) NOT NULL,
 	numFustiProdotti 	NUMBER NOT NULL,
 	
 	CONSTRAINT BIRRP_PK
 		PRIMARY KEY(codLotto),
 	CONSTRAINT BIRRP_FK
-		FOREIGN KEY(GTIN) REFERENCES TipoBirra(GTIN) on delete cascade,		
-	CONSTRAINT BIRRP_FK2
-		FOREIGN KEY(numLottoMostoDolce) REFERENCES MostoDolce(codLotto) on delete cascade
+		FOREIGN KEY(GTIN) REFERENCES TipoBirra(GTIN) on delete cascade
 );
 
 CREATE TABLE Ammostamento(
 	idBollitore 		NUMBER NOT NULL,
 	dataAmmostamento 	DATE NOT NULL,
-	codProdotto			NUMBER(4) NOT NULL,
+	codProdottoMalto	NUMBER(4) NOT NULL,
 	gs1Fornitore		NUMBER(9) NOT NULL,
 	codLotto			VARCHAR2(50) NOT NULL, 
-	numLottoProdotto 	VARCHAR2(50) UNIQUE NOT NULL,
+	numLottoProdotto 	NUMBER NOT NULL,
 	quantitaMalto 		NUMBER NOT NULL CHECK(quantitaMalto > 0),
 	quantitaAcqua 		NUMBER NOT NULL CHECK(quantitaAcqua > 0),
 	
 	CONSTRAINT AMM_PK
 		PRIMARY KEY (idBollitore,dataAmmostamento),
-	CONSTRAINT AMM_FK_MALT	
-		FOREIGN KEY(codProdotto,gs1Fornitore,codLotto) REFERENCES LottoMateriaPrima(codProdotto,gs1Fornitore,codLotto) on delete cascade,
+	CONSTRAINT AMM_FK_LOTMP	
+		FOREIGN KEY(codProdottoMalto,gs1Fornitore,codLotto) REFERENCES LottoMateriaPrima(codProdotto,gs1Fornitore,codLotto) on delete cascade,
 	CONSTRAINT AMM_FKPK_CONT
 		FOREIGN KEY(idBollitore) REFERENCES Contenitore(idContenitore) on delete cascade,
 	CONSTRAINT AMM_FK_MSTDLC
-		FOREIGN KEY(numLottoProdotto) REFERENCES MostoDolce(codLotto) on delete cascade
+		FOREIGN KEY(numLottoProdotto) REFERENCES MostoDolce(numeroLotto) on delete cascade
 );
 
 CREATE TABLE Fermentazione(
 	idFermentatore 		NUMBER NOT NULL,
 	tipoFermentazione 	VARCHAR2(50) CHECK(LOWER(tipoFermentazione) IN('alta','bassa')),
+	numLottoBirraProd	VARCHAR2(50) UNIQUE,
 	dataInizioF 		DATE NOT NULL,
 	dataFineF 			DATE NOT NULL,
 	numLottoFermentato 	VARCHAR2(50) UNIQUE NOT NULL,
-	codProdotto			NUMBER(4) NOT NULL,
+	codProdLievUsato	NUMBER(4) NOT NULL,
 	gs1Fornitore		NUMBER(9) NOT NULL,
-	codLottoLievito 	VARCHAR2(50) NOT NULL, 
 	quantitaLievUsato 	NUMBER NOT NULL CHECK(quantitaLievUsato > 0),
-	numLottoBirraProd	VARCHAR2(50) UNIQUE,
 	
 	CONSTRAINT FERM_PK
 		PRIMARY KEY (idFermentatore,dataInizioF),
 	CONSTRAINT FERM_PKFK_CONT
 		FOREIGN KEY(idFermentatore) REFERENCES Contenitore(idContenitore) on delete cascade,
 	CONSTRAINT FERM_FK_MD
-		FOREIGN KEY(numLottoFermentato) REFERENCES MostoDolce(codLotto) on delete cascade,
-	CONSTRAINT FERM_FK_LA
-		FOREIGN KEY(codProdotto,gs1Fornitore,codLottoLievito) REFERENCES LottoMateriaPrima(codProdotto,gs1Fornitore,codLotto) on delete cascade,
+		FOREIGN KEY(numLottoFermentato) REFERENCES MostoDolce(numeroLotto) on delete cascade,
+	CONSTRAINT FERM_FK_LOTMATPRIM
+		FOREIGN KEY(codProdLievUsato,gs1Fornitore) REFERENCES LottoMateriaPrima(codProdotto,gs1Fornitore) on delete cascade,
 	CONSTRAINT FERM_FK_BIRRP
 		FOREIGN KEY(numLottoBirraProd) REFERENCES BirraProdotta(codLotto) on delete cascade
 );
