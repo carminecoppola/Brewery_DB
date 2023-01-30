@@ -69,13 +69,13 @@ CREATE TABLE OrdineApproviggionamento(
 );
 
 CREATE TABLE MateriaPrima(
-	gs1Fornitore 		NUMBER NOT NULL,
-	tipo 				VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')),
+	gs1Fornitore 		NUMBER NOT NULL, --Aggiungere nel Relaz.
+	tipo 				VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')), 
 	nomeMatPrim			VARCHAR2(50),
 	provenienza 		VARCHAR2(50),
 	
 	CONSTRAINT MAT_P_PK
-		PRIMARY KEY(gs1Fornitore),
+		PRIMARY KEY(nomeMatPrim),
 	CONSTRAINT MAT_P_FK
 		FOREIGN KEY(gs1Fornitore) REFERENCES Fornitore(GS1) on delete cascade
 );
@@ -92,7 +92,7 @@ CREATE TABLE Malto(
 
 CREATE TABLE Luppolo(
 	classificazione 	VARCHAR2(50) NOT NULL,
-	nomeLuppolo 		VARCHAR2(50) NOT NULL CHECK(classificazione IN ('Amaricante','Aromatizzante','Misto')),
+	nomeLuppolo 		VARCHAR2(50) NOT NULL CHECK(nomeLuppolo IN ('Amaricante','Aromatizzante','Misto')),
 	
 	CONSTRAINT LUPP_PK 
 		PRIMARY KEY(nomeLuppolo),
