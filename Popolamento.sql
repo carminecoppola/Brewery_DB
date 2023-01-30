@@ -1,19 +1,19 @@
 --FORNITORE
-insert into Fornitore values (0001122330011,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
-insert into Fornitore values (0001122330012,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
-insert into Fornitore values (0001122330013,'E-SARDINIA ','Oristano','09170','Via Santa Petronilla 15');
-insert into Fornitore values (0001122330014,'NOSTRALE','Milano','20157','Via G. Ungaretti 23');
-insert into Fornitore values (0001122330015,'PRATOROSSO','Milano','20107','Cascina Gaita 5');
-insert into Fornitore values (0001122330016,'MARCONI','Novara','30040','5 Avenue de la Gare');
-insert into Fornitore values (0001122330017,'BRASSERIE DE BRUNEHAUT SA','Brunehaut','7623','17 rue des Panneries');
-insert into Fornitore values (0001122330018,'SWISS CHIPS GMBH','Schneisingen','5425','4 Schulstrasse');
-insert into Fornitore values (0001122330019,'RESONE','Paris','75008','1 Rue De Stockholm');
-insert into Fornitore values (0001122330010,'VETRARIA','Savignano Sul Rubicone','47039','Via Emilia Est 23');
-insert into Fornitore values (0001022330011,'BROUWERIJ DE FENIKS CVBA','Heule','8501','138 Mellestraat');
-insert into Fornitore values (0001022330012,'FLECKS BRAUHAUS TECHNIK GMBH ','Frohnleiten','8130','Rothleiten 64');
-insert into Fornitore values (0001022330013,'KURSK BREWERY, LLC','Kursk','30502','Magistralny 18');
-insert into Fornitore values (0001022330014,'BEERINBA DI BARBORA','Vigevano','27029','Via Carrobbio 18');
-insert into Fornitore values (0001022330015,'DE-GUSTAMI','Milano','20131','Via Vallazze 95');
+insert into Fornitore values (000123011,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
+insert into Fornitore values (000123012,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
+insert into Fornitore values (000123013,'E-SARDINIA ','Oristano','09170','Via Santa Petronilla 15');
+insert into Fornitore values (000123014,'NOSTRALE','Milano','20157','Via G. Ungaretti 23');
+insert into Fornitore values (000123015,'PRATOROSSO','Milano','20107','Cascina Gaita 5');
+insert into Fornitore values (000123016,'MARCONI','Novara','30040','5 Avenue de la Gare');
+insert into Fornitore values (000123017,'BRASSERIE DE BRUNEHAUT SA','Brunehaut','7623','17 rue des Panneries');
+insert into Fornitore values (000123018,'SWISS CHIPS GMBH','Schneisingen','5425','4 Schulstrasse');
+insert into Fornitore values (000123019,'RESONE','Paris','75008','1 Rue De Stockholm');
+insert into Fornitore values (000123010,'VETRARIA','Savignano Sul Rubicone','47039','Via Emilia Est 23');
+insert into Fornitore values (010123011,'BROUWERIJ DE FENIKS CVBA','Heule','8501','138 Mellestraat');
+insert into Fornitore values (010123012,'FLECKS BRAUHAUS TECHNIK GMBH ','Frohnleiten','8130','Rothleiten 64');
+insert into Fornitore values (010123013,'KURSK BREWERY, LLC','Kursk','30502','Magistralny 18');
+insert into Fornitore values (010123014,'BEERINBA DI BARBORA','Vigevano','27029','Via Carrobbio 18');
+insert into Fornitore values (010123015,'DE-GUSTAMI','Milano','20131','Via Vallazze 95');
 
 --MASTRO BIRRAIO
 
@@ -71,21 +71,21 @@ insert into PUB values ('PT00-14','Birreria Bavarese','Biella','Via Paietta 10',
 insert into PUB values ('PT00-15','Central Park','Alessandria','Piazza Banda Lenti 2','15030');
 
 --MATERIE PRIME
-insert into MateriaPrima values (0001122330011,'Malto','Pale Ale Malt','Regno Unito');
-insert into MateriaPrima values (0001122330012,'Lievito','American Ale','Regno Unito');
-insert into MateriaPrima values (0001122330013,'Luppolo','Cascade','Belgio');
-insert into MateriaPrima values (0001122330014,'Malto','Vienna Malt','Regno Unito');
-insert into MateriaPrima values (0001122330015,'Lievito','Belgian Ale','Scozia');
-insert into MateriaPrima values (0001122330016,'Lievito','English Ale','Italia');
-insert into MateriaPrima values (0001122330017,'Malto','Munich Malt','Belgio');
-insert into MateriaPrima values (0001122330018,'Luppolo','Chinook','USA');
-insert into MateriaPrima values (0001122330019,'Luppolo','Columbus','Scozia');
-insert into MateriaPrima values (0001122330010,'Malto','Pilsner Malt','USA');
-insert into MateriaPrima values (0001022330011,'Luppolo','Centennial','Italia');
-insert into MateriaPrima values (0001022330012,'Luppolo','Simcoe','Belgio');
-insert into MateriaPrima values (0001022330013,'Lievito','German Wheat','USA');
-insert into MateriaPrima values (0001022330014,'Lievito','Irish Ale','Italia');
-insert into MateriaPrima values (0001022330015,'Malto','Wheat Malt','Scozia');
+insert into MateriaPrima values (000123011,'Malto','Pale Ale Malt','Regno Unito');
+insert into MateriaPrima values (000123012,'Lievito','American Ale','Regno Unito');
+insert into MateriaPrima values (000123013,'Luppolo','Cascade','Belgio');
+insert into MateriaPrima values (000123014,'Malto','Vienna Malt','Regno Unito');
+insert into MateriaPrima values (000123015,'Lievito','Belgian Ale','Scozia');
+insert into MateriaPrima values (000123016,'Lievito','English Ale','Italia');
+insert into MateriaPrima values (000123017,'Malto','Munich Malt','Belgio');
+insert into MateriaPrima values (000123018,'Luppolo','Chinook','USA');
+insert into MateriaPrima values (000123019,'Luppolo','Columbus','Scozia');
+insert into MateriaPrima values (000123010,'Malto','Pilsner Malt','USA');
+insert into MateriaPrima values (010123011,'Luppolo','Centennial','Italia');
+insert into MateriaPrima values (010123012,'Luppolo','Simcoe','Belgio');
+insert into MateriaPrima values (010123013,'Lievito','German Wheat','USA');
+insert into MateriaPrima values (010123014,'Lievito','Irish Ale','Italia');
+insert into MateriaPrima values (010123015,'Malto','Wheat Malt','Scozia');
 
 
 --MALTO
@@ -111,21 +111,14 @@ insert into Lievito values ('German Wheat');
 insert into Lievito values ('Irish Ale');
 
 --TIPI DI BIRRA
-insert into TipoBirra values (0011020103001,'IT0011220','Stout',8.5,'Scura',0,100.00);
-insert into TipoBirra values (0011020103002,'IT0011221','Chimay Blanche',9,'Bionda',0,110.00);
-insert into TipoBirra values (0011020103003,'IT0011222','Lindemans',9,'Rossa',0,75.00);
-insert into TipoBirra values (0011020103004,'IT0011223','Brown Ale',8.5,'Scura',0,100.00);
-insert into TipoBirra values (0011020103005,'IT0011224','Lager',7.5,'Bionda',0,90.00);
-insert into TipoBirra values (0011020103006,'IT0011225','Leffe',8.5,'Rossa',0,100.00);
-insert into TipoBirra values (0011020103007,'IT0011226','Pecheresse',2.5,'Bionda',0,100.00);
-insert into TipoBirra values (0011020103008,'IT0011227','Messina',3,'Rossa',0,95.00);
-insert into TipoBirra values (0011020103009,'IT0011228','Pale Ale',5.5,'Bionda',0,100.00);
-insert into TipoBirra values (0011020103010,'IT0011229','Porter',6.5,'Scura',0,100.00);
-insert into TipoBirra values (0011020103011,'IT0011230','Chimay Bleue',9,'Scura',0,70.00);
-insert into TipoBirra values (0011020103012,'IT0011231','Rochefort 6',7.5,'Rossa',0,100.00);
-insert into TipoBirra values (0011020103013,'IT0011232','Omer',5.5,'Scura',0,85.00);
-insert into TipoBirra values (0011020103014,'IT0011233','Chimay Rouge',7,'Rossa',0,120.00);
-insert into TipoBirra values (0011020103015,'IT0011234','Ichnusa',5.5,'Bionda',0,100.00);
+insert into TipoBirra values (0011020103001,'IT0011220','Stout',8.5,'Scura',0,100.00 ,'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (0011020103002,'IT0011221','Chimay Blanche',9,'Bionda',3,110.00 ,'Vienna Malt','Chinook','Belgian Ale');
+insert into TipoBirra values (0011020103003,'IT0011222','Lindemans',9,'Rossa',2,75.00 ,'Munich Malt','Columbus','English Ale');
+insert into TipoBirra values (0011020103004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 ,'Pilsner Malt','Centennial','German Wheat');
+insert into TipoBirra values (0011020103005,'IT0011224','Lager',7.5,'Bionda',0,90.00 ,'Wheat Malt','Simcoe','Irish Ale');
+
+--SONO QUI
+
 
 --ORDINE APPROVVIGGIONAMENTO
 insert into OrdineApproviggionamento values (00345601,00011000011,TO_DATE('01/01/2021','DD/MM/YYYY'),'Bonifico','US-345IT01');
@@ -145,21 +138,21 @@ insert into OrdineApproviggionamento values (00345614,00011000024,TO_DATE('15/01
 insert into OrdineApproviggionamento values (00345615,00011000025,TO_DATE('15/02/2022','DD/MM/YYYY'),'Bonifico','US-345IT15');
 
 --LOTTO MATERIA PRIMA
-insert into LottoMateriaPrima values ('LT-0220001',0011020103001,'Malto',00345601,200.99,0,TO_DATE('01/03/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220002',0011020103002,'Lievito',00345602,100.99,0,TO_DATE('05/04/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220003',0011020103003,'Malto',00345603,200.99,0,TO_DATE('23/05/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220004',0011020103004,'Luppolo',00345604,100.99,0,TO_DATE('15/06/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220005',0011020103005,'Lievito',00345605,300.99,0,TO_DATE('10/07/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220006',0011020103006,'Lievito',00345606,90.99,0,TO_DATE('04/08/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220007',0011020103007,'Luppolo',00345607,150.99,0,TO_DATE('03/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220008',0011020103008,'Malto',00345608,200.99,0,TO_DATE('10/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220009',0011020103009,'Luppolo',00345609,250.99,0,TO_DATE('18/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220010',0011020103010,'Lievito',00345610,210.99,0,TO_DATE('01/10/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220011',0011020103011,'Malto',00345611,200.99,0,TO_DATE('11/10/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220012',0011020103012,'Lievito',00345612,175.99,0,TO_DATE('20/11/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220013',0011020103013,'Luppolo',00345613,160.99,0,TO_DATE('15/12/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220014',0011020103014,'Luppolo',00345614,200.99,0,TO_DATE('15/01/2022','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220015',0011020103015,'Malto',00345615,120.99,0,TO_DATE('27/02/2022','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220001',1001,,'Malto',00345601,200.99,0,TO_DATE('01/03/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220002',1002,'Lievito',00345602,100.99,0,TO_DATE('05/04/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220003',1003,'Malto',00345603,200.99,0,TO_DATE('23/05/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220004',1004,'Luppolo',00345604,100.99,0,TO_DATE('15/06/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220005',1005,'Lievito',00345605,200.99,0,TO_DATE('10/07/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220006',1006,'Lievito',00345606,90.99,0,TO_DATE('04/08/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220007',1007,'Luppolo',00345607,150.99,0,TO_DATE('03/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220008',1008,'Malto',00345608,200.99,0,TO_DATE('10/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220009',1009,'Luppolo',00345609,250.99,0,TO_DATE('18/09/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220010',1010,'Lievito',00345610,210.99,0,TO_DATE('01/10/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220011',1011,'Malto',00345611,200.99,0,TO_DATE('11/10/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220012',1012,'Lievito',00345612,175.99,0,TO_DATE('20/11/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220013',1013,'Luppolo',00345613,160.99,0,TO_DATE('15/12/2021','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220014',1014,'Luppolo',00345614,200.99,0,TO_DATE('15/01/2022','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220015',1015,'Malto',00345615,120.99,0,TO_DATE('27/02/2022','DD/MM/YYYY'));
 
 
 --MOSTO DOLCE
