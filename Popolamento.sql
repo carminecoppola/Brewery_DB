@@ -104,11 +104,11 @@ insert into Luppolo values ('Centennial','Amaricante');
 insert into Luppolo values ('Simcoe','Aromatizzante');
 
 --LIEVITO
-insert into Lievito values (0011020103002,'Saccharomyces Cerevisiae',0);
-insert into Lievito values (0011020103005,'Saccharomyces Cerevisiae',0);
-insert into Lievito values (0011020103006,'Saccharomyces Carlsbergensis',0);
-insert into Lievito values (0011020103010,'Saccharomyces Cerevisiae',0);
-insert into Lievito values (0011020103012,'Saccharomyces Carlsbergensis',0);
+insert into Lievito values ('American Ale');
+insert into Lievito values ('Belgian Ale');
+insert into Lievito values ('English Ale');
+insert into Lievito values ('German Wheat');
+insert into Lievito values ('Irish Ale');
 
 --TIPI DI BIRRA
 insert into TipoBirra values (0011020103001,'IT0011220','Stout',8.5,'Scura',0,100.00);

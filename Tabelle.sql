@@ -102,7 +102,7 @@ CREATE TABLE Luppolo(
 );
 
 CREATE TABLE Lievito(
-	nomeLievito 		VARCHAR2(50) NOT NULL CHECK (nomeLievito IN ('Saccharomyces Cerevisiae','Saccharomyces Carlsbergensis')),
+	nomeLievito 		VARCHAR2(50) NOT NULL CHECK (nomeLievito IN ('American Ale','Belgian Ale','English Ale','German Wheat','Irish Ale')),
 	
 	CONSTRAINT LIEV_PK 
 		PRIMARY KEY(nomeLievito),
