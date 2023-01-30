@@ -211,7 +211,7 @@ CREATE TABLE Fermentazione(
 	numLottoBirraProd	VARCHAR2(50),
 	dataInizioF 		DATE NOT NULL,
 	dataFineF 			DATE NOT NULL,
-	numLottoFermentato 	NUMBER NOT NULL,
+	numLotFermentato 	NUMBER NOT NULL,
 	codLottoMatPrim		VARCHAR2(50) NOT NULL, --Aggiungere a Relazionale
 	codProdLievUsato	NUMBER(4) NOT NULL,
 	gs1Fornit			NUMBER(9) NOT NULL,
@@ -222,7 +222,7 @@ CREATE TABLE Fermentazione(
 	CONSTRAINT FERM_PKFK_CONT
 		FOREIGN KEY(idFermentatore) REFERENCES Contenitore(idContenitore) on delete cascade,
 	CONSTRAINT FERM_FK_MD
-		FOREIGN KEY(numLottoFermentato) REFERENCES MostoDolce(numeroLotto) on delete cascade,
+		FOREIGN KEY(numLotFermentato) REFERENCES MostoDolce(numeroLotto) on delete cascade,
 	CONSTRAINT FERM_FK_LOTMATPRIM
 		FOREIGN KEY(codLottoMatPrim,codProdLievUsato,gs1Fornit) REFERENCES LottoMateriaPrima(codLotto,codProdotto,gs1Fornitore) on delete cascade,
 	CONSTRAINT FERM_FK_BIRRP
