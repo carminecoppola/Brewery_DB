@@ -91,8 +91,8 @@ CREATE TABLE Malto(
 );
 
 CREATE TABLE Luppolo(
-	classificazione 	VARCHAR2(50) NOT NULL,
-	nomeLuppolo 		VARCHAR2(50) NOT NULL CHECK(nomeLuppolo IN ('Amaricante','Aromatizzante','Misto')),
+	nomeLuppolo 		VARCHAR2(50) NOT NULL,
+	classificazione 	VARCHAR2(50) NOT NULL CHECK(classificazione IN ('Amaricante','Aromatizzante','Misto')),
 	
 	CONSTRAINT LUPP_PK 
 		PRIMARY KEY(nomeLuppolo),

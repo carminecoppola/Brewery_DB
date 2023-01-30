@@ -71,35 +71,37 @@ insert into PUB values ('PT00-14','Birreria Bavarese','Biella','Via Paietta 10',
 insert into PUB values ('PT00-15','Central Park','Alessandria','Piazza Banda Lenti 2','15030');
 
 --MATERIE PRIME
-insert into MateriaPrima values (0011020103001,'Regno Unito');
-insert into MateriaPrima values (0011020103002,'Regno Unito');
-insert into MateriaPrima values (0011020103003,'Belgio');
-insert into MateriaPrima values (0011020103004,'Regno Unito');
-insert into MateriaPrima values (0011020103005,'Scozia');
-insert into MateriaPrima values (0011020103006,'Italia');
-insert into MateriaPrima values (0011020103007,'Belgio');
-insert into MateriaPrima values (0011020103008,'USA');
-insert into MateriaPrima values (0011020103009,'Scozia');
-insert into MateriaPrima values (0011020103010,'USA');
-insert into MateriaPrima values (0011020103011,'Italia');
-insert into MateriaPrima values (0011020103012,'Belgio');
-insert into MateriaPrima values (0011020103013,'USA');
-insert into MateriaPrima values (0011020103014,'Italia');
-insert into MateriaPrima values (0011020103015,'Scozia');
+insert into MateriaPrima values (0001122330011,'Malto','Pale Ale Malt','Regno Unito');
+insert into MateriaPrima values (0001122330012,'Lievito','American Ale','Regno Unito');
+insert into MateriaPrima values (0001122330013,'Luppolo','Cascade','Belgio');
+insert into MateriaPrima values (0001122330014,'Malto','Vienna Malt','Regno Unito');
+insert into MateriaPrima values (0001122330015,'Lievito','Belgian Ale','Scozia');
+insert into MateriaPrima values (0001122330016,'Lievito','English Ale','Italia');
+insert into MateriaPrima values (0001122330017,'Malto','Munich Malt','Belgio');
+insert into MateriaPrima values (0001122330018,'Luppolo','Chinook','USA');
+insert into MateriaPrima values (0001122330019,'Luppolo','Columbus','Scozia');
+insert into MateriaPrima values (0001122330010,'Malto','Pilsner Malt','USA');
+insert into MateriaPrima values (0001022330011,'Luppolo','Centennial','Italia');
+insert into MateriaPrima values (0001022330012,'Luppolo','Simcoe','Belgio');
+insert into MateriaPrima values (0001022330013,'Lievito','German Wheat','USA');
+insert into MateriaPrima values (0001022330014,'Lievito','Irish Ale','Italia');
+insert into MateriaPrima values (0001022330015,'Malto','Wheat Malt','Scozia');
+
 
 --MALTO
-insert into Malto values (0011020103001,'CARA GOLD','Orzo',0);
-insert into Malto values (0011020103003,'SPECIAL B','Segale',0);
-insert into Malto values (0011020103008,'CRYSTAL 400','Mais',0);
-insert into Malto values (0011020103011,'CARA RED','Frumento',0);
-insert into Malto values (0011020103015,'CARA AMBER','Orzo',0);
+insert into Malto values ('Pale Ale Malt','Orzo');
+insert into Malto values ('Vienna Malt','Segale');
+insert into Malto values ('Munich Malt','Mais');
+insert into Malto values ('Pilsner Malt','Frumento');
+insert into Malto values ('Wheat Malt','Orzo');
+
 
 --LUPPOLO
-insert into Luppolo values (0011020103004,'Cannabaceae','Amaricante',0);
-insert into Luppolo values (0011020103007,'Urticales','Aromatizzante',0);
-insert into Luppolo values (0011020103009,'Humulus lupulus ','Misto',0);
-insert into Luppolo values (0011020103013,'Humulus','Amaricante',0);
-insert into Luppolo values (0011020103014,'Humulus yunnanensis','Aromatizzante',0);
+insert into Luppolo values ('Cascade','Amaricante');
+insert into Luppolo values ('Chinook','Aromatizzante');
+insert into Luppolo values ('Columbus','Misto');
+insert into Luppolo values ('Centennial','Amaricante');
+insert into Luppolo values ('Simcoe','Aromatizzante');
 
 --LIEVITO
 insert into Lievito values (0011020103002,'Saccharomyces Cerevisiae',0);
