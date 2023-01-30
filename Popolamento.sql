@@ -1,19 +1,19 @@
 --FORNITORE
-insert into Fornitore values (00011000011,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
-insert into Fornitore values (00011000012,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
-insert into Fornitore values (00011000013,'E-SARDINIA ','Oristano','09170','Via Santa Petronilla 15');
-insert into Fornitore values (00011000014,'NOSTRALE','Milano','20157','Via G. Ungaretti 23');
-insert into Fornitore values (00011000015,'PRATOROSSO','Milano','20107','Cascina Gaita 5');
-insert into Fornitore values (00011000016,'MARCONI','Novara','30040','5 Avenue de la Gare');
-insert into Fornitore values (00011000017,'BRASSERIE DE BRUNEHAUT SA','Brunehaut','7623','17 rue des Panneries');
-insert into Fornitore values (00011000018,'SWISS CHIPS GMBH','Schneisingen','5425','4 Schulstrasse');
-insert into Fornitore values (00011000019,'RESONE','Paris','75008','1 Rue De Stockholm');
-insert into Fornitore values (00011000020,'VETRARIA','Savignano Sul Rubicone','47039','Via Emilia Est 23');
-insert into Fornitore values (00011000021,'BROUWERIJ DE FENIKS CVBA','Heule','8501','138 Mellestraat');
-insert into Fornitore values (00011000022,'FLECKS BRAUHAUS TECHNIK GMBH ','Frohnleiten','8130','Rothleiten 64');
-insert into Fornitore values (00011000023,'KURSK BREWERY, LLC','Kursk','30502','Magistralny 18');
-insert into Fornitore values (00011000024,'BEERINBA DI BARBORA','Vigevano','27029','Via Carrobbio 18');
-insert into Fornitore values (00011000025,'DE-GUSTAMI','Milano','20131','Via Vallazze 95');
+insert into Fornitore values (0001122330011,'AURIAN SAS','Condom','32100','5 Avenue de la Gare');
+insert into Fornitore values (0001122330012,'ASIA EUROPE TRADE','Liege','4000','25 rue de Rotterdam');
+insert into Fornitore values (0001122330013,'E-SARDINIA ','Oristano','09170','Via Santa Petronilla 15');
+insert into Fornitore values (0001122330014,'NOSTRALE','Milano','20157','Via G. Ungaretti 23');
+insert into Fornitore values (0001122330015,'PRATOROSSO','Milano','20107','Cascina Gaita 5');
+insert into Fornitore values (0001122330016,'MARCONI','Novara','30040','5 Avenue de la Gare');
+insert into Fornitore values (0001122330017,'BRASSERIE DE BRUNEHAUT SA','Brunehaut','7623','17 rue des Panneries');
+insert into Fornitore values (0001122330018,'SWISS CHIPS GMBH','Schneisingen','5425','4 Schulstrasse');
+insert into Fornitore values (0001122330019,'RESONE','Paris','75008','1 Rue De Stockholm');
+insert into Fornitore values (0001122330010,'VETRARIA','Savignano Sul Rubicone','47039','Via Emilia Est 23');
+insert into Fornitore values (0001022330011,'BROUWERIJ DE FENIKS CVBA','Heule','8501','138 Mellestraat');
+insert into Fornitore values (0001022330012,'FLECKS BRAUHAUS TECHNIK GMBH ','Frohnleiten','8130','Rothleiten 64');
+insert into Fornitore values (0001022330013,'KURSK BREWERY, LLC','Kursk','30502','Magistralny 18');
+insert into Fornitore values (0001022330014,'BEERINBA DI BARBORA','Vigevano','27029','Via Carrobbio 18');
+insert into Fornitore values (0001022330015,'DE-GUSTAMI','Milano','20131','Via Vallazze 95');
 
 --MASTRO BIRRAIO
 
