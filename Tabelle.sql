@@ -173,7 +173,7 @@ CREATE TABLE TipoBirra(
 CREATE TABLE BirraProdotta(
 	codLotto 			VARCHAR2(50),
 	dataProduzione 		DATE NOT NULL, 	
-	GTIN 				NUMBER(13) NOT NULL,
+	GTIN 				NUMBER(4) NOT NULL,
 	numFustiProdotti 	NUMBER NOT NULL,
 	
 	CONSTRAINT BIRRP_PK

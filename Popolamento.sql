@@ -118,7 +118,7 @@ insert into TipoBirra values (1004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 
 insert into TipoBirra values (1005,'IT0011224','Lager',7,'Bionda',0,90.00 ,          'Wheat Malt','Simcoe','Irish Ale');
 insert into TipoBirra values (1006,'IT0011225','Budweiser',5,'Bionda',0,90.00 ,          'Pale Ale Malt','Simcoe','Irish Ale');
 insert into TipoBirra values (1007,'IT0011226','Stout',8,'Scura',0,100.00 ,          'Pale Ale Malt','Cascade','American Ale');
-insert into TipoBirra values (1008,'IT0011227','Trappistes Rochefort',9,'Bionda',3,110.00 ,'Columbus','Chinook','Belgian Ale');
+insert into TipoBirra values (1008,'IT0011227','Trappistes Rochefort',9,'Bionda',3,110.00 ,'Pilsner Malt','Chinook','Belgian Ale');
 insert into TipoBirra values (1009,'IT0011228','Newcastle Brown Ale',9,'Rossa',2,55.00 ,       'Munich Malt','Columbus','English Ale');
 insert into TipoBirra values (1010,'IT0011229','Brown Ale',3.5,'Scura',1,250.00 ,    'Pilsner Malt','Centennial','Belgian Ale');
 insert into TipoBirra values (1011,'IT0011230','Spaten',7,'Bionda',0,90.00 ,          'Wheat Malt','Simcoe','Irish Ale');
@@ -195,11 +195,21 @@ insert into Ammostamento values (13,TO_DATE('02/09/2021','DD/MM/YYYY'),1008,0001
 
 
 --BIRRA PRODOTTA
-insert into BirraProdotta values ('BP-0010201',TO_DATE('15/02/2021','DD/MM/YYYY'),'LT-0220004',0011020103001,0);
-insert into BirraProdotta values ('BP-0010202',TO_DATE('15/03/2021','DD/MM/YYYY'),'LT-0220007',0011020103002,0);
-insert into BirraProdotta values ('BP-0010203',TO_DATE('15/04/2021','DD/MM/YYYY'),'LT-0220009',0011020103003,0);
-insert into BirraProdotta values ('BP-0010204',TO_DATE('15/05/2021','DD/MM/YYYY'),'LT-0220013',0011020103004,0);
-insert into BirraProdotta values ('BP-0010205',TO_DATE('15/06/2021','DD/MM/YYYY'),'LT-0220014',0011020103005,0);
+insert into BirraProdotta values ('BP-0010201',TO_DATE('15/02/2021','DD/MM/YYYY'),1001,4);
+insert into BirraProdotta values ('BP-0010202',TO_DATE('15/03/2021','DD/MM/YYYY'),1002,6);
+insert into BirraProdotta values ('BP-0010203',TO_DATE('15/04/2021','DD/MM/YYYY'),1003,7);
+insert into BirraProdotta values ('BP-0010204',TO_DATE('15/05/2021','DD/MM/YYYY'),1004,3);
+insert into BirraProdotta values ('BP-0010205',TO_DATE('15/06/2021','DD/MM/YYYY'),1005,2);
+insert into BirraProdotta values ('BP-0010206',TO_DATE('15/02/2022','DD/MM/YYYY'),1006,4);
+insert into BirraProdotta values ('BP-0010207',TO_DATE('15/03/2022','DD/MM/YYYY'),1007,6);
+insert into BirraProdotta values ('BP-0010208',TO_DATE('15/04/2022','DD/MM/YYYY'),1008,7);
+insert into BirraProdotta values ('BP-0010209',TO_DATE('15/05/2022','DD/MM/YYYY'),1009,3);
+insert into BirraProdotta values ('BP-0010210',TO_DATE('15/06/2023','DD/MM/YYYY'),1010,2);
+insert into BirraProdotta values ('BP-0010211',TO_DATE('15/02/2023','DD/MM/YYYY'),1011,4);
+insert into BirraProdotta values ('BP-0010212',TO_DATE('15/03/2023','DD/MM/YYYY'),1012,6);
+insert into BirraProdotta values ('BP-0010213',TO_DATE('15/04/2023','DD/MM/YYYY'),1013,7);
+insert into BirraProdotta values ('BP-0010214',TO_DATE('15/05/2023','DD/MM/YYYY'),1014,3);
+insert into BirraProdotta values ('BP-0010215',TO_DATE('15/06/2023','DD/MM/YYYY'),1015,2);
 
 
 --FERMENTAZIONE
