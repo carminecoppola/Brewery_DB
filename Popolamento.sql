@@ -71,21 +71,21 @@ insert into PUB values ('PT00-14','Birreria Bavarese','Biella','Via Paietta 10',
 insert into PUB values ('PT00-15','Central Park','Alessandria','Piazza Banda Lenti 2','15030');
 
 --MATERIE PRIME
-insert into MateriaPrima values (000123011,'Malto','Pale Ale Malt','Regno Unito');
-insert into MateriaPrima values (000123012,'Lievito','American Ale','Regno Unito');
-insert into MateriaPrima values (000123013,'Luppolo','Cascade','Belgio');
-insert into MateriaPrima values (000123014,'Malto','Vienna Malt','Regno Unito');
-insert into MateriaPrima values (000123015,'Lievito','Belgian Ale','Scozia');
-insert into MateriaPrima values (000123016,'Lievito','English Ale','Italia');
-insert into MateriaPrima values (000123017,'Malto','Munich Malt','Belgio');
-insert into MateriaPrima values (000123018,'Luppolo','Chinook','USA');
-insert into MateriaPrima values (000123019,'Luppolo','Columbus','Scozia');
-insert into MateriaPrima values (000123010,'Malto','Pilsner Malt','USA');
-insert into MateriaPrima values (010123011,'Luppolo','Centennial','Italia');
-insert into MateriaPrima values (010123012,'Luppolo','Simcoe','Belgio');
-insert into MateriaPrima values (010123013,'Lievito','German Wheat','USA');
-insert into MateriaPrima values (010123014,'Lievito','Irish Ale','Italia');
-insert into MateriaPrima values (010123015,'Malto','Wheat Malt','Scozia');
+insert into MateriaPrima values ('Malto','Pale Ale Malt','Regno Unito');
+insert into MateriaPrima values ('Lievito','American Ale','Regno Unito');
+insert into MateriaPrima values ('Luppolo','Cascade','Belgio');
+insert into MateriaPrima values ('Malto','Vienna Malt','Regno Unito');
+insert into MateriaPrima values ('Lievito','Belgian Ale','Scozia');
+insert into MateriaPrima values ('Lievito','English Ale','Italia');
+insert into MateriaPrima values ('Malto','Munich Malt','Belgio');
+insert into MateriaPrima values ('Luppolo','Chinook','USA');
+insert into MateriaPrima values ('Luppolo','Columbus','Scozia');
+insert into MateriaPrima values ('Malto','Pilsner Malt','USA');
+insert into MateriaPrima values ('Luppolo','Centennial','Italia');
+insert into MateriaPrima values ('Luppolo','Simcoe','Belgio');
+insert into MateriaPrima values ('Lievito','German Wheat','USA');
+insert into MateriaPrima values ('Lievito','Irish Ale','Italia');
+insert into MateriaPrima values ('Malto','Wheat Malt','Scozia');
 
 
 --MALTO
@@ -111,11 +111,12 @@ insert into Lievito values ('German Wheat');
 insert into Lievito values ('Irish Ale');
 
 --TIPI DI BIRRA
-insert into TipoBirra values (0011020103001,'IT0011220','Stout',8.5,'Scura',0,100.00 ,'Pale Ale Malt','Cascade','American Ale');
-insert into TipoBirra values (0011020103002,'IT0011221','Chimay Blanche',9,'Bionda',3,110.00 ,'Vienna Malt','Chinook','Belgian Ale');
-insert into TipoBirra values (0011020103003,'IT0011222','Lindemans',9,'Rossa',2,75.00 ,'Munich Malt','Columbus','English Ale');
-insert into TipoBirra values (0011020103004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 ,'Pilsner Malt','Centennial','German Wheat');
-insert into TipoBirra values (0011020103005,'IT0011224','Lager',7.5,'Bionda',0,90.00 ,'Wheat Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1001,'IT0011220','Stout',8.5,'Scura',0,100.00 ,'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (1002,'IT0011221','Chimay Blanche',9,'Bionda',3,110.00 ,'Vienna Malt','Chinook','Belgian Ale');
+insert into TipoBirra values (1003,'IT0011222','Lindemans',9,'Rossa',2,75.00 ,'Munich Malt','Columbus','English Ale');
+insert into TipoBirra values (1004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 ,'Pilsner Malt','Centennial','German Wheat');
+insert into TipoBirra values (1005,'IT0011224','Lager',7.5,'Bionda',0,90.00 ,'Wheat Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1006,'IT0011225','Pippo',5.5,'Bionda',0,90.00 ,'Pale Ale Malt','Simcoe','Irish Ale');
 
 --SONO QUI
 

@@ -146,7 +146,7 @@ CREATE TABLE MostoDolce(
 );
 
 CREATE TABLE TipoBirra(
-	GTIN 				NUMBER(13) NOT NULL,
+	GTIN 				NUMBER(4) NOT NULL,
 	ssnSupervisore 		VARCHAR2(16) NOT NULL,
 	nomeBirra 			VARCHAR2(50) NOT NULL,
 	gradoAlcolico 		NUMBER NOT NULL CHECK(gradoAlcolico >= 0),
