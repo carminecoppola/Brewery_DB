@@ -209,7 +209,7 @@ CREATE TABLE Fermentazione(
 	dataInizioF 		DATE NOT NULL,
 	dataFineF 			DATE NOT NULL,
 	numLotFermentato 	NUMBER NOT NULL,
-	codLottoMatPrim		VARCHAR2(50) NOT NULL, --Aggiungere a Relazionale
+	codLottoMatPrim		VARCHAR2(50) NOT NULL,
 	codProdLievUsato	NUMBER(4) NOT NULL,
 	gs1Fornit			NUMBER(9) NOT NULL,
 	quantitaLievUsato 	NUMBER NOT NULL CHECK(quantitaLievUsato > 0),
