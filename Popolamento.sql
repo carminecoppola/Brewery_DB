@@ -145,22 +145,24 @@ insert into OrdineApproviggionamento values (010123013,TO_DATE('01/12/2021','DD/
 insert into OrdineApproviggionamento values (010123014,TO_DATE('15/01/2022','DD/MM/YYYY'),TO_DATE('01/03/2022','DD/MM/YYYY'),1000513,'Assegno','SP-RT-0051-14');
 insert into OrdineApproviggionamento values (010123015,TO_DATE('15/02/2022','DD/MM/YYYY'),TO_DATE('01/04/2022','DD/MM/YYYY'),1000514,'Bonifico','SP-RT-0051-15');
 
+
+
 --LOTTO MATERIA PRIMA
-insert into LottoMateriaPrima values ('LT-0220001',1001,000123011,'Malto',1000550,   200.99,9,TO_DATE('01/03/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220002',1002,000123012,'Lievito',1000551, 100.99,1,TO_DATE('05/04/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220003',1003,000123013,'Luppolo',1000552, 200.99,4,TO_DATE('23/05/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220004',1004,000123014,'Malto',1000553,   100.99,2,TO_DATE('15/06/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220005',1005,000123015,'Luppolo',1000554, 200.99,2,TO_DATE('10/07/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220006',1006,000123016,'Lievito',1000555, 150.99,7,TO_DATE('04/08/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220007',1007,000123017,'Malto',1000556,   150.99,1,TO_DATE('03/09/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220008',1008,000123018,'Luppolo',1000557, 200.99,1,TO_DATE('10/09/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220009',1009,000123019,'Lievito',1000558, 250.99,4,TO_DATE('18/09/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220010',1010,000123020,'Malto',1000559,   220.99,1,TO_DATE('01/10/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220011',1011,000123022,'Luppolo',1000510, 200.99,1,TO_DATE('11/10/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220012',1012,000123022,'Lievito',1000511, 175.99,3,TO_DATE('20/11/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220013',1013,000123023,'Malto',1000512,   160.99,8,TO_DATE('15/12/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220014',1014,000123024,'Luppolo',1000513, 200.99,2,TO_DATE('15/01/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220015',1015,000123025,'Lievito',1000514, 120.99,3,TO_DATE('27/02/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220001',1001,000123011,'Pale Ale Malt',1000550,   200.99,9,TO_DATE('01/03/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220002',1002,000123012,'American Ale',1000551, 100.99,1,TO_DATE('05/04/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220003',1003,000123013,'Cascade',1000552, 200.99,4,TO_DATE('23/05/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220004',1004,000123014,'Vienna Malt',1000553,   100.99,2,TO_DATE('15/06/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220005',1005,000123015,'Belgian Ale',1000554, 200.99,2,TO_DATE('10/07/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220006',1006,000123016,'English Ale',1000555, 150.99,7,TO_DATE('04/08/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220007',1007,000123017,'Munich Malt',1000556,   150.99,1,TO_DATE('03/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220008',1008,000123018,'Chinook',1000557, 200.99,1,TO_DATE('10/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220009',1009,000123019,'Columbus',1000558, 250.99,4,TO_DATE('18/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220010',1010,000123020,'Pilsner Malt',1000559,   220.99,1,TO_DATE('01/10/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220011',1011,000123022,'Centennial',1000510, 200.99,1,TO_DATE('11/10/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220012',1012,000123022,'Simcoe',1000511, 175.99,3,TO_DATE('20/11/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220013',1013,000123023,'German Wheat',1000512,   160.99,8,TO_DATE('15/12/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220014',1014,000123024,'Irish Ale',1000513, 200.99,2,TO_DATE('15/01/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220015',1015,000123025,'Wheat Malt',1000514, 120.99,3,TO_DATE('27/02/2025','DD/MM/YYYY'));
 
 
 --MOSTO DOLCE

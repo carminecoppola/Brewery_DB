@@ -112,7 +112,7 @@ CREATE TABLE LottoMateriaPrima(
 	codLotto 			VARCHAR2(50) NOT NULL,
 	codProdotto			NUMBER(4) NOT NULL,
 	gs1Fornitore		NUMBER(9) NOT NULL,
-	nomeMateriaPrima	VARCHAR2(50) CHECK(nomeMateriaPrima IN('Malto','Luppolo','Lievito')),
+	nomeMateriaPrima	VARCHAR2(50),
 	codFattura 			NUMBER NOT NULL,
 	prezzoAcquisto 		NUMBER NOT NULL,
 	quantitaAcquistata 	NUMBER NOT NULL,
