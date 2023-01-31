@@ -69,15 +69,12 @@ CREATE TABLE OrdineApproviggionamento(
 );
 
 CREATE TABLE MateriaPrima(
-	gs1Fornitore 		NUMBER NOT NULL, --Aggiungere nel Relaz.
 	tipo 				VARCHAR2(50) CHECK(tipo IN('Malto','Luppolo','Lievito')), 
 	nomeMatPrim			VARCHAR2(50),
 	provenienza 		VARCHAR2(50),
 	
 	CONSTRAINT MAT_P_PK
-		PRIMARY KEY(nomeMatPrim),
-	CONSTRAINT MAT_P_FK
-		FOREIGN KEY(gs1Fornitore) REFERENCES Fornitore(GS1) on delete cascade
+		PRIMARY KEY(nomeMatPrim)
 );
 
 CREATE TABLE Malto(
