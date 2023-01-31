@@ -17,7 +17,7 @@ drop table BirraVenduta;
 */
 
 CREATE TABLE Fornitore(
-	GS1 				NUMBER NOT NULL, 
+	GS1 				NUMBER(9) NOT NULL, 
 	nomeFornitore 		VARCHAR2(50) NOT NULL,
 	citta 				CHAR(50) NOT NULL,
 	cap 				CHAR(5) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE Contenitore(
 );
 
 CREATE TABLE OrdineApproviggionamento(
-	gs1Fornitore 		NUMBER NOT NULL,
+	gs1Fornitore 		NUMBER(9) NOT NULL,
 	dataRifornimento 	DATE NOT NULL,
 	dataOrdine			DATE NOT NULL,
 	codFattura 			NUMBER NOT NULL,

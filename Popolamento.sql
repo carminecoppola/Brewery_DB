@@ -129,38 +129,38 @@ insert into TipoBirra values (1015,'IT0011234','Paulaner',9,'Rossa',2,55.00 ,   
 
 
 --ORDINE APPROVVIGGIONAMENTO
-insert into OrdineApproviggionamento values (00345601,00011000011,TO_DATE('01/01/2021','DD/MM/YYYY'),'Bonifico','US-345IT01');
-insert into OrdineApproviggionamento values (00345602,00011000012,TO_DATE('01/02/2021','DD/MM/YYYY'),'Assegno','US-345IT02');
-insert into OrdineApproviggionamento values (00345603,00011000013,TO_DATE('15/03/2021','DD/MM/YYYY'),'Bonifico','US-345IT03');
-insert into OrdineApproviggionamento values (00345604,00011000014,TO_DATE('02/04/2021','DD/MM/YYYY'),'Assegno','US-345IT04');
-insert into OrdineApproviggionamento values (00345605,00011000015,TO_DATE('15/04/2021','DD/MM/YYYY'),'Bonifico','US-345IT05');
-insert into OrdineApproviggionamento values (00345606,00011000016,TO_DATE('15/05/2021','DD/MM/YYYY'),'Bonifico','US-345IT06');
-insert into OrdineApproviggionamento values (00345607,00011000017,TO_DATE('29/06/2021','DD/MM/YYYY'),'Bonifico','US-345IT07');
-insert into OrdineApproviggionamento values (00345608,00011000018,TO_DATE('01/08/2021','DD/MM/YYYY'),'Assegno','US-345IT08');
-insert into OrdineApproviggionamento values (00345609,00011000019,TO_DATE('01/09/2021','DD/MM/YYYY'),'Assegno','US-345IT09');
-insert into OrdineApproviggionamento values (00345610,00011000020,TO_DATE('15/09/2021','DD/MM/YYYY'),'Bonifico','US-345IT10');
-insert into OrdineApproviggionamento values (00345611,00011000021,TO_DATE('29/09/2021','DD/MM/YYYY'),'Assegno','US-345IT11');
-insert into OrdineApproviggionamento values (00345612,00011000022,TO_DATE('01/11/2021','DD/MM/YYYY'),'Bonifico','US-345IT12');
-insert into OrdineApproviggionamento values (00345613,00011000023,TO_DATE('01/12/2021','DD/MM/YYYY'),'Bonifico','US-345IT13');
-insert into OrdineApproviggionamento values (00345614,00011000024,TO_DATE('15/01/2022','DD/MM/YYYY'),'Assegno','US-345IT14');
-insert into OrdineApproviggionamento values (00345615,00011000025,TO_DATE('15/02/2022','DD/MM/YYYY'),'Bonifico','US-345IT15');
+insert into OrdineApproviggionamento values (000123011,TO_DATE('09/01/2021','DD/MM/YYYY'),TO_DATE('01/01/2021','DD/MM/YYYY'),1000550,'Bonifico','SP-RT-0051-01');
+insert into OrdineApproviggionamento values (000123012,TO_DATE('07/02/2021','DD/MM/YYYY'),TO_DATE('10/03/2021','DD/MM/YYYY'),1000551,'Assegno','SP-RT-0051-02');
+insert into OrdineApproviggionamento values (000123013,TO_DATE('15/03/2021','DD/MM/YYYY'),TO_DATE('01/04/2021','DD/MM/YYYY'),1000552,'Bonifico','SP-RT-0051-03');
+insert into OrdineApproviggionamento values (000123014,TO_DATE('02/04/2021','DD/MM/YYYY'),TO_DATE('01/05/2021','DD/MM/YYYY'),1000553,'Assegno','SP-RT-0051-04');
+insert into OrdineApproviggionamento values (000123015,TO_DATE('15/04/2021','DD/MM/YYYY'),TO_DATE('01/06/2021','DD/MM/YYYY'),1000554,'Bonifico','SP-RT-0051-05');
+insert into OrdineApproviggionamento values (000123016,TO_DATE('15/05/2021','DD/MM/YYYY'),TO_DATE('01/07/2021','DD/MM/YYYY'),1000555,'Bonifico','SP-RT-0051-06');
+insert into OrdineApproviggionamento values (000123017,TO_DATE('29/06/2021','DD/MM/YYYY'),TO_DATE('01/08/2021','DD/MM/YYYY'),1000556,'Bonifico','SP-RT-0051-07');
+insert into OrdineApproviggionamento values (000123018,TO_DATE('01/08/2021','DD/MM/YYYY'),TO_DATE('01/09/2021','DD/MM/YYYY'),1000557,'Assegno','SP-RT-0051-08');
+insert into OrdineApproviggionamento values (000123019,TO_DATE('01/09/2021','DD/MM/YYYY'),TO_DATE('01/10/2021','DD/MM/YYYY'),1000558,'Assegno','SP-RT-0051-09');
+insert into OrdineApproviggionamento values (000123010,TO_DATE('15/09/2021','DD/MM/YYYY'),TO_DATE('01/11/2021','DD/MM/YYYY'),1000559,'Bonifico','SP-RT-0051-10');
+insert into OrdineApproviggionamento values (010123011,TO_DATE('29/09/2021','DD/MM/YYYY'),TO_DATE('01/12/2021','DD/MM/YYYY'),1000510,'Assegno','SP-RT-0051-11');
+insert into OrdineApproviggionamento values (010123012,TO_DATE('01/11/2021','DD/MM/YYYY'),TO_DATE('01/01/2022','DD/MM/YYYY'),1000511,'Bonifico','SP-RT-0051-12');
+insert into OrdineApproviggionamento values (010123013,TO_DATE('01/12/2021','DD/MM/YYYY'),TO_DATE('01/02/2022','DD/MM/YYYY'),1000512,'Bonifico','SP-RT-0051-13');
+insert into OrdineApproviggionamento values (010123014,TO_DATE('15/01/2022','DD/MM/YYYY'),TO_DATE('01/03/2022','DD/MM/YYYY'),1000513,'Assegno','SP-RT-0051-14');
+insert into OrdineApproviggionamento values (010123015,TO_DATE('15/02/2022','DD/MM/YYYY'),TO_DATE('01/04/2022','DD/MM/YYYY'),1000514,'Bonifico','SP-RT-0051-15');
 
 --LOTTO MATERIA PRIMA
-insert into LottoMateriaPrima values ('LT-0220001',1001,,'Malto',00345601,200.99,0,TO_DATE('01/03/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220002',1002,'Lievito',00345602,100.99,0,TO_DATE('05/04/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220003',1003,'Malto',00345603,200.99,0,TO_DATE('23/05/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220004',1004,'Luppolo',00345604,100.99,0,TO_DATE('15/06/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220005',1005,'Lievito',00345605,200.99,0,TO_DATE('10/07/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220006',1006,'Lievito',00345606,90.99,0,TO_DATE('04/08/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220007',1007,'Luppolo',00345607,150.99,0,TO_DATE('03/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220008',1008,'Malto',00345608,200.99,0,TO_DATE('10/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220009',1009,'Luppolo',00345609,250.99,0,TO_DATE('18/09/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220010',1010,'Lievito',00345610,210.99,0,TO_DATE('01/10/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220011',1011,'Malto',00345611,200.99,0,TO_DATE('11/10/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220012',1012,'Lievito',00345612,175.99,0,TO_DATE('20/11/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220013',1013,'Luppolo',00345613,160.99,0,TO_DATE('15/12/2021','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220014',1014,'Luppolo',00345614,200.99,0,TO_DATE('15/01/2022','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220015',1015,'Malto',00345615,120.99,0,TO_DATE('27/02/2022','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220001',1001,000123011,'Malto',1000550,   200.99,9,TO_DATE('01/03/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220002',1002,000123012,'Lievito',1000551, 100.99,1,TO_DATE('05/04/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220003',1003,000123013,'Luppolo',1000552, 200.99,4,TO_DATE('23/05/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220004',1004,000123014,'Malto',1000553,   100.99,2,TO_DATE('15/06/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220005',1005,000123015,'Luppolo',1000554, 200.99,2,TO_DATE('10/07/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220006',1006,000123016,'Lievito',1000555, 150.99,7,TO_DATE('04/08/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220007',1007,000123017,'Malto',1000556,   150.99,1,TO_DATE('03/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220008',1008,000123018,'Luppolo',1000557, 200.99,1,TO_DATE('10/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220009',1009,000123019,'Lievito',1000558, 250.99,4,TO_DATE('18/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220010',1010,000123020,'Malto',1000559,   220.99,1,TO_DATE('01/10/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220011',1011,000123022,'Luppolo',1000510, 200.99,1,TO_DATE('11/10/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220012',1012,000123022,'Lievito',1000511, 175.99,3,TO_DATE('20/11/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220013',1013,000123023,'Malto',1000512,   160.99,8,TO_DATE('15/12/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220014',1014,000123024,'Luppolo',1000513, 200.99,2,TO_DATE('15/01/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220015',1015,000123025,'Lievito',1000514, 120.99,3,TO_DATE('27/02/2025','DD/MM/YYYY'));
 
 
 --MOSTO DOLCE
