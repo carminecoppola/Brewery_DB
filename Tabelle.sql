@@ -131,7 +131,7 @@ CREATE TABLE LottoMateriaPrima(
 
 CREATE TABLE MostoDolce(
 	numeroLotto 		NUMBER NOT NULL,
-	codProdLuppUsato	NUMBER NOT NULL,
+	codProdLuppUsato	NUMBER(4) NOT NULL,
 	gs1Fornitore		NUMBER(9) NOT NULL,
 	codLotto		 	VARCHAR2(50) NOT NULL,
 	dataAmmostamento 	DATE NOT NULL,
