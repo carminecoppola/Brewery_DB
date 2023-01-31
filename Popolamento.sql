@@ -111,14 +111,21 @@ insert into Lievito values ('German Wheat');
 insert into Lievito values ('Irish Ale');
 
 --TIPI DI BIRRA
-insert into TipoBirra values (1001,'IT0011220','Stout',8.5,'Scura',0,100.00 ,'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (1001,'IT0011220','Stout',8.5,'Scura',0,100.00 ,        'Pale Ale Malt','Cascade','American Ale');
 insert into TipoBirra values (1002,'IT0011221','Chimay Blanche',9,'Bionda',3,110.00 ,'Vienna Malt','Chinook','Belgian Ale');
-insert into TipoBirra values (1003,'IT0011222','Lindemans',9,'Rossa',2,75.00 ,'Munich Malt','Columbus','English Ale');
-insert into TipoBirra values (1004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 ,'Pilsner Malt','Centennial','German Wheat');
-insert into TipoBirra values (1005,'IT0011224','Lager',7.5,'Bionda',0,90.00 ,'Wheat Malt','Simcoe','Irish Ale');
-insert into TipoBirra values (1006,'IT0011225','Pippo',5.5,'Bionda',0,90.00 ,'Pale Ale Malt','Simcoe','Irish Ale');
-
---SONO QUI
+insert into TipoBirra values (1003,'IT0011222','Lindemans',9,'Rossa',2,75.00 ,       'Munich Malt','Columbus','English Ale');
+insert into TipoBirra values (1004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 ,    'Pilsner Malt','Centennial','German Wheat');
+insert into TipoBirra values (1005,'IT0011224','Lager',7,'Bionda',0,90.00 ,          'Wheat Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1006,'IT0011225','Budweiser',5,'Bionda',0,90.00 ,          'Pale Ale Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1007,'IT0011226','Stout',8,'Scura',0,100.00 ,          'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (1008,'IT0011227','Trappistes Rochefort',9,'Bionda',3,110.00 ,'Columbus','Chinook','Belgian Ale');
+insert into TipoBirra values (1009,'IT0011228','Newcastle Brown Ale',9,'Rossa',2,55.00 ,       'Munich Malt','Columbus','English Ale');
+insert into TipoBirra values (1010,'IT0011229','Brown Ale',3.5,'Scura',1,250.00 ,    'Pilsner Malt','Centennial','Belgian Ale');
+insert into TipoBirra values (1011,'IT0011230','Spaten',7,'Bionda',0,90.00 ,          'Wheat Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1012,'IT0011231','Lindemans',4,'Bionda',0,90.00 ,      'Pale Ale Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1013,'IT0011232','Hoegaarden Dark',8,'Scura',0,250.00 ,          'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (1014,'IT0011233','Franziskaner',9,'Bionda',3,110.00 ,'Vienna Malt','Chinook','Belgian Ale');
+insert into TipoBirra values (1015,'IT0011234','Paulaner',9,'Rossa',2,55.00 ,       'Munich Malt','Columbus','English Ale');
 
 
 --ORDINE APPROVVIGGIONAMENTO
