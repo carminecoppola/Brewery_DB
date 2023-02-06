@@ -106,49 +106,19 @@
         BEFORE INSERT ON MostoDolce               
         FOR EACH ROW
         DECLARE
-            boiler NUMBER;
-            Qt NUMBER;
+        	qtAcqua NUMBER;
         	OverProduction EXCEPTION;
         BEGIN
-
-            SELECT idBollitore INTO boiler
+        	SELECT quantitaAcqua INTO qtAcqua
         	FROM AMMOSTAMENTO 
         	WHERE NUMLOTTOPRODOTTO = :new.NUMEROLOTTO;
 
-            SELECT capacitaLavorazione into Qt
-            FROM Contenitore
-            WHERE IDContenitore = boiler;
-        	
-        	IF (:NEW.quantitaMosto > Qt) 
-            THEN RAISE OverProduction;
+        	IF (qtAcqua < :new.quantitaMosto) THEN RAISE OverProduction;
             END IF;
            
         EXCEPTION
-            WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20817,'OverProduction');
+            WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20017,'OverProduction');
     END;
-
-
-/*  6) Quando viene fatto un inserimento in lotto materia prima controlla che sia conforme alle 
-       specifiche e aggiorna la quantità delle scorte.*/
-
-    CREATE OR REPLACE TRIGGER Update_scorte_materiePrime  
-        AFTER INSERT ON LottoMateriaPrima               
-        FOR EACH ROW
-        DECLARE
-            pragma autonomous_transaction;
-    BEGIN
-     	IF (:new.tipo = 'Malto') 
-            THEN UPDATE Malto SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
-            WHERE GTIN = :new.Gtin;
-     	ELSIF(:new.tipo = 'Luppolo') 
-            THEN UPDATE Luppolo SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
-            WHERE GTIN = :new.Gtin;
-     	ELSIF(:new.tipo = 'Lievito')  
-            THEN UPDATE Lievito SET quantitaMagazzino = quantitaMagazzino + :new.quantitaAcquistata 
-            WHERE GTIN = :new.Gtin;
-     	END IF;
-     	COMMIT;
-    END Update_scorte_materiePrime ;
 
 /*  7) Durante un inserimento nell'ammostamento controlliamo che venga utilizzato un bollitore e non un
        fermentatore.*/
@@ -157,13 +127,13 @@
         BEFORE INSERT ON Ammostamento               
         FOR EACH ROW
         DECLARE
-            tipoContenitore CHAR(20);
+            tipo CHAR(20);
             wrongContainer EXCEPTION;
 	BEGIN
-        Select tipo INTO tipoContenitore 
+        Select tipoContenitore INTO tipo 
         FROM Contenitore 
-        WHERE id = :new.idBollitore;
-        IF (tipoContenitore = 'Fermentatore') 
+        WHERE idContenitore = :new.idBollitore;
+        IF (tipo = 'Fermentatore') 
             THEN RAISE wrongContainer;
         END IF;
         EXCEPTION 
@@ -178,32 +148,21 @@
         BEFORE INSERT ON Fermentazione               
         FOR EACH ROW
         DECLARE
-            tipoContenitore CHAR(20);
+            tipo CHAR(20);
             wrongContainer EXCEPTION;
 	BEGIN
-        Select tipo INTO tipoContenitore 
+        Select tipoContenitore INTO tipo 
         FROM Contenitore 
-        WHERE id = :new.idFermentatore;
-        IF (tipoContenitore = 'Bollitore') 
+        WHERE idContenitore = :new.idFermentatore;
+        IF (tipo = 'Bollitore') 
             THEN RAISE wrongContainer;
         END IF;
         EXCEPTION 
             WHEN wrongContainer THEN RAISE_APPLICATION_ERROR(-20009,'Wrong type container');
 	END;
-	
-/*9) Dopo aver prodotto della birra viene aggiornato il numero di fusti */	
-	
-	 CREATE OR REPLACE TRIGGER Update_scorte_birra
-        AFTER INSERT ON BirraProdotta               
-        FOR EACH ROW
-        DECLARE
-        pragma autonomous_transaction;
-        BEGIN
-        UPDATE TipoBirra SET NumeroFustiMagazzino = NumeroFustiMagazzino + :new.NumFustiProdotti WHERE GTIN  = :new.GTIN;
-        COMMIT;
-        END Update_scorte_birra;
+
         
-/*10) Controlla che il numero di fusti venduti sia presente in magazzino e eventualmente aggiorna le scorte*/	
+/*10) Controlla che il numero di fusti venduti sia presente in magazzino */	
 
 	 CREATE OR REPLACE TRIGGER CheckVendita
         BEFORE INSERT ON BirraVenduta               
@@ -217,8 +176,8 @@
                     SELECT BP.CodLotto,SUM(BP.numFustiProdotti) totprod, SUM(BV.numFusti) totsell
                     FROM BirraProdotta BP JOIN BirraVenduta BV  on BP.CodLotto = BV.CodLotto
                     GROUP BY BP.CodLotto
-            )
-        IF(nFustiDisp < :new.numFusti) THEN RAISE notEnoughtFusti
+            );
+        IF(nFustiDisp < :new.numFusti) THEN RAISE notEnoughtFusti;
         END IF;
     END;
         
@@ -230,8 +189,9 @@
         pragma autonomous_transaction;
         BEGIN
         UPDATE FERMENTAZIONE 
-            SET dataFine = :new.dataProduzione 
-            WHERE numLottoFermentato = :new.numLottoMostoDolce;
+            SET dataFineF = :new.dataProduzione 
+            WHERE numLotFermentato = :new.codLotto;
+    END;
         
         
 /*12) Controlla che non vengano eseguite fermentazioni in fermentatori già occupati*/	
@@ -245,7 +205,7 @@
         SELECT COUNT(*) 
         INTO occupato 
         FROM FERMENTAZIONE 
-        WHERE idFermentatore=:new.idFermentatore AND dataFine IS NULL;
+        WHERE idFermentatore=:new.idFermentatore AND dataFineF IS NULL;
             
         IF (occupato > 0) THEN RAISE FermentatoreOccupato;
         END IF;
@@ -263,16 +223,15 @@
             tipoMateriaPrima CHAR(20);
             wrongMateriaPrima EXCEPTION;
 	    BEGIN
-            Select tipo INTO tipoMateriaPrima 
-            FROM MateriaPrima 
-            WHERE codProdotto = :new.codProdotto AND gs1Fornitore = :new.gs1Fornitore;
+            Select MP.tipo INTO tipoMateriaPrima 
+            FROM LottoMateriaPrima LMP JOIN MateriaPrima MP ON LMP.nomeMateriaPrima=MP.nomeMatPrim
+            WHERE LMP.codProdotto = :new.codProdottoMalto AND LMP.gs1Fornitore = :new.gs1Fornitore;
             IF (tipoMateriaPrima <> 'Malto') 
                 THEN RAISE wrongMateriaPrima;
             END IF;
         EXCEPTION 
             WHEN wrongMateriaPrima THEN RAISE_APPLICATION_ERROR(-20100,'Raw material is not malt');
 	END;
-
 /*14) Controlla che quando viene inserita una materia prima in mosto dolce questa sia un luppolo, in caso contrario lancia un eccezzione*/	
 
     CREATE OR REPLACE TRIGGER Check_IsHop
@@ -282,9 +241,9 @@
             tipoMateriaPrima CHAR(20);
             wrongMateriaPrima2 EXCEPTION;
 	    BEGIN
-            Select tipo INTO tipoMateriaPrima 
-            FROM MateriaPrima 
-            WHERE codProdotto = :new.codProdotto AND gs1Fornitore = :new.gs1Fornitore;
+            Select MP.tipo INTO tipoMateriaPrima 
+            FROM LottoMateriaPrima LMP JOIN MateriaPrima MP ON LMP.nomeMateriaPrima=MP.nomeMatPrim
+            WHERE LMP.codProdotto = :new.codProdLuppUsato AND LMP.gs1Fornitore = :new.gs1Fornitore;
             IF (tipoMateriaPrima <> 'Luppolo') 
                 THEN RAISE wrongMateriaPrima2;
             END IF;
@@ -301,9 +260,9 @@
             tipoMateriaPrima CHAR(20);
             wrongMateriaPrima3 EXCEPTION;
 	    BEGIN
-            Select tipo INTO tipoMateriaPrima 
-            FROM MateriaPrima 
-            WHERE codProdotto = :new.codProdotto AND gs1Fornitore = :new.gs1Fornitore;
+            Select MP.tipo INTO tipoMateriaPrima 
+            FROM LottoMateriaPrima LMP JOIN MateriaPrima MP ON LMP.nomeMateriaPrima=MP.nomeMatPrim 
+            WHERE LMP.codProdotto = :new.codProdLievUsato AND LMP.gs1Fornitore = :new.gs1Fornit;
             IF (tipoMateriaPrima <> 'Lievito') 
                 THEN RAISE wrongMateriaPrima3;
             END IF;
