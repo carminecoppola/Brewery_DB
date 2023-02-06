@@ -12,15 +12,15 @@
             notEnoughMalt EXCEPTION;
             maltoQTRimanente NUMBER;    
         BEGIN
-            SELECT totacq - totused INTO maltoQTRimanente
+            SELECT (totacq - totused) INTO maltoQTRimanente
             FROM (
-                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaMalto) totused
-                    FROM LottoMateriaPrima L JOIN Ammostamento A on L.codProdotto = A.codProdottoMalto AND L.gs1Fornitore = A.gs1Fornitore
+                    SELECT L.codProdotto, L.gs1Fornitore, SUM(quantitaAcquistata) totacq, SUM(quantitaMalto) totused
+                    FROM LottoMateriaPrima L JOIN Ammostamento A ON L.codProdotto = A.codProdottoMalto AND L.gs1Fornitore = A.gs1Fornitore
+                    WHERE L.codProdotto = :new.codProdottoMalto AND L.gs1Fornitore = :new.gs1Fornitore
                     GROUP BY L.codProdotto, L.gs1Fornitore
-            )
-            WHERE L.codProdotto = :new.codProdottoMalto AND L.gs1Fornitore = :new.gs1Fornitore;
-            IF maltoQTRimanente < :new.quantitaMalto
-                THEN RAISE notEnoughMalt;
+            );
+            IF maltoQTRimanente < :new.quantitaMalto THEN 
+                RAISE notEnoughMalt;
             END IF;
         EXCEPTION
             WHEN notEnoughMalt THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
