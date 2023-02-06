@@ -39,12 +39,12 @@
         BEGIN
             SELECT totacq - totused INTO luppoloQT
             FROM (
-                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaLuppoloUsato) totused
-                    FROM LottoMateriaPrima L JOIN MostoDolce M on L.codProdotto = M.codProdotto AND L.gs1Fornitore = M.gs1Fornitore
+                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaLuppUsato) totused
+                    FROM LottoMateriaPrima L JOIN MostoDolce M on L.codProdotto = M.codProdLuppUsato AND L.gs1Fornitore = M.gs1Fornitore
+                    WHERE L.codProdotto = :new.codProdLuppUsato AND L.gs1Fornitore = :new.gs1Fornitore
                     GROUP BY L.codProdotto, L.gs1Fornitore
-            )
-            WHERE L.codProdotto = :new.codProdotto AND L.gs1Fornitore = :new.gs1Fornitore
-            IF (:new.quantitaLuppoloUsato > luppoloQT)
+            );
+            IF (:new.quantitaLuppUsato > luppoloQT)
                 THEN RAISE notEnoughLupp;
             END IF;
             EXCEPTION
