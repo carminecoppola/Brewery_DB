@@ -4,7 +4,6 @@
        tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità maggiore di
        quella che abbiamo in stock*/
 
-
      CREATE OR REPLACE TRIGGER Check_scorte_malto  
         BEFORE INSERT ON Ammostamento               
         FOR EACH ROW
