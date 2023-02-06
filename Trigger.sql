@@ -33,7 +33,10 @@
                 THEN RAISE notEnoughMalt;
             END IF;
         EXCEPTION
-            WHEN notEnoughMalt THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
+            WHEN NO_DATA_FOUND THEN 
+            IF :new.quantitaMalto > BUYED THEN RAISE_APPLICATION_ERROR (-20108,'Malto in scorta insufficiente');
+            END IF;
+            WHEN notEnoughMalt THEN  RAISE_APPLICATION_ERROR (-20108,'Malto in scorta insufficiente');
     END;
 /
 
@@ -67,11 +70,14 @@
             );
             
         
-            IF USED IS NOT NULL AND BUYED-USED < :new.quantitaLuppUsato
+            IF BUYED-USED < :new.quantitaLuppUsato
                 THEN RAISE notEnoughLupp;
             END IF;
         EXCEPTION
-            WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
+            WHEN NO_DATA_FOUND THEN 
+            IF :new.quantitaLuppUsato > BUYED THEN RAISE_APPLICATION_ERROR (-20107,'Luppolo in scorta insufficiente');
+            END IF;
+            WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20107,'Luppolo in scorta insufficiente');
     END;
 /
 
@@ -109,6 +115,9 @@
                 THEN RAISE notEnoughLiev;
             END IF;
             EXCEPTION
+            WHEN NO_DATA_FOUND THEN 
+            IF :new.quantitaLievUsato > BUYED THEN RAISE_APPLICATION_ERROR (-20004,'Lievito in scorta insufficiente');
+            END IF;
                 WHEN notEnoughLiev THEN  RAISE_APPLICATION_ERROR (-20004,'Lievito in scorta insufficiente');
     END;
 /

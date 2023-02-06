@@ -180,7 +180,7 @@ insert into MostoDolce values (0102011, 1003, 000123013, 'LT-0220003', TO_DATE('
 insert into MostoDolce values (0102012, 1008, 000123018, 'LT-0220008', TO_DATE('01/01/2022','DD/MM/YYYY'), 3, 50, 1);
 insert into MostoDolce values (0102013, 1009, 000123019, 'LT-0220009', TO_DATE('01/02/2022','DD/MM/YYYY'), 1, 50, 1);
 insert into MostoDolce values (0102014, 1011, 000123011, 'LT-0220011', TO_DATE('01/03/2022','DD/MM/YYYY'), 2, 50, 1);
-insert into MostoDolce values (0102015, 1011, 000123012, 'LT-0220012', TO_DATE('01/04/2022','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102015, 1012, 000123012, 'LT-0220012', TO_DATE('01/04/2022','DD/MM/YYYY'), 2, 50, 1);
 
 
 --AMMOSTAMENTO
