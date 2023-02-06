@@ -97,11 +97,11 @@ insert into Malto values ('Wheat Malt',    'Orzo');
 
 
 --LUPPOLO
-insert into Luppolo values ('Cascade','Amaricante');
-insert into Luppolo values ('Chinook','Aromatizzante');
-insert into Luppolo values ('Columbus','Misto');
-insert into Luppolo values ('Centennial','Amaricante');
-insert into Luppolo values ('Simcoe','Aromatizzante');
+insert into Luppolo values ('Cascade',    'Amaricante');
+insert into Luppolo values ('Chinook',    'Aromatizzante');
+insert into Luppolo values ('Columbus',   'Misto');
+insert into Luppolo values ('Centennial', 'Amaricante');
+insert into Luppolo values ('Simcoe',     'Aromatizzante');
 
 --LIEVITO
 insert into Lievito values ('American Ale');
@@ -112,21 +112,21 @@ insert into Lievito values ('Irish Ale');
 
 --TIPI DI BIRRA
 insert into TipoBirra values (1001, 'IT0011220', 'Stout',                8.5, 'Scura',  0, 100.00 , 'Pale Ale Malt', 'Cascade',    'American Ale');
-insert into TipoBirra values (1002, 'IT0011221', 'Chimay Blanche',       9,   'Bionda', 3, 110.00 ,  'Vienna Malt',   'Chinook',    'Belgian Ale');
-insert into TipoBirra values (1003, 'IT0011222', 'Lindemans',            9,   'Rossa',  2, 75.00 ,    'Munich Malt',   'Columbus',   'English Ale');
+insert into TipoBirra values (1002, 'IT0011221', 'Chimay Blanche',       9,   'Bionda', 3, 110.00 , 'Vienna Malt',   'Chinook',    'Belgian Ale');
+insert into TipoBirra values (1003, 'IT0011222', 'Lindemans',            9,   'Rossa',  2, 75.00 ,  'Munich Malt',   'Cascade',    'English Ale');
 insert into TipoBirra values (1004, 'IT0011223', 'Brown Ale',            8.5, 'Scura',  1, 100.00 , 'Pilsner Malt',  'Centennial', 'German Wheat');
-insert into TipoBirra values (1005, 'IT0011224', 'Lager',                7,   'Bionda', 0, 90.00 ,   'Wheat Malt',    'Simcoe',     'Irish Ale');
-insert into TipoBirra values (1006, 'IT0011225', 'Budweiser',            5,   'Bionda', 0, 90.00 ,   'Pale Ale Malt', 'Simcoe',     'Irish Ale');
-insert into TipoBirra values (1007, 'IT0011226', 'Stout',                8,   'Scura',  0, 100.00 ,   'Pale Ale Malt', 'Cascade',    'American Ale');
-insert into TipoBirra values (1008, 'IT0011227', 'Trappistes Rochefort', 9,   'Bionda', 3, 110.00 ,  'Pilsner Malt',  'Chinook',    'Belgian Ale');
-insert into TipoBirra values (1009, 'IT0011228', 'Newcastle Brown Ale',  9,   'Rossa',  2, 55.00 ,    'Munich Malt',   'Columbus',   'English Ale');
+insert into TipoBirra values (1005, 'IT0011224', 'Lager',                7,   'Bionda', 0, 90.00 ,  'Wheat Malt',    'Simcoe',     'Irish Ale');
+insert into TipoBirra values (1006, 'IT0011225', 'Budweiser',            5,   'Bionda', 0, 90.00 ,  'Pale Ale Malt', 'Simcoe',     'Irish Ale');
+insert into TipoBirra values (1007, 'IT0011226', 'Stout',                8,   'Scura',  0, 100.00 , 'Pale Ale Malt', 'Cascade',    'American Ale');
+insert into TipoBirra values (1008, 'IT0011227', 'Trappistes Rochefort', 9,   'Bionda', 3, 110.00 , 'Pilsner Malt',  'Chinook',    'Belgian Ale');
+insert into TipoBirra values (1009, 'IT0011228', 'Newcastle Brown Ale',  9,   'Rossa',  2, 55.00 ,  'Munich Malt',   'Columbus',   'English Ale');
 insert into TipoBirra values (1010, 'IT0011229', 'Brown Ale',            3.5, 'Scura',  1, 250.00 , 'Pilsner Malt',  'Centennial', 'Belgian Ale');
-insert into TipoBirra values (1011, 'IT0011230', 'Spaten',               7,   'Bionda', 0, 90.00 ,   'Wheat Malt',    'Simcoe',     'Irish Ale');
-insert into TipoBirra values (1012, 'IT0011231', 'Lindemans',            4,   'Bionda', 0, 90.00 ,   'Pale Ale Malt', 'Simcoe',     'Irish Ale');
-insert into TipoBirra values (1013, 'IT0011232', 'Hoegaarden Dark',      8,   'Scura',  0, 250.00 ,   'Pale Ale Malt', 'Cascade',    'American Ale');
-insert into TipoBirra values (1014, 'IT0011233', 'Franziskaner',         9,   'Bionda', 3, 110.00 ,  'Vienna Malt',   'Chinook',    'Belgian Ale');
-insert into TipoBirra values (1015, 'IT0011234', 'Paulaner',             9,   'Rossa',  2, 55.00 ,    'Munich Malt',   'Columbus',   'English Ale');
---C'è un errore
+insert into TipoBirra values (1011, 'IT0011230', 'Spaten',               7,   'Bionda', 0, 90.00 ,  'Wheat Malt',    'Simcoe',     'Irish Ale');
+insert into TipoBirra values (1012, 'IT0011231', 'Lindemans',            4,   'Bionda', 0, 90.00 ,  'Pale Ale Malt', 'Simcoe',     'Irish Ale');
+insert into TipoBirra values (1013, 'IT0011232', 'Hoegaarden Dark',      8,   'Scura',  0, 250.00 , 'Pale Ale Malt', 'Cascade',    'American Ale');
+insert into TipoBirra values (1014, 'IT0011233', 'Franziskaner',         9,   'Bionda', 3, 110.00 , 'Vienna Malt',   'Chinook',    'Belgian Ale');
+insert into TipoBirra values (1015, 'IT0011234', 'Paulaner',             9,   'Rossa',  2, 55.00 ,  'Munich Malt',   'Columbus',   'English Ale');
+
 
 --ORDINE APPROVVIGGIONAMENTO
 insert into OrdineApproviggionamento values (000123011, TO_DATE('09/01/2021','DD/MM/YYYY'), TO_DATE('01/01/2021','DD/MM/YYYY'), 1000550, 'Bonifico', 'SP-RT-0051-01');
@@ -184,14 +184,14 @@ insert into MostoDolce values (0102015, 1011, 000123012, 'LT-0220012', TO_DATE('
 
 
 --AMMOSTAMENTO
-insert into Ammostamento values (1,  TO_DATE('02/02/2021','DD/MM/YYYY'), 1001, 000123011,' LT-0220001', 0102001, 1, 3);
-insert into Ammostamento values (3,  TO_DATE('02/03/2021','DD/MM/YYYY'), 1004, 000123014,' LT-0220004', 0102004, 1, 4);
-insert into Ammostamento values (5,  TO_DATE('02/04/2021','DD/MM/YYYY'), 1007, 000123017,' LT-0220007', 0102007, 1, 5);
-insert into Ammostamento values (6,  TO_DATE('02/05/2021','DD/MM/YYYY'), 1010, 000123010,' LT-0220010', 0102010, 1, 6);
-insert into Ammostamento values (7,  TO_DATE('02/06/2021','DD/MM/YYYY'), 1015, 000123015,' LT-0220015', 0102015, 1, 8);
-insert into Ammostamento values (10, TO_DATE('02/07/2021','DD/MM/YYYY'), 1001, 000123011,' LT-0220001', 0102001, 1, 2);
-insert into Ammostamento values (11, TO_DATE('02/08/2021','DD/MM/YYYY'), 1004, 000123014,' LT-0220004', 0102004, 1, 4);
-insert into Ammostamento values (13, TO_DATE('02/09/2021','DD/MM/YYYY'), 1007, 000123017,' LT-0220007', 0102007, 1, 5);
+insert into Ammostamento values (1,  TO_DATE('02/02/2021','DD/MM/YYYY'), 1001, 000123011,' LT-0220001', 0102001, 10, 3);
+insert into Ammostamento values (3,  TO_DATE('02/03/2021','DD/MM/YYYY'), 1004, 000123014,' LT-0220004', 0102004, 10, 4);
+insert into Ammostamento values (5,  TO_DATE('02/04/2021','DD/MM/YYYY'), 1007, 000123017,' LT-0220007', 0102007, 10, 5);
+insert into Ammostamento values (6,  TO_DATE('02/05/2021','DD/MM/YYYY'), 1010, 000123010,' LT-0220010', 0102010, 10, 6);
+insert into Ammostamento values (7,  TO_DATE('02/06/2021','DD/MM/YYYY'), 1015, 000123015,' LT-0220015', 0102015, 10, 8);
+insert into Ammostamento values (10, TO_DATE('02/07/2021','DD/MM/YYYY'), 1001, 000123011,' LT-0220001', 0102001, 10, 2);
+insert into Ammostamento values (11, TO_DATE('02/08/2021','DD/MM/YYYY'), 1004, 000123014,' LT-0220004', 0102004, 10, 4);
+insert into Ammostamento values (13, TO_DATE('02/09/2021','DD/MM/YYYY'), 1007, 000123017,' LT-0220007', 0102007, 10, 5);
 
 
 --BIRRA PRODOTTA

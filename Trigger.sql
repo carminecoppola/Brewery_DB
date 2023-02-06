@@ -135,28 +135,6 @@
     END;
 /
 
-/*  5) Questo trigger controlla che la quantità di mosto utilizzata per la fermentazione
-       non sia superiore alla capacità di lavorazione del bollitore.*/
-
-    CREATE OR REPLACE TRIGGER Check_lavorazione2 
-        BEFORE INSERT ON MostoDolce               
-        FOR EACH ROW
-        DECLARE
-        	qtAcqua NUMBER;
-        	OverProduction EXCEPTION;
-        BEGIN
-        	SELECT quantitaAcqua INTO qtAcqua
-        	FROM AMMOSTAMENTO 
-        	WHERE NUMLOTTOPRODOTTO = :new.NUMEROLOTTO;
-
-        	IF (qtAcqua < :new.quantitaMosto) THEN RAISE OverProduction;
-            END IF;
-           
-        EXCEPTION
-            WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20017,'OverProduction');
-    END;
-/
-
 /*  7) Durante un inserimento nell'ammostamento controlliamo che venga utilizzato un bollitore e non un
        fermentatore.*/
 
@@ -206,17 +184,29 @@
         FOR EACH ROW
         DECLARE
         notEnoughtFusti EXCEPTION;
-        nFustiDisp NUMBER;
+        totpr NUMBER;
+        totsell NUMBER;
         BEGIN
-        SELECT totprod - totsell INTO nFustiDisp
+        SELECT totprod INTO totpr
             FROM (
-                    SELECT BP.CodLotto,SUM(BP.numFustiProdotti) totprod, SUM(BV.numFusti) totsell
-                    FROM BirraProdotta BP JOIN BirraVenduta BV  on BP.CodLotto = BV.CodLotto
-                    GROUP BY BP.CodLotto
+                    SELECT CODLOTTO,SUM(numFustiProdotti) totprod
+                    FROM BirraProdotta 
+                    WHERE CODLOTTO = :new.CODLOTTO
+                    GROUP BY CODLOTTO
             );
-        IF(nFustiDisp < :new.numFusti) THEN RAISE notEnoughtFusti;
+        SELECT totprod INTO totsell
+            FROM (
+                    SELECT CODLOTTO,CODFATTURA,SUM(NUMFUSTI) totprod
+                    FROM BIRRAVENDUTA
+                    WHERE  CODLOTTO = :new.codLotto AND CODFATTURA = :new.CodFattura
+                    GROUP BY CodLotto,CODFATTURA
+            );
+
+        IF totpr-totsell < :new.numFusti THEN RAISE notEnoughtFusti;
         END IF;
-    END;
+        EXCEPTION
+        WHEN notEnoughtFusti THEN RAISE_APPLICATION_ERROR (-20843,'Troppi pochi fusti');
+        END;
 / 
 
 /*11) Aggiorna automaticamente la data di fine fermentazione con la data di produzione della birra fatta con il mosto fermentato*/	 
