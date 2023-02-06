@@ -111,21 +111,21 @@ insert into Lievito values ('German Wheat');
 insert into Lievito values ('Irish Ale');
 
 --TIPI DI BIRRA
-insert into TipoBirra values (1001,'IT0011220','Stout',8.5,'Scura',0,100.00 ,        'Pale Ale Malt','Cascade','American Ale');
-insert into TipoBirra values (1002,'IT0011221','Chimay Blanche',9,'Bionda',3,110.00 ,'Vienna Malt','Chinook','Belgian Ale');
-insert into TipoBirra values (1003,'IT0011222','Lindemans',9,'Rossa',2,75.00 ,       'Munich Malt','Columbus','English Ale');
-insert into TipoBirra values (1004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 ,    'Pilsner Malt','Centennial','German Wheat');
-insert into TipoBirra values (1005,'IT0011224','Lager',7,'Bionda',0,90.00 ,          'Wheat Malt','Simcoe','Irish Ale');
-insert into TipoBirra values (1006,'IT0011225','Budweiser',5,'Bionda',0,90.00 ,          'Pale Ale Malt','Simcoe','Irish Ale');
-insert into TipoBirra values (1007,'IT0011226','Stout',8,'Scura',0,100.00 ,          'Pale Ale Malt','Cascade','American Ale');
-insert into TipoBirra values (1008,'IT0011227','Trappistes Rochefort',9,'Bionda',3,110.00 ,'Pilsner Malt','Chinook','Belgian Ale');
-insert into TipoBirra values (1009,'IT0011228','Newcastle Brown Ale',9,'Rossa',2,55.00 ,       'Munich Malt','Columbus','English Ale');
-insert into TipoBirra values (1010,'IT0011229','Brown Ale',3.5,'Scura',1,250.00 ,    'Pilsner Malt','Centennial','Belgian Ale');
-insert into TipoBirra values (1011,'IT0011230','Spaten',7,'Bionda',0,90.00 ,          'Wheat Malt','Simcoe','Irish Ale');
-insert into TipoBirra values (1012,'IT0011231','Lindemans',4,'Bionda',0,90.00 ,      'Pale Ale Malt','Simcoe','Irish Ale');
-insert into TipoBirra values (1013,'IT0011232','Hoegaarden Dark',8,'Scura',0,250.00 ,          'Pale Ale Malt','Cascade','American Ale');
-insert into TipoBirra values (1014,'IT0011233','Franziskaner',9,'Bionda',3,110.00 ,'Vienna Malt','Chinook','Belgian Ale');
-insert into TipoBirra values (1015,'IT0011234','Paulaner',9,'Rossa',2,55.00 ,       'Munich Malt','Columbus','English Ale');
+insert into TipoBirra values (1001,'IT0011220','Stout',8.5,'Scura',0,100.00 ,               'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (1002,'IT0011221','Chimay Blanche',9,'Bionda',3,110.00 ,       'Vienna Malt',  'Chinook',   'Belgian Ale');
+insert into TipoBirra values (1003,'IT0011222','Lindemans',9,'Rossa',2,75.00 ,              'Munich Malt',  'Columbus',  'English Ale');
+insert into TipoBirra values (1004,'IT0011223','Brown Ale',8.5,'Scura',1,100.00 ,           'Pilsner Malt', 'Centennial','German Wheat');
+insert into TipoBirra values (1005,'IT0011224','Lager',7,'Bionda',0,90.00 ,                 'Wheat Malt',   'Simcoe','Irish Ale');
+insert into TipoBirra values (1006,'IT0011225','Budweiser',5,'Bionda',0,90.00 ,             'Pale Ale Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1007,'IT0011226','Stout',8,'Scura',0,100.00 ,                 'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (1008,'IT0011227','Trappistes Rochefort',9,'Bionda',3,110.00 , 'Pilsner Malt', 'Chinook','Belgian Ale');
+insert into TipoBirra values (1009,'IT0011228','Newcastle Brown Ale',9,'Rossa',2,55.00 ,    'Munich Malt',  'Columbus','English Ale');
+insert into TipoBirra values (1010,'IT0011229','Brown Ale',3.5,'Scura',1,250.00 ,           'Pilsner Malt', 'Centennial','Belgian Ale');
+insert into TipoBirra values (1011,'IT0011230','Spaten',7,'Bionda',0,90.00 ,                'Wheat Malt',   'Simcoe','Irish Ale');
+insert into TipoBirra values (1012,'IT0011231','Lindemans',4,'Bionda',0,90.00 ,             'Pale Ale Malt','Simcoe','Irish Ale');
+insert into TipoBirra values (1013,'IT0011232','Hoegaarden Dark',8,'Scura',0,250.00 ,       'Pale Ale Malt','Cascade','American Ale');
+insert into TipoBirra values (1014,'IT0011233','Franziskaner',9,'Bionda',3,110.00 ,         'Vienna Malt',  'Chinook','Belgian Ale');
+insert into TipoBirra values (1015,'IT0011234','Paulaner',9,'Rossa',2,55.00 ,               'Munich Malt',  'Columbus','English Ale');
 --C'è un errore
 
 --ORDINE APPROVVIGGIONAMENTO
@@ -148,50 +148,50 @@ insert into OrdineApproviggionamento values (010123015,TO_DATE('15/02/2022','DD/
 
 
 --LOTTO MATERIA PRIMA
-insert into LottoMateriaPrima values ('LT-0220001',1001,000123011,'Pale Ale Malt',1000550,   200.99,9,TO_DATE('01/03/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220002',1002,000123012,'American Ale',1000551, 100.99,1,TO_DATE('05/04/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220003',1003,000123013,'Cascade',1000552, 200.99,4,TO_DATE('23/05/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220004',1004,000123014,'Vienna Malt',1000553,   100.99,2,TO_DATE('15/06/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220005',1005,000123015,'Belgian Ale',1000554, 200.99,2,TO_DATE('10/07/2023','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220006',1006,000123016,'English Ale',1000555, 150.99,7,TO_DATE('04/08/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220007',1007,000123017,'Munich Malt',1000556,   150.99,1,TO_DATE('03/09/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220008',1008,000123018,'Chinook',1000557, 200.99,1,TO_DATE('10/09/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220009',1009,000123019,'Columbus',1000558, 250.99,4,TO_DATE('18/09/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220010',1010,000123010,'Pilsner Malt',1000559,   220.99,1,TO_DATE('01/10/2024','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220011',1011,000123011,'Centennial',1000510, 200.99,1,TO_DATE('11/10/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220012',1012,000123012,'Simcoe',1000511, 175.99,3,TO_DATE('20/11/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220013',1013,000123013,'German Wheat',1000512,   160.99,8,TO_DATE('15/12/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220014',1014,000123014,'Irish Ale',1000513, 200.99,2,TO_DATE('15/01/2025','DD/MM/YYYY'));
-insert into LottoMateriaPrima values ('LT-0220015',1015,000123015,'Wheat Malt',1000514, 120.99,3,TO_DATE('27/02/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220001',1001,000123011,'Pale Ale Malt',1000550,   200.99,100,TO_DATE('01/03/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220002',1002,000123012,'American Ale',1000551, 100.99,200,TO_DATE('05/04/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220003',1003,000123013,'Cascade',1000552, 200.99,400,TO_DATE('23/05/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220004',1004,000123014,'Vienna Malt',1000553,   100.99,250,TO_DATE('15/06/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220005',1005,000123015,'Belgian Ale',1000554, 200.99,50,TO_DATE('10/07/2023','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220006',1006,000123016,'English Ale',1000555, 150.99,70,TO_DATE('04/08/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220007',1007,000123017,'Munich Malt',1000556,   150.99,19,TO_DATE('03/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220008',1008,000123018,'Chinook',1000557, 200.99,100,TO_DATE('10/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220009',1009,000123019,'Columbus',1000558, 250.99,49,TO_DATE('18/09/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220010',1010,000123010,'Pilsner Malt',1000559,   220.99,80,TO_DATE('01/10/2024','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220011',1011,000123011,'Centennial',1000510, 200.99,100,TO_DATE('11/10/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220012',1012,000123012,'Simcoe',1000511, 175.99,300,TO_DATE('20/11/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220013',1013,000123013,'German Wheat',1000512,   160.99,89,TO_DATE('15/12/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220014',1014,000123014,'Irish Ale',1000513, 200.99,26,TO_DATE('15/01/2025','DD/MM/YYYY'));
+insert into LottoMateriaPrima values ('LT-0220015',1015,000123015,'Wheat Malt',1000514, 120.99,315,TO_DATE('27/02/2025','DD/MM/YYYY'));
 
 
 --MOSTO DOLCE
-insert into MostoDolce values (0102001,1001,000123011,'LT-0220001',TO_DATE('01/02/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102002,1002,000123012,'LT-0220002',TO_DATE('01/03/2021','DD/MM/YYYY'),3,50,1);
-insert into MostoDolce values (0102003,1003,000123013,'LT-0220003',TO_DATE('01/04/2021','DD/MM/YYYY'),1,50,1);
-insert into MostoDolce values (0102004,1004,000123014,'LT-0220004',TO_DATE('01/05/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102005,1005,000123015,'LT-0220005',TO_DATE('01/06/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102006,1006,000123016,'LT-0220006',TO_DATE('01/07/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102007,1007,000123017,'LT-0220007',TO_DATE('01/08/2021','DD/MM/YYYY'),3,50,1);
-insert into MostoDolce values (0102008,1008,000123018,'LT-0220008',TO_DATE('01/09/2021','DD/MM/YYYY'),1,50,1);
-insert into MostoDolce values (0102009,1009,000123019,'LT-0220009',TO_DATE('01/10/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102010,1010,000123010,'LT-0220010',TO_DATE('01/11/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102011,1011,000123011,'LT-0220011',TO_DATE('01/12/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102012,1012,000123012,'LT-0220012',TO_DATE('01/01/2022','DD/MM/YYYY'),3,50,1);
-insert into MostoDolce values (0102013,1013,000123013,'LT-0220013',TO_DATE('01/02/2022','DD/MM/YYYY'),1,50,1);
-insert into MostoDolce values (0102014,1014,000123014,'LT-0220014',TO_DATE('01/03/2022','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102015,1015,000123015,'LT-0220015',TO_DATE('01/04/2022','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102001,1003,000123013,'LT-0220003',TO_DATE('01/02/2021','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102002,1008,000123018,'LT-0220008',TO_DATE('01/03/2021','DD/MM/YYYY'),3,50,1);
+insert into MostoDolce values (0102003,1009,000123019,'LT-0220009',TO_DATE('01/04/2021','DD/MM/YYYY'),1,50,1);
+insert into MostoDolce values (0102004,1011,000123011,'LT-0220011',TO_DATE('01/05/2021','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102005,1012,000123012,'LT-0220012',TO_DATE('01/06/2021','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102006,1003,000123013,'LT-0220003',TO_DATE('01/07/2021','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102007,1008,000123018,'LT-0220008',TO_DATE('01/08/2021','DD/MM/YYYY'),3,50,1);
+insert into MostoDolce values (0102008,1009,000123019,'LT-0220009',TO_DATE('01/09/2021','DD/MM/YYYY'),1,50,1);
+insert into MostoDolce values (0102009,1011,000123011,'LT-0220011',TO_DATE('01/10/2021','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102010,1012,000123012,'LT-0220012',TO_DATE('01/11/2021','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102011,1003,000123013,'LT-0220003',TO_DATE('01/12/2021','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102012,1008,000123018,'LT-0220008',TO_DATE('01/01/2022','DD/MM/YYYY'),3,50,1);
+insert into MostoDolce values (0102013,1009,000123019,'LT-0220009',TO_DATE('01/02/2022','DD/MM/YYYY'),1,50,1);
+insert into MostoDolce values (0102014,1011,000123011,'LT-0220011',TO_DATE('01/03/2022','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102015,1011,000123012,'LT-0220012',TO_DATE('01/04/2022','DD/MM/YYYY'),2,50,1);
 
 
 --AMMOSTAMENTO
-insert into Ammostamento values (1,TO_DATE('02/02/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,1);
-insert into Ammostamento values (3,TO_DATE('02/03/2021','DD/MM/YYYY'),1002,000123012,'LT-0220002',0102002,1,1);
-insert into Ammostamento values (5,TO_DATE('02/04/2021','DD/MM/YYYY'),1003,000123013,'LT-0220003',0102003,1,1);
-insert into Ammostamento values (6,TO_DATE('02/05/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,1);
-insert into Ammostamento values (7,TO_DATE('02/06/2021','DD/MM/YYYY'),1005,000123015,'LT-0220005',0102005,1,1);
-insert into Ammostamento values (10,TO_DATE('02/07/2021','DD/MM/YYYY'),1006,000123016,'LT-0220006',0102006,1,1);
-insert into Ammostamento values (11,TO_DATE('02/08/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,1);
-insert into Ammostamento values (13,TO_DATE('02/09/2021','DD/MM/YYYY'),1008,000123018,'LT-0220008',0102008,1,1);
+insert into Ammostamento values (1,TO_DATE('02/02/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,3);
+insert into Ammostamento values (3,TO_DATE('02/03/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
+insert into Ammostamento values (5,TO_DATE('02/04/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
+insert into Ammostamento values (6,TO_DATE('02/05/2021','DD/MM/YYYY'),1010,000123010,'LT-0220010',0102010,1,6);
+insert into Ammostamento values (7,TO_DATE('02/06/2021','DD/MM/YYYY'),1015,000123015,'LT-0220015',0102015,1,8);
+insert into Ammostamento values (10,TO_DATE('02/07/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,2);
+insert into Ammostamento values (11,TO_DATE('02/08/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
+insert into Ammostamento values (13,TO_DATE('02/09/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
 
 
 --BIRRA PRODOTTA
