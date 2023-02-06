@@ -217,19 +217,6 @@
         WHEN notEnoughtFusti THEN RAISE_APPLICATION_ERROR (-20843,'Troppi pochi fusti');
         END;
 / 
-
-/*11) Aggiorna automaticamente la data di fine fermentazione con la data di produzione della birra fatta con il mosto fermentato*/	 
-	CREATE OR REPLACE TRIGGER AutoUpdateFermentazione
-        AFTER INSERT ON BirraProdotta               
-        FOR EACH ROW
-        DECLARE
-        pragma autonomous_transaction;
-        BEGIN
-        UPDATE FERMENTAZIONE 
-            SET dataFineF = :new.dataProduzione 
-            WHERE numLotFermentato = :new.codLotto;
-    END;
-/       
         
 /*12) Controlla che non vengano eseguite fermentazioni in fermentatori già occupati*/	
 	CREATE OR REPLACE TRIGGER CheckDisponibilitaFermentatore
