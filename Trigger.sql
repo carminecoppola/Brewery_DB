@@ -254,7 +254,7 @@
                 THEN RAISE wrongMateriaPrima;
             END IF;
         EXCEPTION 
-            WHEN wrongMateriaPrima THEN RAISE_APPLICATION_ERROR(-20100,'Raw material is not malt');
+            WHEN wrongMateriaPrima THEN RAISE_APPLICATION_ERROR(-20100,'La materia prima non è malto');
 	END;
 /
 
@@ -274,7 +274,7 @@
                 THEN RAISE wrongMateriaPrima2;
             END IF;
         EXCEPTION 
-            WHEN wrongMateriaPrima2 THEN RAISE_APPLICATION_ERROR(-20101,'Raw material is not hop');
+            WHEN wrongMateriaPrima2 THEN RAISE_APPLICATION_ERROR(-20101,'La materia prima non è luppolo');
 	END;
 /
 
@@ -294,7 +294,7 @@
                 THEN RAISE wrongMateriaPrima3;
             END IF;
         EXCEPTION 
-            WHEN wrongMateriaPrima3 THEN RAISE_APPLICATION_ERROR(-20102,'Raw material is not yeast');
+            WHEN wrongMateriaPrima3 THEN RAISE_APPLICATION_ERROR(-20102,'La materia prima non è lievito');
 	END;
         
         
