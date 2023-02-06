@@ -72,28 +72,28 @@ insert into PUB values ('PT00-15', 'Central Park',             'Alessandria',   
 
 --MATERIE PRIME
 insert into MateriaPrima values ('Malto',   'Pale Ale Malt', 'Regno Unito');
-insert into MateriaPrima values ('Lievito', 'American Ale', 'Regno Unito');
-insert into MateriaPrima values ('Luppolo', 'Cascade',      'Belgio');
-insert into MateriaPrima values ('Malto',   'Vienna Malt',  'Regno Unito');
-insert into MateriaPrima values ('Lievito', 'Belgian Ale',  'Scozia');
-insert into MateriaPrima values ('Lievito', 'English Ale',  'Italia');
-insert into MateriaPrima values ('Malto',   'Munich Malt',  'Belgio');
-insert into MateriaPrima values ('Luppolo', 'Chinook',      'USA');
-insert into MateriaPrima values ('Luppolo', 'Columbus',     'Scozia');
-insert into MateriaPrima values ('Malto',   'Pilsner Malt', 'USA');
-insert into MateriaPrima values ('Luppolo', 'Centennial',   'Italia');
-insert into MateriaPrima values ('Luppolo', 'Simcoe',       'Belgio');
-insert into MateriaPrima values ('Lievito', 'German Wheat', 'USA');
-insert into MateriaPrima values ('Lievito', 'Irish Ale',    'Italia');
-insert into MateriaPrima values ('Malto',   'Wheat Malt',   'Scozia');
+insert into MateriaPrima values ('Lievito', 'American Ale', ' Regno Unito');
+insert into MateriaPrima values ('Luppolo', 'Cascade',      ' Belgio');
+insert into MateriaPrima values ('Malto',   'Vienna Malt',  ' Regno Unito');
+insert into MateriaPrima values ('Lievito', 'Belgian Ale',  ' Scozia');
+insert into MateriaPrima values ('Lievito', 'English Ale',  ' Italia');
+insert into MateriaPrima values ('Malto',   'Munich Malt',  ' Belgio');
+insert into MateriaPrima values ('Luppolo', 'Chinook',      ' USA');
+insert into MateriaPrima values ('Luppolo', 'Columbus',     ' Scozia');
+insert into MateriaPrima values ('Malto',   'Pilsner Malt', ' USA');
+insert into MateriaPrima values ('Luppolo', 'Centennial',   ' Italia');
+insert into MateriaPrima values ('Luppolo', 'Simcoe',       ' Belgio');
+insert into MateriaPrima values ('Lievito', 'German Wheat', ' USA');
+insert into MateriaPrima values ('Lievito', 'Irish Ale',    ' Italia');
+insert into MateriaPrima values ('Malto',   'Wheat Malt',   ' Scozia');
 
 
 --MALTO
-insert into Malto values ('Pale Ale Malt','Orzo');
-insert into Malto values ('Vienna Malt','Segale');
-insert into Malto values ('Munich Malt','Mais');
-insert into Malto values ('Pilsner Malt','Frumento');
-insert into Malto values ('Wheat Malt','Orzo');
+insert into Malto values ('Pale Ale Malt', 'Orzo');
+insert into Malto values ('Vienna Malt',   'Segale');
+insert into Malto values ('Munich Malt',   'Mais');
+insert into Malto values ('Pilsner Malt',  'Frumento');
+insert into Malto values ('Wheat Malt',    'Orzo');
 
 
 --LUPPOLO
@@ -184,14 +184,14 @@ insert into MostoDolce values (0102015,1011,000123012,'LT-0220012',TO_DATE('01/0
 
 
 --AMMOSTAMENTO
-insert into Ammostamento values (1,TO_DATE('02/02/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,3);
-insert into Ammostamento values (3,TO_DATE('02/03/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
-insert into Ammostamento values (5,TO_DATE('02/04/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
-insert into Ammostamento values (6,TO_DATE('02/05/2021','DD/MM/YYYY'),1010,000123010,'LT-0220010',0102010,1,6);
-insert into Ammostamento values (7,TO_DATE('02/06/2021','DD/MM/YYYY'),1015,000123015,'LT-0220015',0102015,1,8);
-insert into Ammostamento values (10,TO_DATE('02/07/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,2);
-insert into Ammostamento values (11,TO_DATE('02/08/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
-insert into Ammostamento values (13,TO_DATE('02/09/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
+insert into Ammostamento values (1,  TO_DATE('02/02/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,3);
+insert into Ammostamento values (3,  TO_DATE('02/03/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
+insert into Ammostamento values (5,  TO_DATE('02/04/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
+insert into Ammostamento values (6,  TO_DATE('02/05/2021','DD/MM/YYYY'),1010,000123010,'LT-0220010',0102010,1,6);
+insert into Ammostamento values (7,  TO_DATE('02/06/2021','DD/MM/YYYY'),1015,000123015,'LT-0220015',0102015,1,8);
+insert into Ammostamento values (10, TO_DATE('02/07/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,2);
+insert into Ammostamento values (11, TO_DATE('02/08/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
+insert into Ammostamento values (13, TO_DATE('02/09/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
 
 
 --BIRRA PRODOTTA
