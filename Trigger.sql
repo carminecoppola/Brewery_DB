@@ -5,28 +5,26 @@
        quella che abbiamo in stock*/
 
 
-    CREATE OR REPLACE TRIGGER Check_scorte_malto  
+     CREATE OR REPLACE TRIGGER Check_scorte_malto  
         BEFORE INSERT ON Ammostamento               
         FOR EACH ROW
         DECLARE
             notEnoughMalt EXCEPTION;
             maltoQTRimanente NUMBER;    
         BEGIN
-            SELECT totacq - totused 
-            INTO maltoQTRimanente
+            SELECT totacq - totused INTO maltoQTRimanente
             FROM (
                     SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaMalto) totused
-                    FROM LottoMateriaPrima L JOIN Ammostamento A on L.codProdotto = A.codProdotto AND L.gs1Fornitore = A.gs1Fornitore
+                    FROM LottoMateriaPrima L JOIN Ammostamento A on L.codProdotto = A.codProdottoMalto AND L.gs1Fornitore = A.gs1Fornitore
                     GROUP BY L.codProdotto, L.gs1Fornitore
             )
-            WHERE L.codProdotto = :new.codProdotto AND L.gs1Fornitore = :new.gs1Fornitore
+            WHERE L.codProdotto = :new.codProdottoMalto AND L.gs1Fornitore = :new.gs1Fornitore;
             IF maltoQTRimanente < :new.quantitaMalto
                 THEN RAISE notEnoughMalt;
             END IF;
         EXCEPTION
             WHEN notEnoughMalt THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
     END;
-
 
 /*  2) Il secondo trigger controlla che la quantità di luppolo utilizzato per l'ammostamento sia 
        disponibile tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità 
