@@ -210,15 +210,11 @@ insert into BirraProdotta values ('BP-0010214', TO_DATE('15/05/2023','DD/MM/YYYY
 insert into BirraProdotta values ('BP-0010215', TO_DATE('15/06/2023','DD/MM/YYYY'), 1015, 200);
 
 --FERMENTAZIONE
---insert into Fermentazione values (2,  'alta',  'BP-0010201', TO_DATE('01/01/2023','DD/MM/YYYY'), TO_DATE('15/01/2023','DD/MM/YYYY'), 0102001, 'LT-0220001', 1001, 000123011, 3);
 insert into Fermentazione values (4,  'alta',  'BP-0010202', TO_DATE('01/02/2023','DD/MM/YYYY'), TO_DATE('15/02/2023','DD/MM/YYYY'), 0102002, 'LT-0220002', 1002, 000123012, 2);
 insert into Fermentazione values (8,  'bassa', 'BP-0010213', TO_DATE('01/03/2023','DD/MM/YYYY'), TO_DATE('15/03/2023','DD/MM/YYYY'), 0102013, 'LT-0220013', 1013, 000123013, 3); 
 insert into Fermentazione values (9,  'alta',  'BP-0010214', TO_DATE('01/04/2023','DD/MM/YYYY'), TO_DATE('15/04/2023','DD/MM/YYYY'), 0102014, 'LT-0220014', 1014, 000123014, 1); 
 insert into Fermentazione values (12, 'bassa', 'BP-0010205', TO_DATE('01/05/2023','DD/MM/YYYY'), TO_DATE('15/05/2023','DD/MM/YYYY'), 0102005, 'LT-0220005', 1005, 000123015, 4); 
-insert into Fermentazione values (14, 'alta',  'BP-0010206', TO_DATE('01/06/2023','DD/MM/YYYY'), TO_DATE('15/06/2023','DD/MM/YYYY'), 0102006, 'LT-0220006', 1006, 000123016, 2); 
---insert into Fermentazione values (15, 'bassa', 'BP-0010207', TO_DATE('01/07/2023','DD/MM/YYYY'), TO_DATE('15/07/2023','DD/MM/YYYY'), 0102007, 'LT-0220007', 1007, 000123017, 3);
-
-
+insert into Fermentazione values (14, 'alta',  'BP-0010206', TO_DATE('01/06/2023','DD/MM/YYYY'), TO_DATE('15/06/2023','DD/MM/YYYY'), 0102006, 'LT-0220006', 1006, 000123016, 2);
 --VENDITA
 insert into Vendita values ('VD--0220001', 'PT00-01', 'Assegno',  TO_DATE('20/02/2021','DD/MM/YYYY'), 500.99);
 insert into Vendita values ('VD--0220002', 'PT00-02', 'Bonifico', TO_DATE('20/03/2021','DD/MM/YYYY'), 400.99);
