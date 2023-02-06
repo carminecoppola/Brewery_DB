@@ -214,6 +214,10 @@
         IF totpr-totsell < :new.numFusti THEN RAISE notEnoughtFusti;
         END IF;
         EXCEPTION
+        WHEN NO_DATA_FOUND THEN 
+        IF :new.numFusti > 100 THEN
+            RAISE_APPLICATION_ERROR (-20108,'Fusti in scorta insufficienti');
+        END IF;
         WHEN notEnoughtFusti THEN RAISE_APPLICATION_ERROR (-20843,'Troppi pochi fusti');
         END;
 / 
