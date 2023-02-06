@@ -166,92 +166,91 @@ insert into LottoMateriaPrima values ('LT-0220015', 1015, 000123015,'Wheat Malt'
 
 
 --MOSTO DOLCE
-insert into MostoDolce values (0102001, 1003,000123013,'LT-0220003',TO_DATE('01/02/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102002,1008,000123018,'LT-0220008',TO_DATE('01/03/2021','DD/MM/YYYY'),3,50,1);
-insert into MostoDolce values (0102003,1009,000123019,'LT-0220009',TO_DATE('01/04/2021','DD/MM/YYYY'),1,50,1);
-insert into MostoDolce values (0102004,1011,000123011,'LT-0220011',TO_DATE('01/05/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102005,1012,000123012,'LT-0220012',TO_DATE('01/06/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102006,1003,000123013,'LT-0220003',TO_DATE('01/07/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102007,1008,000123018,'LT-0220008',TO_DATE('01/08/2021','DD/MM/YYYY'),3,50,1);
-insert into MostoDolce values (0102008,1009,000123019,'LT-0220009',TO_DATE('01/09/2021','DD/MM/YYYY'),1,50,1);
-insert into MostoDolce values (0102009,1011,000123011,'LT-0220011',TO_DATE('01/10/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102010,1012,000123012,'LT-0220012',TO_DATE('01/11/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102011,1003,000123013,'LT-0220003',TO_DATE('01/12/2021','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102012,1008,000123018,'LT-0220008',TO_DATE('01/01/2022','DD/MM/YYYY'),3,50,1);
-insert into MostoDolce values (0102013,1009,000123019,'LT-0220009',TO_DATE('01/02/2022','DD/MM/YYYY'),1,50,1);
-insert into MostoDolce values (0102014,1011,000123011,'LT-0220011',TO_DATE('01/03/2022','DD/MM/YYYY'),2,50,1);
-insert into MostoDolce values (0102015,1011,000123012,'LT-0220012',TO_DATE('01/04/2022','DD/MM/YYYY'),2,50,1);
+insert into MostoDolce values (0102001, 1003, 000123013, 'LT-0220003', TO_DATE('01/02/2021','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102002, 1008, 000123018, 'LT-0220008', TO_DATE('01/03/2021','DD/MM/YYYY'), 3, 50, 1);
+insert into MostoDolce values (0102003, 1009, 000123019, 'LT-0220009', TO_DATE('01/04/2021','DD/MM/YYYY'), 1, 50, 1);
+insert into MostoDolce values (0102004, 1011, 000123011, 'LT-0220011', TO_DATE('01/05/2021','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102005, 1012, 000123012, 'LT-0220012', TO_DATE('01/06/2021','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102006, 1003, 000123013, 'LT-0220003', TO_DATE('01/07/2021','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102007, 1008, 000123018, 'LT-0220008', TO_DATE('01/08/2021','DD/MM/YYYY'), 3, 50, 1);
+insert into MostoDolce values (0102008, 1009, 000123019, 'LT-0220009', TO_DATE('01/09/2021','DD/MM/YYYY'), 1, 50, 1);
+insert into MostoDolce values (0102009, 1011, 000123011, 'LT-0220011', TO_DATE('01/10/2021','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102010, 1012, 000123012, 'LT-0220012', TO_DATE('01/11/2021','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102011, 1003, 000123013, 'LT-0220003', TO_DATE('01/12/2021','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102012, 1008, 000123018, 'LT-0220008', TO_DATE('01/01/2022','DD/MM/YYYY'), 3, 50, 1);
+insert into MostoDolce values (0102013, 1009, 000123019, 'LT-0220009', TO_DATE('01/02/2022','DD/MM/YYYY'), 1, 50, 1);
+insert into MostoDolce values (0102014, 1011, 000123011, 'LT-0220011', TO_DATE('01/03/2022','DD/MM/YYYY'), 2, 50, 1);
+insert into MostoDolce values (0102015, 1011, 000123012, 'LT-0220012', TO_DATE('01/04/2022','DD/MM/YYYY'), 2, 50, 1);
 
 
 --AMMOSTAMENTO
-insert into Ammostamento values (1,  TO_DATE('02/02/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,3);
-insert into Ammostamento values (3,  TO_DATE('02/03/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
-insert into Ammostamento values (5,  TO_DATE('02/04/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
-insert into Ammostamento values (6,  TO_DATE('02/05/2021','DD/MM/YYYY'),1010,000123010,'LT-0220010',0102010,1,6);
-insert into Ammostamento values (7,  TO_DATE('02/06/2021','DD/MM/YYYY'),1015,000123015,'LT-0220015',0102015,1,8);
-insert into Ammostamento values (10, TO_DATE('02/07/2021','DD/MM/YYYY'),1001,000123011,'LT-0220001',0102001,1,2);
-insert into Ammostamento values (11, TO_DATE('02/08/2021','DD/MM/YYYY'),1004,000123014,'LT-0220004',0102004,1,4);
-insert into Ammostamento values (13, TO_DATE('02/09/2021','DD/MM/YYYY'),1007,000123017,'LT-0220007',0102007,1,5);
+insert into Ammostamento values (1,  TO_DATE('02/02/2021','DD/MM/YYYY'), 1001, 000123011,' LT-0220001', 0102001, 1, 3);
+insert into Ammostamento values (3,  TO_DATE('02/03/2021','DD/MM/YYYY'), 1004, 000123014,' LT-0220004', 0102004, 1, 4);
+insert into Ammostamento values (5,  TO_DATE('02/04/2021','DD/MM/YYYY'), 1007, 000123017,' LT-0220007', 0102007, 1, 5);
+insert into Ammostamento values (6,  TO_DATE('02/05/2021','DD/MM/YYYY'), 1010, 000123010,' LT-0220010', 0102010, 1, 6);
+insert into Ammostamento values (7,  TO_DATE('02/06/2021','DD/MM/YYYY'), 1015, 000123015,' LT-0220015', 0102015, 1, 8);
+insert into Ammostamento values (10, TO_DATE('02/07/2021','DD/MM/YYYY'), 1001, 000123011,' LT-0220001', 0102001, 1, 2);
+insert into Ammostamento values (11, TO_DATE('02/08/2021','DD/MM/YYYY'), 1004, 000123014,' LT-0220004', 0102004, 1, 4);
+insert into Ammostamento values (13, TO_DATE('02/09/2021','DD/MM/YYYY'), 1007, 000123017,' LT-0220007', 0102007, 1, 5);
 
 
 --BIRRA PRODOTTA
-insert into BirraProdotta values ('BP-0010201',TO_DATE('15/02/2021','DD/MM/YYYY'),1001,4);
-insert into BirraProdotta values ('BP-0010202',TO_DATE('15/03/2021','DD/MM/YYYY'),1002,6);
-insert into BirraProdotta values ('BP-0010203',TO_DATE('15/04/2021','DD/MM/YYYY'),1003,7);
-insert into BirraProdotta values ('BP-0010204',TO_DATE('15/05/2021','DD/MM/YYYY'),1004,3);
-insert into BirraProdotta values ('BP-0010205',TO_DATE('15/06/2021','DD/MM/YYYY'),1005,2);
-insert into BirraProdotta values ('BP-0010206',TO_DATE('15/02/2022','DD/MM/YYYY'),1006,4);
-insert into BirraProdotta values ('BP-0010207',TO_DATE('15/03/2022','DD/MM/YYYY'),1007,6);
-insert into BirraProdotta values ('BP-0010208',TO_DATE('15/04/2022','DD/MM/YYYY'),1008,7);
-insert into BirraProdotta values ('BP-0010209',TO_DATE('15/05/2022','DD/MM/YYYY'),1009,3);
-insert into BirraProdotta values ('BP-0010210',TO_DATE('15/06/2023','DD/MM/YYYY'),1010,2);
-insert into BirraProdotta values ('BP-0010211',TO_DATE('15/02/2023','DD/MM/YYYY'),1011,4);
-insert into BirraProdotta values ('BP-0010212',TO_DATE('15/03/2023','DD/MM/YYYY'),1012,6);
-insert into BirraProdotta values ('BP-0010213',TO_DATE('15/04/2023','DD/MM/YYYY'),1013,7);
-insert into BirraProdotta values ('BP-0010214',TO_DATE('15/05/2023','DD/MM/YYYY'),1014,3);
-insert into BirraProdotta values ('BP-0010215',TO_DATE('15/06/2023','DD/MM/YYYY'),1015,2);
+insert into BirraProdotta values ('BP-0010201', TO_DATE('15/02/2021','DD/MM/YYYY'), 1001, 4);
+insert into BirraProdotta values ('BP-0010202', TO_DATE('15/03/2021','DD/MM/YYYY'), 1002, 6);
+insert into BirraProdotta values ('BP-0010203', TO_DATE('15/04/2021','DD/MM/YYYY'), 1003, 7);
+insert into BirraProdotta values ('BP-0010204', TO_DATE('15/05/2021','DD/MM/YYYY'), 1004, 3);
+insert into BirraProdotta values ('BP-0010205', TO_DATE('15/06/2021','DD/MM/YYYY'), 1005, 2);
+insert into BirraProdotta values ('BP-0010206', TO_DATE('15/02/2022','DD/MM/YYYY'), 1006, 4);
+insert into BirraProdotta values ('BP-0010207', TO_DATE('15/03/2022','DD/MM/YYYY'), 1007, 6);
+insert into BirraProdotta values ('BP-0010208', TO_DATE('15/04/2022','DD/MM/YYYY'), 1008, 7);
+insert into BirraProdotta values ('BP-0010209', TO_DATE('15/05/2022','DD/MM/YYYY'), 1009, 3);
+insert into BirraProdotta values ('BP-0010210', TO_DATE('15/06/2023','DD/MM/YYYY'), 1010, 2);
+insert into BirraProdotta values ('BP-0010211', TO_DATE('15/02/2023','DD/MM/YYYY'), 1011, 4);
+insert into BirraProdotta values ('BP-0010212', TO_DATE('15/03/2023','DD/MM/YYYY'), 1012, 6);
+insert into BirraProdotta values ('BP-0010213', TO_DATE('15/04/2023','DD/MM/YYYY'), 1013, 7);
+insert into BirraProdotta values ('BP-0010214', TO_DATE('15/05/2023','DD/MM/YYYY'), 1014, 3);
+insert into BirraProdotta values ('BP-0010215', TO_DATE('15/06/2023','DD/MM/YYYY'), 1015, 2);
 
 --FERMENTAZIONE
-insert into Fermentazione values (2,'alta','BP-0010201',TO_DATE('01/01/2023','DD/MM/YYYY'),TO_DATE('15/01/2023','DD/MM/YYYY'),0102001,'LT-0220001',1001,000123011,3);
-insert into Fermentazione values (4,'alta','BP-0010202',TO_DATE('01/02/2023','DD/MM/YYYY'),TO_DATE('15/02/2023','DD/MM/YYYY'),0102002,'LT-0220002',1002,000123012,2); 
-insert into Fermentazione values (8,'bassa','BP-0010203',TO_DATE('01/03/2023','DD/MM/YYYY'),TO_DATE('15/03/2023','DD/MM/YYYY'),0102003,'LT-0220003',1003,000123013,3); 
-insert into Fermentazione values (9,'alta','BP-0010204',TO_DATE('01/04/2023','DD/MM/YYYY'),TO_DATE('15/04/2023','DD/MM/YYYY'),0102004,'LT-0220004',1004,000123014,1);
-insert into Fermentazione values (12,'bassa','BP-0010205',TO_DATE('01/05/2023','DD/MM/YYYY'),TO_DATE('15/05/2023','DD/MM/YYYY'),0102005,'LT-0220005',1005,000123015,4);
-insert into Fermentazione values (14,'alta','BP-0010206',TO_DATE('01/06/2023','DD/MM/YYYY'),TO_DATE('15/06/2023','DD/MM/YYYY'),0102006,'LT-0220006',1006,000123016,3);
-insert into Fermentazione values (15,'bassa','BP-0010207',TO_DATE('01/07/2023','DD/MM/YYYY'),TO_DATE('15/07/2023','DD/MM/YYYY'),0102007,'LT-0220007',1007,000123017,6);
+insert into Fermentazione values (2,  'alta',  'BP-0010201', TO_DATE('01/01/2023','DD/MM/YYYY'), TO_DATE('15/01/2023','DD/MM/YYYY'), 0102001, 'LT-0220001', 1001, 000123011, 3);
+insert into Fermentazione values (4,  'alta',  'BP-0010202', TO_DATE('01/02/2023','DD/MM/YYYY'), TO_DATE('15/02/2023','DD/MM/YYYY'), 0102002, 'LT-0220002', 1002, 000123012, 2); 
+insert into Fermentazione values (8,  'bassa', 'BP-0010203', TO_DATE('01/03/2023','DD/MM/YYYY'), TO_DATE('15/03/2023','DD/MM/YYYY'), 0102003, 'LT-0220003', 1003, 000123013, 3); 
+insert into Fermentazione values (9,  'alta',  'BP-0010204', TO_DATE('01/04/2023','DD/MM/YYYY'), TO_DATE('15/04/2023','DD/MM/YYYY'), 0102004, 'LT-0220004', 1004, 000123014, 1);
+insert into Fermentazione values (12, 'bassa', 'BP-0010205', TO_DATE('01/05/2023','DD/MM/YYYY'), TO_DATE('15/05/2023','DD/MM/YYYY'), 0102005, 'LT-0220005', 1005, 000123015, 4);
+insert into Fermentazione values (14, 'alta',  'BP-0010206', TO_DATE('01/06/2023','DD/MM/YYYY'), TO_DATE('15/06/2023','DD/MM/YYYY'), 0102006, 'LT-0220006', 1006, 000123016, 3);
+insert into Fermentazione values (15, 'bassa', 'BP-0010207', TO_DATE('01/07/2023','DD/MM/YYYY'), TO_DATE('15/07/2023','DD/MM/YYYY'), 0102007, 'LT-0220007', 1007, 000123017, 6);
 
 
 --VENDITA
-insert into Vendita values ('VD--0220001','PT00-01','Assegno',TO_DATE('20/02/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220002','PT00-02','Bonifico',TO_DATE('20/03/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220003','PT00-03','Assegno',TO_DATE('20/04/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220004','PT00-04','Assegno',TO_DATE('20/05/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220005','PT00-05','Bonifico',TO_DATE('20/06/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220006','PT00-06','Assegno',TO_DATE('20/07/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220007','PT00-07','Bonifico',TO_DATE('20/08/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220008','PT00-08','Bonifico',TO_DATE('20/09/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220009','PT00-09','Assegno',TO_DATE('20/10/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220010','PT00-10','Bonifico',TO_DATE('20/11/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220011','PT00-11','Bonifico',TO_DATE('20/12/2021','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220012','PT00-12','Assegno',TO_DATE('20/01/2022','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220013','PT00-13','Assegno',TO_DATE('20/02/2022','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220014','PT00-14','Bonifico',TO_DATE('20/03/2022','DD/MM/YYYY'),0);
-insert into Vendita values ('VD--0220015','PT00-15','Assegno',TO_DATE('20/04/2022','DD/MM/YYYY'),0);
+insert into Vendita values ('VD--0220001', 'PT00-01', 'Assegno',  TO_DATE('20/02/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220002', 'PT00-02', 'Bonifico', TO_DATE('20/03/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220003', 'PT00-03', 'Assegno',  TO_DATE('20/04/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220004', 'PT00-04', 'Assegno',  TO_DATE('20/05/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220005', 'PT00-05', 'Bonifico', TO_DATE('20/06/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220006', 'PT00-06', 'Assegno',  TO_DATE('20/07/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220007', 'PT00-07', 'Bonifico', TO_DATE('20/08/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220008', 'PT00-08', 'Bonifico', TO_DATE('20/09/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220009', 'PT00-09', 'Assegno',  TO_DATE('20/10/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220010', 'PT00-10', 'Bonifico', TO_DATE('20/11/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220011', 'PT00-11', 'Bonifico', TO_DATE('20/12/2021','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220012', 'PT00-12', 'Assegno',  TO_DATE('20/01/2022','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220013', 'PT00-13', 'Assegno',  TO_DATE('20/02/2022','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220014', 'PT00-14', 'Bonifico', TO_DATE('20/03/2022','DD/MM/YYYY'), 0);
+insert into Vendita values ('VD--0220015', 'PT00-15', 'Assegno',  TO_DATE('20/04/2022','DD/MM/YYYY'), 0);
 
 --BIRRA VENDUTA
-insert into BirraVenduta values ('BP-0010201','VD--0220001',9);
-insert into BirraVenduta values ('BP-0010202','VD--0220002',7);
-insert into BirraVenduta values ('BP-0010203','VD--0220003',2);
-insert into BirraVenduta values ('BP-0010204','VD--0220004',2);
-insert into BirraVenduta values ('BP-0010205','VD--0220005',5);
-insert into BirraVenduta values ('BP-0010206','VD--0220006',8);
-insert into BirraVenduta values ('BP-0010207','VD--0220007',5);
-insert into BirraVenduta values ('BP-0010208','VD--0220008',2);
-insert into BirraVenduta values ('BP-0010209','VD--0220009',5);
-insert into BirraVenduta values ('BP-0010210','VD--0220010',8);
-insert into BirraVenduta values ('BP-0010211','VD--0220011',4);
-insert into BirraVenduta values ('BP-0010212','VD--0220012',6);
-insert into BirraVenduta values ('BP-0010213','VD--0220013',3);
-insert into BirraVenduta values ('BP-0010214','VD--0220014',2);
-insert into BirraVenduta values ('BP-0010215','VD--0220015',1);
-
+insert into BirraVenduta values ('BP-0010201', 'VD--0220001', 9);
+insert into BirraVenduta values ('BP-0010202', 'VD--0220002', 7);
+insert into BirraVenduta values ('BP-0010203', 'VD--0220003', 2);
+insert into BirraVenduta values ('BP-0010204', 'VD--0220004', 2);
+insert into BirraVenduta values ('BP-0010205', 'VD--0220005', 5);
+insert into BirraVenduta values ('BP-0010206', 'VD--0220006', 8);
+insert into BirraVenduta values ('BP-0010207', 'VD--0220007', 5);
+insert into BirraVenduta values ('BP-0010208', 'VD--0220008', 2);
+insert into BirraVenduta values ('BP-0010209', 'VD--0220009', 5);
+insert into BirraVenduta values ('BP-0010210', 'VD--0220010', 8);
+insert into BirraVenduta values ('BP-0010211', 'VD--0220011', 4);
+insert into BirraVenduta values ('BP-0010212', 'VD--0220012', 6);
+insert into BirraVenduta values ('BP-0010213', 'VD--0220013', 3);
+insert into BirraVenduta values ('BP-0010214', 'VD--0220014', 2);
+insert into BirraVenduta values ('BP-0010215', 'VD--0220015', 1);

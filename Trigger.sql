@@ -1,81 +1,117 @@
 
 
-/*  1) Il primo trigger controlla che la quantità di malto utilizzato per l'ammostamento sia disponibile
-       tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità maggiore di
-       quella che abbiamo in stock*/
+-- 1) Il primo trigger controlla che la quantità di malto utilizzato per l'ammostamento sia disponibile
+--        tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità maggiore di
+--        quella che abbiamo in stock
 
      CREATE OR REPLACE TRIGGER Check_scorte_malto  
         BEFORE INSERT ON Ammostamento               
         FOR EACH ROW
         DECLARE
             notEnoughMalt EXCEPTION;
-            maltoQTRimanente NUMBER;    
+            BUYED NUMBER;  
+            USED NUMBER;    
         BEGIN
-            SELECT (totacq - totused) INTO maltoQTRimanente
+            SELECT totacq INTO BUYED
             FROM (
-                    SELECT L.codProdotto, L.gs1Fornitore, SUM(quantitaAcquistata) totacq, SUM(quantitaMalto) totused
-                    FROM LottoMateriaPrima L JOIN Ammostamento A ON L.codProdotto = A.codProdottoMalto AND L.gs1Fornitore = A.gs1Fornitore
-                    WHERE L.codProdotto = :new.codProdottoMalto AND L.gs1Fornitore = :new.gs1Fornitore
+                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq
+                    FROM LottoMateriaPrima L
+                    WHERE L.codProdotto = :new.codProdottomalto AND L.gs1Fornitore = :new.gs1Fornitore
                     GROUP BY L.codProdotto, L.gs1Fornitore
             );
-            IF maltoQTRimanente < :new.quantitaMalto THEN 
-                RAISE notEnoughMalt;
+
+            SELECT totused INTO USED
+            FROM (
+                    SELECT A.codProdottoMalto, A.gs1Fornitore,SUM(quantitaMalto) totused
+                    FROM Ammostamento A
+                    WHERE A.codProdottomalto = :new.codProdottomalto AND A.gs1Fornitore = :new.gs1Fornitore
+                    GROUP BY A.codProdottoMalto, A.gs1Fornitore
+            );
+            
+        
+            IF BUYED-USED < :new.quantitaMalto
+                THEN RAISE notEnoughMalt;
             END IF;
         EXCEPTION
             WHEN notEnoughMalt THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
     END;
+/
 
 /*  2) Il secondo trigger controlla che la quantità di luppolo utilizzato per l'ammostamento sia 
        disponibile tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità 
        maggiore di quella che abbiamo in stock*/
 
-	CREATE OR REPLACE TRIGGER Check_scorte_luppolo  
+    CREATE OR REPLACE TRIGGER Check_scorte_luppolo  
         BEFORE INSERT ON MostoDolce               
         FOR EACH ROW
         DECLARE
             notEnoughLupp EXCEPTION;
-            luppoloQT NUMBER;  
+            BUYED NUMBER;  
+            USED NUMBER;    
         BEGIN
-            SELECT totacq - totused INTO luppoloQT
+            SELECT totacq INTO BUYED
             FROM (
-                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaLuppUsato) totused
-                    FROM LottoMateriaPrima L JOIN MostoDolce M on L.codProdotto = M.codProdLuppUsato AND L.gs1Fornitore = M.gs1Fornitore
+                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq
+                    FROM LottoMateriaPrima L
                     WHERE L.codProdotto = :new.codProdLuppUsato AND L.gs1Fornitore = :new.gs1Fornitore
                     GROUP BY L.codProdotto, L.gs1Fornitore
             );
-            IF (:new.quantitaLuppUsato > luppoloQT)
+            
+
+            SELECT totused INTO USED
+            FROM (
+                    SELECT MD.codProdLuppUsato, MD.gs1Fornitore,SUM(quantitaLuppUsato) totused
+                    FROM MostoDolce MD
+                    WHERE MD.codProdLuppUsato = :new.codProdLuppUsato AND MD.gs1Fornitore = :new.gs1Fornitore
+                    GROUP BY MD.codProdLuppUsato, MD.gs1Fornitore
+            );
+            
+        
+            IF BUYED-USED < :new.quantitaLuppUsato
                 THEN RAISE notEnoughLupp;
             END IF;
-            EXCEPTION
-                WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20002,'Luppolo in scorta insufficiente');
+        EXCEPTION
+            WHEN notEnoughLupp THEN  RAISE_APPLICATION_ERROR (-20107,'Malto in scorta insufficiente');
     END;
-
+/
 
 /*  3) Il terzo trigger controlla che la quantità di lievito utilizzato per la fermentazione sia 
        disponibile tra le scorte in magazzino poichè ovviamente non possiamo utilizzare una quantità 
        maggiore di quella che abbiamo in stock*/
 
 
-   CREATE OR REPLACE TRIGGER Check_scorte_lievito  
+    CREATE OR REPLACE TRIGGER Check_scorte_lievito  
         BEFORE INSERT ON Fermentazione               
         FOR EACH ROW
         DECLARE
             notEnoughLiev EXCEPTION;
-            lievitoQT NUMBER;  
+             BUYED NUMBER;  
+            USED NUMBER;    
         BEGIN
-            SELECT totacq - totused INTO lievitoQT
+            SELECT totacq INTO BUYED
             FROM (
-                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaLievUsato) totused
-                    FROM LottoMateriaPrima L JOIN Fermentazione F  on L.codProdotto = F.codProdLievUsato AND L.gs1Fornitore = F.gs1Fornit
+                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq
+                    FROM LottoMateriaPrima L
+                    WHERE L.codProdotto = :new.codProdLievUsato AND L.gs1Fornitore = :new.gs1Fornit
                     GROUP BY L.codProdotto, L.gs1Fornitore
             );
-            IF (:new.quantitaLievUsato > lievitoQT)
+            
+
+            SELECT totused INTO USED
+            FROM (
+                    SELECT F.codProdLievUsato, F.gs1Fornit,SUM(quantitaLievUsato) totused
+                    FROM Fermentazione F
+                    WHERE F.codProdLievUsato = :new.codProdLievUsato AND F.gs1Fornit = :new.gs1Fornit
+                    GROUP BY F.codProdLievUsato, F.gs1Fornit
+            );
+            
+            IF (:new.codProdLievUsato > BUYED-USED)
                 THEN RAISE notEnoughLiev;
             END IF;
             EXCEPTION
                 WHEN notEnoughLiev THEN  RAISE_APPLICATION_ERROR (-20004,'Lievito in scorta insufficiente');
     END;
-
+/
 
 /*  4) Questo trigger controlla che la quantità di malto e acqua utilizzati per l'ammostamento
        non sia superiore alla capacità di lavorazione del bollitore.*/
@@ -97,6 +133,7 @@
         EXCEPTION
                 WHEN notEnoughCapacity THEN  RAISE_APPLICATION_ERROR (-20006,'Capacità insufficiente');
     END;
+/
 
 /*  5) Questo trigger controlla che la quantità di mosto utilizzata per la fermentazione
        non sia superiore alla capacità di lavorazione del bollitore.*/
@@ -118,6 +155,7 @@
         EXCEPTION
             WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20017,'OverProduction');
     END;
+/
 
 /*  7) Durante un inserimento nell'ammostamento controlliamo che venga utilizzato un bollitore e non un
        fermentatore.*/
@@ -138,7 +176,7 @@
         EXCEPTION 
             WHEN wrongContainer THEN RAISE_APPLICATION_ERROR(-20007,'Wrong type container');
 	END;
-
+/
 
 /*  8) Durante un inserimento nella fermentazione controlliamo che venga utilizzato un fermentatore e non un
        bollitore.*/
@@ -159,11 +197,11 @@
         EXCEPTION 
             WHEN wrongContainer THEN RAISE_APPLICATION_ERROR(-20009,'Wrong type container');
 	END;
-
+/
         
 /*10) Controlla che il numero di fusti venduti sia presente in magazzino */	
 
-	 CREATE OR REPLACE TRIGGER CheckVendita
+	CREATE OR REPLACE TRIGGER CheckVendita
         BEFORE INSERT ON BirraVenduta               
         FOR EACH ROW
         DECLARE
@@ -179,7 +217,8 @@
         IF(nFustiDisp < :new.numFusti) THEN RAISE notEnoughtFusti;
         END IF;
     END;
-        
+/ 
+
 /*11) Aggiorna automaticamente la data di fine fermentazione con la data di produzione della birra fatta con il mosto fermentato*/	 
 	CREATE OR REPLACE TRIGGER AutoUpdateFermentazione
         AFTER INSERT ON BirraProdotta               
@@ -191,7 +230,7 @@
             SET dataFineF = :new.dataProduzione 
             WHERE numLotFermentato = :new.codLotto;
     END;
-        
+/       
         
 /*12) Controlla che non vengano eseguite fermentazioni in fermentatori già occupati*/	
 	CREATE OR REPLACE TRIGGER CheckDisponibilitaFermentatore
@@ -211,7 +250,7 @@
         EXCEPTION
         WHEN FermentatoreOccupato THEN RAISE_APPLICATION_ERROR(-20029,'Fermentatore Occupato');
     END;
-        
+/        
 
 /*13) Controlla che quando viene inserita una materia prima in ammostamento questa sia un malto, in caso contrario lancia un eccezzione*/	
 
@@ -231,6 +270,8 @@
         EXCEPTION 
             WHEN wrongMateriaPrima THEN RAISE_APPLICATION_ERROR(-20100,'Raw material is not malt');
 	END;
+/
+
 /*14) Controlla che quando viene inserita una materia prima in mosto dolce questa sia un luppolo, in caso contrario lancia un eccezzione*/	
 
     CREATE OR REPLACE TRIGGER Check_IsHop
@@ -249,6 +290,7 @@
         EXCEPTION 
             WHEN wrongMateriaPrima2 THEN RAISE_APPLICATION_ERROR(-20101,'Raw material is not hop');
 	END;
+/
 
 /*15) Controlla che quando viene inserita una materia prima in fermentazione questa sia un lievito, in caso contrario lancia un eccezzione*/	
 
@@ -268,7 +310,6 @@
         EXCEPTION 
             WHEN wrongMateriaPrima3 THEN RAISE_APPLICATION_ERROR(-20102,'Raw material is not yeast');
 	END;
-
         
         
         
