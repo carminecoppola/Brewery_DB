@@ -91,7 +91,7 @@
         BEGIN
             SELECT capacitaLavorazione INTO ContainerCap
             FROM Contenitore C
-            WHERE C.id = :new.idBollitore;
+            WHERE C.idContenitore = :new.idBollitore;
             IF (:new.quantitaAcqua > ContainerCap )
                 THEN RAISE notEnoughCapacity;
             END IF;
@@ -106,17 +106,25 @@
         BEFORE INSERT ON MostoDolce               
         FOR EACH ROW
         DECLARE
-        	qtAcqua NUMBER;
+            boiler NUMBER;
+            Qt NUMBER;
         	OverProduction EXCEPTION;
         BEGIN
-        	SELECT quantitaAcqua INTO qtAcqua
-        	FROM AMMOSTAMENTO
-        	WHERE idBollitore = :new.idBollitoreProvenienza AND data = :new.dataAmmostamento;
+
+            SELECT idBollitore INTO boiler
+        	FROM AMMOSTAMENTO 
+        	WHERE NUMLOTTOPRODOTTO = :new.NUMEROLOTTO;
+
+            SELECT capacitaLavorazione into Qt
+            FROM Contenitore
+            WHERE IDContenitore = boiler;
         	
-        	IF (qtAcqua < : new.quantitaMosto) THEN RAISE OverProduction
+        	IF (:NEW.quantitaMosto > Qt) 
+            THEN RAISE OverProduction;
             END IF;
+           
         EXCEPTION
-            WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20017,'OverProduction');
+            WHEN OverProduction THEN  RAISE_APPLICATION_ERROR (-20817,'OverProduction');
     END;
 
 
