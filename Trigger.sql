@@ -29,7 +29,7 @@
             );
             
         
-            IF BUYED-USED < :new.quantitaMalto
+            IF USED IS NOT NULL AND BUYED-USED < :new.quantitaMalto
                 THEN RAISE notEnoughMalt;
             END IF;
         EXCEPTION
@@ -67,7 +67,7 @@
             );
             
         
-            IF BUYED-USED < :new.quantitaLuppUsato
+            IF USED IS NOT NULL AND BUYED-USED < :new.quantitaLuppUsato
                 THEN RAISE notEnoughLupp;
             END IF;
         EXCEPTION
@@ -105,7 +105,7 @@
                     GROUP BY F.codProdLievUsato, F.gs1Fornit
             );
             
-            IF (:new.codProdLievUsato > BUYED-USED)
+            IF USED IS NOT NULL AND :new.codProdLievUsato > BUYED-USED
                 THEN RAISE notEnoughLiev;
             END IF;
             EXCEPTION
