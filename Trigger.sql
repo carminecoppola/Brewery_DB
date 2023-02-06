@@ -66,11 +66,11 @@
         BEGIN
             SELECT totacq - totused INTO lievitoQT
             FROM (
-                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaLievitoUsato) totused
-                    FROM LottoMateriaPrima L JOIN Fermentazione F  on L.codProdotto = F.codProdotto AND L.gs1Fornitore = F.gs1Fornitore
+                    SELECT L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq, SUM(quantitaLievUsato) totused
+                    FROM LottoMateriaPrima L JOIN Fermentazione F  on L.codProdotto = F.codProdLievUsato AND L.gs1Fornitore = F.gs1Fornit
                     GROUP BY L.codProdotto, L.gs1Fornitore
-            )
-            IF (:new.quantitaLievitoUsato > lievitoQT)
+            );
+            IF (:new.quantitaLievUsato > lievitoQT)
                 THEN RAISE notEnoughLiev;
             END IF;
             EXCEPTION
