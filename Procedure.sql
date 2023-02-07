@@ -10,11 +10,11 @@
                   WHERE GTIN =(SELECT GTIN
                                FROM (SELECT GTIN, SUM(NUMFUSTI) AS TOTVENDITA 
                                      FROM BIRRAPRODOTTA BP JOIN BIRRAVENDUTA BV ON BP.codLotto = BV.codLotto
-                                     GROUP BY BV.GTIN ) 
+                                     GROUP BY BP.GTIN ) 
                                 WHERE TOTVENDITA = (SELECT MAX(TOTVENDITA) 
                                                     FROM (SELECT GTIN, SUM(NUMFUSTI) AS TOTVENDITA 
                                                           FROM BIRRAPRODOTTA BP JOIN BIRRAVENDUTA BV ON BP.codLotto = BV.codLotto
-                                                          GROUP BY BV.GTIN))));
+                                                          GROUP BY BP.GTIN))));
     END;
     
 /*2) Trovare la birra che viene venduta di meno e applicare uno
@@ -28,11 +28,11 @@
     WHERE GTIN =    (SELECT GTIN
                         FROM ( SELECT GTIN, SUM(NUMFUSTI) AS TOTVENDITA 
                         FROM BIRRAPRODOTTA BP JOIN BIRRAVENDUTA BV ON BP.codLotto = BV.codLotto
-                        GROUP BY BV.GTIN ) 
+                        GROUP BY BP.GTIN ) 
                 WHERE   TOTVENDITA = (  SELECT MIN(TOTVENDITA) 
                                     FROM (  SELECT GTIN, SUM(NUMFUSTI) AS TOTVENDITA 
                                             FROM BIRRAPRODOTTA BP JOIN BIRRAVENDUTA BV ON BP.codLotto = BV.codLotto
-                                            GROUP BY BV.GTIN))));
+                                            GROUP BY BP.GTIN))));
 
      END;
 
@@ -42,7 +42,7 @@
      CREATE OR REPLACE PROCEDURE IncrementaPrezzo IS
      BEGIN
      
-     UPDATE TIPOBIRRA SET prezzoFusto = prezzoFusto * 0.70 WHERE GTIN IN (
+     UPDATE TIPOBIRRA SET prezzoFusto = prezzoFusto * 1.20 WHERE GTIN IN (
           SELECT GTIN
           FROM TIPOBIRRA
           WHERE NOMEMALTO IN(SELECT nomeMateriaPrima 
@@ -66,9 +66,35 @@ END;
           SELECT GTIN 
           FROM TIPOBIRRA
           WHERE NOMEMALTO IN(
-               SELECT nomeMateriaPrima
-               FROM ( SELECT L.nomeMateriaPrima,SUM(quantitaAcquistata) totacq, SUM(quantitaMalto) totused
-                      FROM LottoMateriaPrima L JOIN Ammostamento A on L.codProdotto = A.codProdottoMalto AND L.gs1Fornitore = A.gs1Fornitore
-                      GROUP BY L.nomeMateriaPrima)
-          WHERE totacq - totused > 100);
+                SELECT nomeMateriaPrima
+                FROM ( SELECT L.nomeMateriaPrima,RIMANENZE
+                      FROM LottoMateriaPrima L JOIN MaltiRimanenti A on L.CODLOTTO = A.CODLOTTO AND L.CODPRODOTTO = A.CODPRODOTTO AND L.gs1Fornitore = A.gs1Fornitore)
+                WHERE RIMANENZE > 100));
      END;
+
+
+
+
+--VISTA PER ACQUISTI
+
+CREATE VIEW Acquisti AS (SELECT *
+            FROM (
+                    SELECT L.CODLOTTO,L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq
+                    FROM LottoMateriaPrima L
+                    GROUP BY L.CODLOTTO,L.codProdotto, L.gs1Fornitore
+            ));
+
+CREATE VIEW MaltiUsati AS (SELECT *
+            FROM (
+                    SELECT A.CODLOTTO,A.codProdottoMalto, A.gs1Fornitore,SUM(quantitaMalto) totused
+                    FROM Ammostamento A
+                    GROUP BY A.CODLOTTO,A.codProdottoMalto, A.gs1Fornitore
+            ));
+
+CREATE VIEW MaltiRimanenti AS (SELECT A.CODLOTTO,A.CODPRODOTTO,A.GS1FORNITORE,TOTACQ-TOTUSED AS RIMANENZE FROM Acquisti A
+JOIN
+MaltiUsati MU ON A.CODLOTTO = MU.CODLOTTO AND A.CODPRODOTTO = MU.CODPRODOTTOMALTO AND A.GS1FORNITORE = MU.GS1FORNITORE);
+
+
+
+
