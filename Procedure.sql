@@ -16,7 +16,8 @@
                                                           FROM BIRRAPRODOTTA BP JOIN BIRRAVENDUTA BV ON BP.codLotto = BV.codLotto
                                                           GROUP BY BP.GTIN))));
     END;
-    
+/
+
 /*2) Trovare la birra che viene venduta di meno e applicare uno
      sconto del 25% sul prossimo acquisto del fusto di tale birra.*/
 
@@ -35,8 +36,7 @@
                                             GROUP BY BP.GTIN))));
 
      END;
-
-
+/
 
 /* 3 Malto inglese pagato mediamente di più ----> aumentare del 20% il prezzo delle birre che lo usano */
      CREATE OR REPLACE PROCEDURE IncrementaPrezzo IS
@@ -57,6 +57,7 @@
                 GROUP BY L.nomeMateriaPrima))));
                 
 END;
+/
 
 /*4 Diminuire del “30%” il prezzo dei fusti di birre fatte con malti che hanno più di 100 unità in stock*/
      CREATE OR REPLACE PROCEDURE DecrementaPrezzo IS
@@ -72,7 +73,7 @@ END;
                 WHERE RIMANENZE > 100));
      END;
 
-
+/
 
 
 --VISTA PER ACQUISTI
