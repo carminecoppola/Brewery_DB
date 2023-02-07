@@ -1,5 +1,5 @@
 /*1) Il mastro birraio responsabile del tipo di birra più venduta riceverà un incremento dello 
-     stipendio del 15%. */
+     stipendio del 20%. */
 
     CREATE OR REPLACE PROCEDURE Aumento_stipendio IS
     BEGIN
@@ -79,22 +79,25 @@ END;
 --VISTA PER ACQUISTI
 
 CREATE VIEW Acquisti AS (SELECT *
-            FROM (
-                    SELECT L.CODLOTTO,L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq
-                    FROM LottoMateriaPrima L
-                    GROUP BY L.CODLOTTO,L.codProdotto, L.gs1Fornitore
-            ));
+                    FROM (
+                         SELECT L.CODLOTTO,L.codProdotto, L.gs1Fornitore,SUM(quantitaAcquistata) totacq
+                         FROM LottoMateriaPrima L
+                         GROUP BY L.CODLOTTO,L.codProdotto, L.gs1Fornitore
+                    ));
 
 CREATE VIEW MaltiUsati AS (SELECT *
-            FROM (
-                    SELECT A.CODLOTTO,A.codProdottoMalto, A.gs1Fornitore,SUM(quantitaMalto) totused
-                    FROM Ammostamento A
-                    GROUP BY A.CODLOTTO,A.codProdottoMalto, A.gs1Fornitore
-            ));
+                    FROM (
+                         SELECT A.CODLOTTO,A.codProdottoMalto, A.gs1Fornitore,SUM(quantitaMalto) totused
+                         FROM Ammostamento A
+                         GROUP BY A.CODLOTTO,A.codProdottoMalto, A.gs1Fornitore
+                    ));
 
-CREATE VIEW MaltiRimanenti AS (SELECT A.CODLOTTO,A.CODPRODOTTO,A.GS1FORNITORE,TOTACQ-TOTUSED AS RIMANENZE FROM Acquisti A
-JOIN
-MaltiUsati MU ON A.CODLOTTO = MU.CODLOTTO AND A.CODPRODOTTO = MU.CODPRODOTTOMALTO AND A.GS1FORNITORE = MU.GS1FORNITORE);
+CREATE VIEW MaltiRimanenti AS (SELECT A.CODLOTTO,A.CODPRODOTTO,A.GS1FORNITORE,TOTACQ-TOTUSED AS RIMANENZE 
+                               FROM Acquisti A
+                               JOIN MaltiUsati MU ON A.CODLOTTO = MU.CODLOTTO AND 
+                                    A.CODPRODOTTO = MU.CODPRODOTTOMALTO AND 
+                                    A.GS1FORNITORE = MU.GS1FORNITORE
+                              );
 
 
 
