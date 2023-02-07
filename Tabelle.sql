@@ -1,4 +1,4 @@
-/*drop table Fornitore;
+drop table Fornitore;
 drop table MastroBirraio;
 drop table Contenitore;
 drop table OrdineApproviggionamento;
@@ -8,13 +8,14 @@ drop table Luppolo;
 drop table Lievito;
 drop table LottoMateriaPrima;
 drop table MostoDolce;
+drop table TipoBirra;
 drop table BirraProdotta;
 drop table Ammostamento;
 drop table Fermentazione;
 drop table PUB;
 drop table Vendita;
 drop table BirraVenduta;
-*/
+
 
 CREATE TABLE Fornitore(
 	GS1 				NUMBER(9) NOT NULL, 
@@ -127,7 +128,6 @@ CREATE TABLE LottoMateriaPrima(
 	CONSTRAINT LMAT_P_FK_FORN
 		FOREIGN KEY(gs1Fornitore) REFERENCES Fornitore(GS1) on delete cascade
 );
-
 
 CREATE TABLE MostoDolce(
 	numeroLotto 		NUMBER NOT NULL,
