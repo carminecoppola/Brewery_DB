@@ -147,7 +147,7 @@
 /*  7) Durante un inserimento nell'ammostamento controlliamo che venga utilizzato un bollitore e non un
        fermentatore.*/
 
-     CREATE OR REPLACE TRIGGER Check_Bollitore 
+    CREATE OR REPLACE TRIGGER Check_Bollitore 
         BEFORE INSERT ON Ammostamento               
         FOR EACH ROW
         DECLARE

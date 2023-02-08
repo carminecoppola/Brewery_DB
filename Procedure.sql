@@ -56,7 +56,7 @@
                 WHERE M.provenienza = 'Regno Unito' AND M.Tipo = 'Malto'
                 GROUP BY L.nomeMateriaPrima))));
                 
-END;
+     END;
 /
 
 /*4 Diminuire del “30%” il prezzo dei fusti di birre fatte con malti che hanno più di 100 unità in stock*/
