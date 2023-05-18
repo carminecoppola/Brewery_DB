@@ -25,7 +25,7 @@ The Brewery Database project aims to create a comprehensive database management 
 
 To explore and utilize the Brewery Database project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repository.git`
+1. Clone the repository: `git clone https://github.com/carminecoppola/DB_Birrificio.git`
 2. Refer to the project report for a comprehensive overview of the database design and functionalities.
 3. Use the provided SQL scripts to create the necessary tables, populate the database, and execute queries.
 4. Follow any additional instructions or guidelines specified in the project report.
