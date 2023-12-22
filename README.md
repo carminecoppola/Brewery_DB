@@ -1,4 +1,4 @@
-# DB_Birrificio
+# Brewery_DB
 
 This repository contains the database project for the Databases course at Parthenope University of Naples. The project focuses on the creation and management of a database for a brewery. It includes an Entity-Relationship (ER) diagram, a translated UML diagram, table creation with MySQL, related queries, database population, triggers, user creation, views, and a project report. Please note that this project is developed solely for academic purposes.
 
@@ -18,14 +18,14 @@ The Brewery Database project aims to create a comprehensive database management 
 
 ## Technologies Used
 
-- MySQL: Relational database management system used for table creation and query execution.
-- DIA: Diagram creation software used for generating the ER and UML diagrams.
+- **MySQL**: Relational database management system used for table creation and query execution.
+- **DIA**: Diagram creation software used for generating the ER and UML diagrams.
 
 ## Getting Started
 
 To explore and utilize the Brewery Database project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/carminecoppola/DB_Birrificio.git`
+1. Clone the repository: `git clone https://github.com/carminecoppola/Brewery_DB.git`
 2. Refer to the project report for a comprehensive overview of the database design and functionalities.
 3. Use the provided SQL scripts to create the necessary tables, populate the database, and execute queries.
 4. Follow any additional instructions or guidelines specified in the project report.
@@ -38,10 +38,10 @@ Feel free to explore the project, modify it as needed, and utilize it for educat
 - Pergamo Lorenzo
 ## License
 
-Copyright (c) [2022] [DB-Birrificio]
+Copyright (c) [2022] [**Brewery_DB**]
 
 All rights reserved.
 
 Duplication or reproduction, in whole or in part, in any form or by any means, is prohibited without the prior written permission of the author, except as permitted by copyright laws.
 
-The DB-Birrificio project, including all its files, documentation, and resources, is the exclusive property of [Carmine Coppola/Pergamo Lorenzo]. Unauthorized use of these materials is prohibited.
+The **Brewery_DB** project, including all its files, documentation, and resources, is the exclusive property of [Carmine Coppola/Pergamo Lorenzo]. Unauthorized use of these materials is prohibited.
